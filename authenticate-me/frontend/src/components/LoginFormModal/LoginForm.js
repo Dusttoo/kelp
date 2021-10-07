@@ -1,33 +1,29 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { Link } from 'react-router-dom';
 import './LoginForm.css';
 
-function LoginFormPage() {
+function LoginForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return (
-    <Redirect to="/" />
-  );
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ email, password }))
-      .catch(async (res) => {
+    return dispatch(sessionActions.login({ email, password })).catch(
+      async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-      });
-  }
+      }
+    );
+  };
 
   return (
     <>
-        <div className="headerStrip"><img className="logo" src="https://i.imgur.com/DbdVpyZ.png" alt="kelp logo"></img></div>
+        {/* <div className="headerStrip"><img className="logo" src="https://i.imgur.com/DbdVpyZ.png" alt="kelp logo"></img></div> */}
             <div className="form-container">
                 <form onSubmit={handleSubmit} className="loginForm">
                   <ul>
@@ -36,7 +32,7 @@ function LoginFormPage() {
                   <h1 className="login-header">Log in to Kelp</h1>
                   <div className="signupContainer">
                   <h3 className="signup-header">New to Kelp?</h3> 
-                  <Link to="/" className="signup-link">sign up</Link>
+                  <Link to="/signup" className="signup-link">sign up</Link>
                   </div>
                   <label className="login-label">
                     Email
@@ -63,10 +59,10 @@ function LoginFormPage() {
                     <button className="demo-button" type="submit">Demo</button>
                   </div>
                 </form>
-                <img className="loginImage" src="https://placeimg.com/640/480/animals" alt="placeholder"></img>
+                <img className="loginImage" src="https://i.imgur.com/qI2NnYR.png" alt="placeholder"></img>
             </div>
     </>
   );
 }
 
-export default LoginFormPage;
+export default LoginForm;

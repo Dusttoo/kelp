@@ -1,0 +1,72 @@
+.navbar {
+    display: flex;
+    align-items: flex-end;
+    background-color: #015498;
+    height: 100px;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.home {
+    color: #FFF201;
+    text-decoration: none;
+
+}
+
+.login-buttons {
+   padding: 25px;
+}
+
+.signup {
+    margin-left: 15px;
+    border: 1px solid #FFF201;
+    border-radius: 5px;
+}
+
+.signup:hover {
+    color: black;
+    background-color: #FFF201;
+}
+
+.login:hover {
+    color: #fffcc5;
+
+}
+
+.login,
+.signup {
+    color: #FFF201;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+
+
+.logo {
+    height: 100px;
+}
+
+/* ---LOGGED IN------ */
+
+.account-menu {
+    padding-right: 10px;
+}
+
+.account-icon {
+    font-size: 3.5em;
+    color: #FFF201;
+    padding: 20px;
+}
+
+.profile-dropdown {
+    color:#FFF201;
+    list-style:  none;
+}
+
+.logOut {
+    color:#FFF201;
+    padding-top: 10px;
+    font-size: 18px;
+
+}
