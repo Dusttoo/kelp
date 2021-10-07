@@ -1,19 +1,35 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
 const router = express.Router();
 
 
+const validateLogin = [
+  check('email') 
+    .exists({ checkFalsy: true})
+    .notEmpty()
+    .isEmail()
+    .withMessage('Please enter a valid email'),
+  
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a password.'),
+
+  handleValidationErrors,
+]
+
 // Log in
 router.post(
   '/',
+  validateLogin,
   asyncHandler(async (req, res, next) => {
-    const { credential, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.login({ credential, password });
+    const user = await User.login({ email, password });
 
     if (!user) {
       const err = new Error('Login failed');
@@ -36,7 +52,7 @@ router.post(
 //     "Content-Type": "application/json",
 //     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
 //   },
-//   body: JSON.stringify({ credential: 'demo@user.io', password: 'password' })
+//   body: JSON.stringify({ email: 'demo@user.io', password: 'password' })
 // }).then(res => res.json()).then(data => console.log(data));
 );
 

@@ -42,4 +42,35 @@ router.post(
 // }).then(res => res.json()).then(data => console.log(data));
 
 
+
+
+// const validateLogin = [
+//   check('firstName')
+//     .exists({ checkFalsy: true})
+//     .notEmpty()
+//     .withMessage('Please enter a first name'),
+
+//   check('lastName')
+//     .exists({ checkFalsy: true})
+//     .notEmpty()
+//     .withMessage('Please enter a last name'),
+
+//   check('email') 
+//     .exists({ checkFalsy: true})
+//     .notEmpty()
+//     .isEmail()
+//     .withMessage('Please enter a valid email'),
+  
+//   check('password')
+//     .exists({ checkFalsy: true })
+//     .withMessage('Please provide a password.'),
+
+//   check('profileImg')
+//     .exists({ checkFalsy: true })
+//     .withMessage('Please add a profile image'),
+
+//   handleValidationErrors,
+// ]
+
+
 module.exports = router;
