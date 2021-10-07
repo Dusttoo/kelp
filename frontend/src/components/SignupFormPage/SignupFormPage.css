@@ -5,29 +5,19 @@
     yellow: #FFF201
 */
 
-.headerStrip {
-    display: flex;
-    justify-content: center;
-    background-color: #015498;
-    height: 100px;
 
-}
-
-.logo {
-    height: 100px;
-}
-
-
-.form-container {
+.signup-form-container {
+    border-radius: 10px;
+    border: 10px solid #015498;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #abdee2;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 100px;
+    margin: auto;
+    width: 75%;
+    height: 55%;
+    text-align: center;
+
 }
 
 .login-header {
@@ -56,9 +46,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
+    max-width: auto;
     color: #015498;
-
+    /* flex-grow: 2; */
 }
 
 .lastName,
@@ -82,8 +72,10 @@
 }
 
 .signupImage {
-    height: 200px;
+    height: 10em;
+    /* flex-grow: 1; */
     border-radius: 60%;
+    
 }
 
 .buttons {
@@ -105,3 +97,24 @@
     color: #FFF201;
 
 } 
+
+@media screen and (max-width: 1015px) {
+    .signup-form-container {
+    border-radius: 10px;
+    border: 10px solid #015498;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    /* height: 65%; */
+    
+    /* justify-content: space-around;
+    align-items: center;
+    background-color: #abdee2;
+    margin: auto;
+    width: 75%;
+    
+    text-align: center; */
+
+}
+    
+}

@@ -25,6 +25,7 @@
 
 #modal-content {
   position: absolute;
-  background-color:white;
+  /* background-color:white; */
+  height: 75%
   
 }
