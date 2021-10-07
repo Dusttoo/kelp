@@ -1,0 +1,98 @@
+/* Colors:
+    mid-blue: #21B5DA
+    light-blue: #83D5DD
+    dark-blue: #015498
+    yellow: #FFF201
+*/
+
+.headerStrip {
+    display: flex;
+    justify-content: center;
+    background-color: #015498;
+    height: 100px;
+
+}
+
+.logo {
+    height: 100px;
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #abdee2;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 100px;
+}
+
+.login-header {
+    color: #FFF201;
+    font-weight: 600;
+}
+
+.signup-header,
+.signup-link {
+    padding: 3px;
+    text-decoration: none;
+    color: #015498;
+}
+
+.signup-link:hover {
+    color: #FFF201;
+}
+
+
+.signupContainer {
+    display: flex;
+    align-items: center;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    color: #015498;
+
+}
+
+.login-label {
+    margin-bottom: 5px;
+}
+
+.login-input {
+    opacity: 60%;
+    margin-left: 4px;
+    border-radius: 4px;
+    border: none;
+}
+
+.loginImage {
+    height: 200px;
+    border-radius: 60%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.login-button,
+.demo-button {
+    
+    margin: 3px;
+    background-color: none;
+    color: #015498;
+}
+
+.login-button:hover,
+.demo-button:hover {
+    color: #FFF201;
+
+} 
