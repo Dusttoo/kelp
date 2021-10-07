@@ -1,0 +1,87 @@
+/* Colors:
+    mid-blue: #21B5DA
+    light-blue: #83D5DD
+    dark-blue: #015498
+    yellow: #FFF201
+*/
+
+
+.landing-container {
+    background-image: url('https://i.imgur.com/yV1pjvy.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-color: aquamarine; */
+    width: 90%;
+    height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+
+.logo-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-logo {
+    max-width: 250px;
+}
+
+.search {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #FFF201;
+    border-radius: 4px;
+    width: 600px;
+}
+
+.biz-categories {
+    display: flex;
+    color: white;
+}
+
+.icon {
+
+}
+
+.listings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+}
+
+.title {
+    color: #015498;
+    font-size: 3em;
+}
+
+.categories {
+    border-bottom: 5px solid #FFF201;
+    padding-bottom: 10px;
+    width: 1000px;
+    color: #015498;
+}
+
+.businesses {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 850px;
+}
+
+.biz-listing {
+    display: flex;
+}
+
+.listing-img {
+    height: 75px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
