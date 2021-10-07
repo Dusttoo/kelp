@@ -7,15 +7,16 @@
 
 
 .form-container {
+      border-radius: 10px;
+     border: 10px solid #015498;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #abdee2;
-    /* position: fixed; */
-    /* bottom: 100;
-    right: 100;
-    left: 100;
-    top: 100px; */
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    text-align: center;
 }
 
 .login-header {
@@ -49,6 +50,13 @@
 
 }
 
+.form-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+}
+
 .login-label {
     margin-bottom: 5px;
 }
@@ -58,6 +66,7 @@
     margin-left: 4px;
     border-radius: 4px;
     border: none;
+    width: 80%;
 }
 
 .loginImage {
@@ -67,8 +76,9 @@
 
 .buttons {
     display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
 }
 
 .login-button,

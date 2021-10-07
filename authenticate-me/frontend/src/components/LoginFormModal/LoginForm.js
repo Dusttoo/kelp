@@ -34,26 +34,28 @@ function LoginForm() {
                   <h3 className="signup-header">New to Kelp?</h3> 
                   <Link to="/signup" className="signup-link">sign up</Link>
                   </div>
-                  <label className="login-label">
-                    Email
-                    <input
-                      className="login-input"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </label>
-                  <label className="login-label">
-                    Password
-                    <input
-                      className="login-input"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </label>
+                  <div className="form-items">
+                    <label className="login-label">
+                      Email
+                      <input
+                        className="login-input"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </label>
+                    <label className="login-label">
+                      Password
+                      <input
+                        className="login-input"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                    </label>
+                  </div>
                   <div className="buttons">
                     <button className="login-button" type="submit">Log In</button>
                     <button className="demo-button" type="submit">Demo</button>

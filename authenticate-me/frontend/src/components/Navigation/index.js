@@ -17,7 +17,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <div className="login-buttons">
-            <LoginFormModal />
+            <LoginFormModal/>
             {/* <Link to="/login" className="login">Log In</Link> */}
             <Link to="/signup" className="signup">Sign Up</Link>
         </div>

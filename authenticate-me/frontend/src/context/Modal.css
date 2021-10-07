@@ -1,3 +1,4 @@
+
 #modal {
   position: fixed;
   top: 0;
@@ -10,7 +11,11 @@
 }
 
 #modal-background {
+
   position: fixed;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   right: 0;
   left: 0;
@@ -21,4 +26,5 @@
 #modal-content {
   position: absolute;
   background-color:white;
+  
 }

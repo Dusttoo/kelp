@@ -15,4 +15,8 @@ body {
 button {
     background: none;
     border: none;
+    color: #FFF201;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 1.2em;
 }
