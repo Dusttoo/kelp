@@ -29,6 +29,15 @@ router.post(
       user,
     });
   }),
+
+//   fetch('/api/session', {
+//   method: 'POST',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+//   },
+//   body: JSON.stringify({ credential: 'demo@user.io', password: 'password' })
+// }).then(res => res.json()).then(data => console.log(data));
 );
 
 router.delete(
@@ -37,6 +46,14 @@ router.delete(
     res.clearCookie('token');
     return res.json({ message: 'success' });
   }
+
+//   fetch('/api/session', {
+//   method: 'DELETE',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+//   }
+// }).then(res => res.json()).then(data => console.log(data));
 );
 
 
