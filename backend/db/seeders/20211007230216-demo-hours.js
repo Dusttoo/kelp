@@ -1,8 +1,9 @@
+'use strict';
 
+module.exports = {
+  up: (queryInterface, Sequelize) => {
 
-
-    //Hours
-[{
+      return queryInterface.bulkInsert('Hours', [{
       businessId: 1,
       monHours: '10am - 9pm',
       tueHours: '10am - 9pm',
@@ -101,42 +102,11 @@
       sunHours: '6pm - 1am',
       createdAt: new Date(),
       updatedAt: new Date()
-    }]
+    }], {});
+  },
 
+  down: (queryInterface, Sequelize) => {
 
-
-
-    //NEEDS DONE BELOW THIS LINE!!!!!!!!!!!!!!!!!!!!!
-
-
-
-//Comments
-[{
-      userId: 1,
-      businessId: 1,
-      questionId: 1,
-      date: new Date(),
-      comment: 'John',
-      upVote: 2,
-      downVote: 5,  
-      complimentCount: -3,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]
-
-//Questions
-[{
-      userId: 1,
-      businessId: 1,
-      question: "Yes?",
-      date: new Date(),
-      upVote: 7,
-      downVote: 2,  
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]
-
-
-
-
-
+      return queryInterface.bulkDelete('Hours', null, {});
+  }
+};
