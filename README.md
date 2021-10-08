@@ -1,5 +1,5 @@
 # kelp
-* Link to live site
+https://kelp-reviews.herokuapp.com/signup
 * Link to your backend repo if you have a separate one
 
 
