@@ -1,19 +1,31 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getOneBusiness } from '../../store/businesses';
+import { getOneBusiness, getOnePhoto,  } from '../../store/businessPage';
 import { useParams } from 'react-router';
 import './Businesses.css'
 
 
 const Businesses = () => {
   const {id} = useParams();
+  console.log("THIS IS THE ID", id)
   const dispatch = useDispatch();
-  const businesses = getOneBusiness(id);
-  console.log(businesses)
+  // const business = useSelector((state) => state.oneBusiness)
+  // const wholeBusiness = business[id];
+  // const photos = useSelector((state) => state.onePhoto)
+  console.log("THIS IS THE BUSINESS", )
+  // console.log(wholeBusiness.name)
+  // console.log("THESE ARE THE PHOTOS", photos)
+  
+  
 
   useEffect(() => {
     dispatch(getOneBusiness(id));
-  }, [dispatch]);
+    // dispatch(getOnePhoto(id))
+  }, [dispatch, id]);
+
+ 
+  
+
 
     //trying to get data from getOneBusiness to
   //display on business page
@@ -22,7 +34,7 @@ const Businesses = () => {
     <div>
         <div className="biz-info">
           <div className="header-left">
-              <h1 className="biz-title">Business Name</h1>
+              <h1 className="biz-title">Business name</h1>
               <div className="header-subinfo">
                 <p className="stars">Reviews info</p>
                 <p className="category-header">Category</p>

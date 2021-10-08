@@ -1,6 +1,5 @@
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
 const LOAD_PHOTOS = 'photos/loadPhotos';
-const LOAD_ONE_BIZ = 'photos/loadOneBiz';
 
 
 const loadBusiness = (businesses) => ({
@@ -13,10 +12,7 @@ const loadPhotos = (photos) => ({
   photos,
 })
 
-const loadOneBusiness = (business) => ({
-  type: LOAD_ONE_BIZ,
-  business,
-})
+
 
 export const getBusinesses = () => async (dispatch) => {
   const response = await fetch('/api/businesses');
@@ -32,14 +28,7 @@ export const getPhotos = () => async (dispatch) => {
   return response
 }
 
-export const getOneBusiness = (id) => async (dispatch) => {
-  const response = await fetch(`/api/businesses/${id}`)
-  const business = await response.json();
 
-  dispatch(loadOneBusiness(business));
-  return response
-
-}
 
 
 const initialState = {};
@@ -58,9 +47,6 @@ const businessReducer = (state = initialState, action) => {
         photoState[photo.id] = photo;
       });
       return photoState;
-    case LOAD_ONE_BIZ:
-      const oneBizState = { ...state };
-      
     default:
       return state;
   }
