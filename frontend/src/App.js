@@ -17,21 +17,24 @@ function App() {
 
   return (
     <>
+    
       <Navigation isLoaded={isLoaded} />
-      <Route path="/:id">
-            <Businesses />
-        </Route>
-            
+      
       {isLoaded && (
         <Switch>
+          
           <Route exact path="/">
             <Landing />
           </Route>
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/:id">
+            <Businesses />
+          </Route>
         </Switch>
       )}
+        
       <Footer />
     </>
   );
