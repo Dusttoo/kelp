@@ -1,27 +1,28 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getOneBusiness, getOnePhoto,  } from '../../store/businessPage';
+import { getBusinesses, getPhotos } from '../../store/businesses';
 import { useParams } from 'react-router';
 import './Businesses.css'
 
 
 const Businesses = () => {
   const {id} = useParams();
-  console.log("THIS IS THE ID", id)
   const dispatch = useDispatch();
-  // const business = useSelector((state) => state.oneBusiness)
-  // const wholeBusiness = business[id];
-  // const photos = useSelector((state) => state.onePhoto)
-  console.log("THIS IS THE BUSINESS", )
-  // console.log(wholeBusiness.name)
-  // console.log("THESE ARE THE PHOTOS", photos)
+  const businesses = useSelector((state) => state.business)
+  // const photos = useSelector((state) => state.photo) 
+  const eachBusiness = []
+  // const eachPhoto = []
+  Object.values(businesses).map((business) => (eachBusiness.push(business)))
+  // Object.values(photos).map((photo) => eachPhoto.push(photo))
+  const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
+  console.log("Busines name: ", business)
   
   
 
   useEffect(() => {
-    dispatch(getOneBusiness(id));
-    // dispatch(getOnePhoto(id))
-  }, [dispatch, id]);
+        dispatch(getBusinesses())
+        // dispatch(getPhotos())
+    }, [dispatch])
 
  
   
@@ -34,7 +35,7 @@ const Businesses = () => {
     <div>
         <div className="biz-info">
           <div className="header-left">
-              <h1 className="biz-title">Business name</h1>
+              <h1 className="biz-title">{business.name}</h1>
               <div className="header-subinfo">
                 <p className="stars">Reviews info</p>
                 <p className="category-header">Category</p>
