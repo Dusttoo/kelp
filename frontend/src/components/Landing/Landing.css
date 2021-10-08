@@ -71,13 +71,17 @@
 
 .businesses {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 70%;
 }
 
 .biz-listing {
     display: flex;
+    align-items: center;
+    padding: 15px;
+    width: 25%;
 }
 
 .listing-img {
