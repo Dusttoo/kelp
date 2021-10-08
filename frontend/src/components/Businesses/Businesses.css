@@ -1,0 +1,172 @@
+.biz-info {
+    background-image: url('https://i.imgur.com/ypz7jqX.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 90%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.biz-title {
+    color: white;
+    font-weight: 700;
+    font-size: 60px;
+
+}
+
+.header-subinfo {
+    display: flex;
+    color: white;
+    font-size: 30px;
+}
+
+.stars {
+
+}
+
+.category-header {
+
+}
+
+.hours-header {
+
+}
+
+.header-right {
+
+}
+
+.view-photo {
+    color: white;
+}
+
+.main {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-buttons {
+    border-bottom: 1px solid #015498;
+    padding-bottom: 15px;
+
+}
+
+.write-review {
+
+}
+
+.menu-section {
+    border-bottom: 1px solid #015498;
+    padding-bottom: 15px;
+}
+
+.section-header {
+
+}
+
+.location-section {
+    border-bottom: 1px solid #015498;
+    padding-bottom: 15px;
+}
+
+.location-left-side {
+
+}
+
+.location-right-side {
+
+}
+
+.about-section {
+    border-bottom: 1px solid #015498;
+    padding-bottom: 15px;
+}
+
+.owner {
+
+}
+
+.owner-img {
+
+}
+
+.owner-name {
+
+}
+
+.owner-title {
+
+}
+
+.about-body {
+
+}
+
+.questions-section {
+    border-bottom: 1px solid #015498;
+    padding-bottom: 15px;
+}
+
+.ask-question-div {
+
+}
+
+.question-asked {
+
+}
+
+.answer {
+
+}
+
+.review-section {
+    padding-top: 20px;
+}
+
+.sort-review {
+
+}
+
+.sort {
+
+}
+
+.review {
+
+}
+
+.reviewer {
+
+}
+
+.reviewer-img {
+
+}
+
+.reviewer-name {
+
+}
+
+.reviewer-title {
+
+}
+
+.stars {
+
+}
+
+.review-content {
+
+}
+
+
+

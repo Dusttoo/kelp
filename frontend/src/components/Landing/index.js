@@ -55,7 +55,7 @@ function Landing() {
                         const photo = eachPhoto.find(photo => photo.businessId === business.id)
                      return (
                     <div className="biz-listing">
-                        <Link to={`${business.id}`} > <img className='listing-img' src={photo ? photo.url: 'https://i.imgur.com/DbdVpyZ.png'} alt={photo ? photo.alt: 'placeholder'}></img>
+                        <Link to={`/${business.id}`} > <img className='listing-img' src={photo ? photo.url: 'https://i.imgur.com/DbdVpyZ.png'} alt={photo ? photo.alt: 'placeholder'}></img>
                         </Link>
                         {/* Names disappeared when pictures from database
                         were added. Needs fixed */}

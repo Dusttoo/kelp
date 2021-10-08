@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
+import Businesses from "./components/Businesses";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,13 +18,16 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <Route path="/:id">
+            <Businesses />
+        </Route>
             
       {isLoaded && (
         <Switch>
           <Route exact path="/">
             <Landing />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
         </Switch>
