@@ -164,11 +164,19 @@
 }
 
 .reviewer {
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .reviewer-img {
+    height: 50px;
 
+}
+
+.reviewer-info {
+    padding-left: 20px;
+ 
 }
 
 .reviewer-name {

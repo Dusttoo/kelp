@@ -82,7 +82,11 @@ const Businesses = () => {
                   <h4 className="owner-title">Business Owner</h4>
                 </div>
               </div>
-              <p className="about-body">Info about business here</p>
+              <p className="about-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+              eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
+              id est laborum.</p>
           </div>
           <div className="questions-section">
             <div className="ask-question-div">
@@ -104,12 +108,18 @@ const Businesses = () => {
             </div>
             <div className="review">
               <div className="reviewer">
-                <img className="reviewer-img" src='' alt=''></img>
-                <p className="reviewer-name">Name</p>
-                <p className="reviewer-title">Location</p>
+                <img className="reviewer-img" src='https://i.imgur.com/5Gg1YPS.png' alt='krabs'></img>
+                <div className="reviewer-info">
+                  <h4 className="reviewer-name">Name</h4>
+                  <h4 className="reviewer-title">Location</h4>
+                </div> 
               </div>
               <span className="stars">Stars</span>
-              <p className="review-content">Review goes here</p>
+              <p className="review-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+              eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
+              id est laborum.</p>
             </div>
           </div>
         </div>
