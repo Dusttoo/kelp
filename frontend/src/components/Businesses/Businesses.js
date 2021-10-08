@@ -70,15 +70,17 @@ const Businesses = () => {
                 <li>Sat:</li>
                 <li>Sun</li>
               </ul>
-              <p>edit hours</p>
+              <button>edit hours</button>
             </div>
           </div>
           <div className="about-section">
               <h2 className="section-header">About the Business</h2>
               <div className="owner">
-                <img className="owner-img" src='' alt=''></img>
-                <p className="owner-name">Name</p>
-                <p className="owner-title">Business Owner</p>
+                <img className="owner-img" src='https://i.imgur.com/qBuSu03.png' alt='spongebob'></img>
+                <div className="owner-details">
+                  <h4 className="owner-name">Name</h4>
+                  <h4 className="owner-title">Business Owner</h4>
+                </div>
               </div>
               <p className="about-body">Info about business here</p>
           </div>
@@ -87,8 +89,12 @@ const Businesses = () => {
               <h2 className="section-header">Ask Bikini Bottom</h2>
               <h3>Ask a question +</h3>
             </div>
-            <p className="quesion-asked">This is my question</p>
-            <p className="answer">This is my answer</p>
+            <div className="q-a">
+              <span className="question-letter">Q:</span><p className="quesion-asked">This is my question</p>
+            </div>
+            <div className="q-a">
+              <span className="question-letter">A:</span><p className="quesion-asked">This is my answer</p>
+            </div>
 
           </div>
           <div className="review-section">
