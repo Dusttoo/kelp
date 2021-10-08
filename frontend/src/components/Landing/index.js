@@ -3,17 +3,21 @@ import Businesses from '../Businesses';
 import { useDispatch, useSelector } from 'react-redux';
 import './Landing.css'
 import { getBusinesses, getPhotos } from '../../store/businesses';
+import {Link} from 'react-router-dom'
 
 
 
 function Landing() {
     const dispatch = useDispatch();
-    const  businesses = useSelector((state) => state.business)
+    const businesses = useSelector((state) => state.business)
+    const photos = useSelector((state) => state.photo) 
     const eachBusiness = []
+    const eachPhoto = []
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
-    console.log("Each business", eachBusiness)
+    Object.values(photos).map((photo) => eachPhoto.push(photo))
+    // console.log("Each photo", eachPhoto)
 
-    const [photo, setPhoto] = useState('');
+    // const [photo, setPhoto] = useState('')
 
 
 
@@ -45,13 +49,19 @@ function Landing() {
              <h1 className="title">Kelp: Bikini Bottom</h1>
              <h2 className="categories">Categories</h2>
              <div className="businesses">
+                 {/* Need to make this not print a photo for the length of the 
+                 photoos array */}
                  {eachBusiness.map((business) => {
+                        const photo = eachPhoto.find(photo => photo.businessId === business.id)
                      return (
                     <div className="biz-listing">
-                        <img className='listing-img' src='https://i.imgur.com/zUFJuDB.png' alt=''></img>
+                        <Link to={`${business.id}`} > <img className='listing-img' src={photo ? photo.url: 'https://i.imgur.com/DbdVpyZ.png'} alt={photo ? photo.alt: 'placeholder'}></img>
+                        </Link>
+                        {/* Names disappeared when pictures from database
+                        were added. Needs fixed */}
                         <p>{business.name}</p>
                     </div>
-                     )
+                     )     
                  })}
              </div>
          </div>

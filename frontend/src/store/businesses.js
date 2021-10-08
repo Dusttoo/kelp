@@ -38,7 +38,7 @@ const businessReducer = (state = initialState, action) => {
       return newState;
     case LOAD_PHOTOS:
       const photoState = { ...state };
-      action.businesses.forEach(photo => {
+      action.photos.forEach(photo => {
         photoState[photo.id] = photo;
       });
       return photoState;
