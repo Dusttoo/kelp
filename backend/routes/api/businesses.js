@@ -20,11 +20,17 @@ router.get('/photos', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const  id  = req.params.id
+  console.log("THIS IS THE ID: ", id)
   const business = await Business.findByPk(id);
-  const photos = await Photos.findAll(
+  res.json({business});
+}))
+
+router.get('/:id/photos', asyncHandler(async (req, res) => {
+  const  id  = req.params.id
+    const photos = await Photos.findAll(
     {where: {businessId : id}}
   )
-  res.json({business, photos});
+  res.json({photos});
 }))
 
 

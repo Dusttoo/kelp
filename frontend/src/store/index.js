@@ -6,7 +6,8 @@ import sessionReducer from './session';
 const rootReducer = combineReducers({
     session: sessionReducer,
     business: businessReducer,
-    photo: businessReducer
+    photo: businessReducer,
+
 });
 
 let enhancer;
