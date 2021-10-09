@@ -10,7 +10,7 @@ const AddBusiness = () => {
   const sessionUser = useSelector(state => state.session.user);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [stars, setStars] = useState("");
+  const stars = 0;
   const [category, setCategory] = useState("");
   const [isOpen, setIsOpen] = useState('true');
   const [longitude, setLongitude] = useState('');
@@ -25,7 +25,6 @@ const AddBusiness = () => {
   const reset = () => {
     setName("");
     setAddress("");
-    setStars("");
     setCategory("");
     setIsOpen('true')
     setLongitude("");
@@ -44,7 +43,6 @@ const AddBusiness = () => {
       latitude
     };
 
-    // 8. Dispatch the return value of the thunk creator instead (the thunk)
     dispatch(addBusiness(newBusiness));
     reset();
   };
@@ -53,7 +51,42 @@ const AddBusiness = () => {
   
 
     return (
-        <h1>This is the add business page</h1>
+            <>
+            <div>
+                <form className="add-biz-form">
+                  <ul>
+                  </ul>  
+                    <label>
+                      Business Name
+                      <input
+                      type='text'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required/>
+                    </label>
+                  <label>
+                    category
+                    <select/>
+                  </label>
+                  <label>
+                    longitude
+                    <input
+                      type='text'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required/>
+                  </label>
+                  <label>
+                    latitude
+                    <input/>
+                  </label>
+                  <div>
+                    <button type="submit">Sign Up</button>
+                  </div>
+                </form>
+            </div>
+      
+    </> 
     );
 
  
