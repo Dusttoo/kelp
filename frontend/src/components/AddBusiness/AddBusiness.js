@@ -50,37 +50,43 @@ const AddBusiness = () => {
 
     return (
             <>
-            <div>
+            <div className="add-biz-container">
+                <h1 className="biz-header">Add A Business</h1>
                 <form onSubmit={handleSubmit} className="add-biz-form">
                   <ul>
                   </ul>  
-                    <label>
-                      Business Name
+                    <label className="biz-label">
+                      Business Name:
                       <input
+                      className="biz-input"
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required/>
                     </label>
-                    <label>
-                      Address
+                    <label className="biz-label">
+                      Address:
                       <input
+                      className="biz-input"
                       type='text'
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                       required/>
                     </label>
-                  <label>
-                      Description
+                  <label className="biz-label">
+                      Description:
                       <input
+                      className="biz-input"
                       type='text'
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       required/>
                     </label>
-                  <label>
-                    Category
+                  <label className="biz-label">
+                    Category:
                     <select
+                    
+                    className="biz-label biz-input"
                     value={categoryId}
                     onChange={(e) => setCategory(e.target.value)}
                     required>
@@ -91,18 +97,20 @@ const AddBusiness = () => {
                       <option value={4}>Gift Shop</option>
                     </select>
                   </label>
-                  <label>
-                    Longitude
+                  <label className="biz-label">
+                    Longitude:
                     <input
+                    className="biz-input"
                       type='number'
                       step='0.00001'
                       value={longitude}
                       onChange={(e) => setLongitude(e.target.value)}
                       required/>
                   </label>
-                  <label>
-                    Latitude
+                  <label className="biz-label">
+                    Latitude:
                     <input
+                    className="biz-input"
                       type='number'
                       step='0.00001'
                       value={latitude}
@@ -114,6 +122,7 @@ const AddBusiness = () => {
                   </div>
                 </form>
             </div>
+            <div className="spacer"></div>
       
     </> 
     );
