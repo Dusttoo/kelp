@@ -1,6 +1,11 @@
+import { csrfFetch } from './csrf';
+
+
+
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
 const LOAD_PHOTOS = 'photos/loadPhotos';
 const ADD_ONE = 'businesses/addOne';
+
 
 
 
@@ -34,24 +39,19 @@ export const getPhotos = () => async (dispatch) => {
   return response
 }
 
-export const getAddBusiness = (payload) => async (dispatch) => {
-  const response = await fetch('/api/businesses/add');
-  return response;
-}
-
-export const addBusiness = (payload) => async (dispatch) => {
-  const response = await fetch('/api/businesses/add', {
+export const addBusiness = (business) => async (dispatch) => {
+  const response = await csrfFetch('/api/businesses/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(business),
   });
 
   console.log("POST RESPONSE:",response)
 
-  const business = await response.json();
-  console.log(business)
-  dispatch(addOneBusiness(business));
-  return business
+  const newBusiness = await response.json();
+  console.log(newBusiness)
+  dispatch(addOneBusiness(newBusiness));
+  return newBusiness
 };
 
 
@@ -74,7 +74,7 @@ const businessReducer = (state = initialState, action) => {
       });
       return photoState;
     case ADD_ONE:
-      return { ...state, entries: [...state.entries, action.article] };
+      return { ...state };
     default:
       return state;
   }

@@ -10,50 +10,48 @@ const AddBusiness = () => {
   const sessionUser = useSelector(state => state.session.user);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const stars = 0;
-  const [category, setCategory] = useState("");
-  const [isOpen, setIsOpen] = useState('true');
+  const [categoryId, setCategory] = useState(1);
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
-  console.log(sessionUser)
+  const [description, setDescription] = useState('');
+  const userId = sessionUser.id;
+  // console.log(userId)
   
-  if(!sessionUser) {
-      <LoginForm/>
-  } else {
-    
 
   const reset = () => {
     setName("");
     setAddress("");
-    setCategory("");
-    setIsOpen('true')
+    setCategory(1);
     setLongitude("");
     setLatitude("");
+    setDescription('')
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newBusiness = {
       name,
       address,
-      stars,
-      category,
-      isOpen,
+      categoryId,
+      description,
       longitude,
+      userId,
       latitude
     };
+
+    console.log(newBusiness)
 
     dispatch(addBusiness(newBusiness));
     reset();
   };
-  }
+  
 
   
 
     return (
             <>
             <div>
-                <form className="add-biz-form">
+                <form onSubmit={handleSubmit} className="add-biz-form">
                   <ul>
                   </ul>  
                     <label>
@@ -64,24 +62,55 @@ const AddBusiness = () => {
                       onChange={(e) => setName(e.target.value)}
                       required/>
                     </label>
+                    <label>
+                      Address
+                      <input
+                      type='text'
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                      required/>
+                    </label>
                   <label>
-                    category
-                    <select/>
+                      Description
+                      <input
+                      type='text'
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      required/>
+                    </label>
+                  <label>
+                    Category
+                    <select
+                    value={categoryId}
+                    onChange={(e) => setCategory(e.target.value)}
+                    required>
+                      <option value="">--Please choose a category--</option>
+                      <option value={1}>Fast Food</option>
+                      <option value={2}>Bar</option>
+                      <option value={3}>Education</option>
+                      <option value={4}>Gift Shop</option>
+                    </select>
                   </label>
                   <label>
-                    longitude
+                    Longitude
                     <input
-                      type='text'
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      type='number'
+                      step='0.00001'
+                      value={longitude}
+                      onChange={(e) => setLongitude(e.target.value)}
                       required/>
                   </label>
                   <label>
-                    latitude
-                    <input/>
+                    Latitude
+                    <input
+                      type='number'
+                      step='0.00001'
+                      value={latitude}
+                      onChange={(e) => setLatitude(e.target.value)}
+                      required/>
                   </label>
                   <div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Add your business</button>
                   </div>
                 </form>
             </div>
