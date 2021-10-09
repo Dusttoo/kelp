@@ -18,24 +18,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      stars: {
+      description: {
         allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      reviewCount: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        defaultValue: 0
+        type: Sequelize.TEXT
       },
       categoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Categories', key: 'id' }
-      },
-      isOpen: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN,
-        defaultValue: true
       },
       longitude: {
         allowNull: false,
@@ -47,7 +37,9 @@ module.exports = {
       },
       userId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: 'Users', key: 'id' }
+
       },
       createdAt: {
         allowNull: false,

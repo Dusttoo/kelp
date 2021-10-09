@@ -3,10 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Business = sequelize.define('Business', {
     name: DataTypes.STRING,
     address: DataTypes.STRING,
-    stars: DataTypes.INTEGER,
-    reviewCount: DataTypes.INTEGER,
+    description: DataTypes.TEXT,
     categoryId: DataTypes.INTEGER,
-    isOpen: DataTypes.BOOLEAN,
     longitude: DataTypes.STRING,
     latitude: DataTypes.STRING,
     userId: DataTypes.INTEGER
