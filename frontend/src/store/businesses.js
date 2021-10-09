@@ -1,5 +1,7 @@
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
 const LOAD_PHOTOS = 'photos/loadPhotos';
+const ADD_ONE = 'businesses/addOne';
+
 
 
 const loadBusiness = (businesses) => ({
@@ -12,6 +14,10 @@ const loadPhotos = (photos) => ({
   photos,
 })
 
+const addOneBusiness = (business) => ({
+  type: ADD_ONE,
+  business,
+});
 
 
 export const getBusinesses = () => async (dispatch) => {
@@ -27,6 +33,26 @@ export const getPhotos = () => async (dispatch) => {
   dispatch(loadPhotos(photos));
   return response
 }
+
+export const getAddBusiness = (payload) => async (dispatch) => {
+  const response = await fetch('/api/businesses/add');
+  return response;
+}
+
+export const addBusiness = (payload) => async (dispatch) => {
+  const response = await fetch('/api/businesses/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  console.log("POST RESPONSE:",response)
+
+  const business = await response.json();
+  console.log(business)
+  dispatch(addOneBusiness(business));
+  return business
+};
 
 
 
@@ -47,6 +73,8 @@ const businessReducer = (state = initialState, action) => {
         photoState[photo.id] = photo;
       });
       return photoState;
+    case ADD_ONE:
+      return { ...state, entries: [...state.entries, action.article] };
     default:
       return state;
   }

@@ -111,6 +111,8 @@ function SignupFormPage() {
                 </form>
                 <img className="signupImage" src="https://i.imgur.com/qI2NnYR.png" alt="placeholder"></img>
             </div>
+            <div className="spacer"></div>
+      
     </>                
   );
 }

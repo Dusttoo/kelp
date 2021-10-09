@@ -1,6 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const router = express.Router();
+const { requireAuth } = require('../../utils/auth');
+
 
 
 const { Business, Photos } = require('../../db/models');
@@ -32,6 +34,14 @@ router.get('/:id/photos', asyncHandler(async (req, res) => {
   )
   res.json({photos});
 }))
+
+router.get('/add', 
+requireAuth,
+asyncHandler(async (req, res) => {
+
+}));
+
+
 
 
 

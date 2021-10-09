@@ -98,6 +98,10 @@
 
 } 
 
+.spacer {
+    margin-bottom: 100px;
+}
+
 @media screen and (max-width: 1015px) {
     .signup-form-container {
     border-radius: 10px;
