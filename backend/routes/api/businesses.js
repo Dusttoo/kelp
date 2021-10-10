@@ -71,11 +71,26 @@ requireAuth,
 validateBusiness,
 asyncHandler(async (req, res) => {
   const { name, address, categoryId, description, longitude, userId, latitude } = req.body;
-  console.log("THIS IS THE GATEGORY!!!!!!!!!!", categoryId)
   
   const business = await Business.create( {name, address, categoryId, description, longitude, userId, latitude});
   res.json({business});
 }));
+
+router.put('/business/:id', 
+requireAuth,
+asyncHandler(async (req, res) => {
+  const businessId = req.params.id;
+  const { name, address, categoryId, description, longitude, userId, latitude } = req.body;
+  const business = await Business.update( 
+    {name, address, categoryId, description, longitude, userId, latitude},
+    {where: {id: businessId}}
+    );
+  res.json({business});
+}));
+
+
+
+
 
 
 

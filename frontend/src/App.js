@@ -7,7 +7,8 @@ import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import Businesses from "./components/Businesses";
-import AddBusiness from './components/AddBusiness'
+import AddBusiness from './components/AddBusiness';
+import EditBusiness from "./components/EditBusiness";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/businesses/add">
             <AddBusiness />
+          </Route>
+          <Route exact path="/businesses/:id">
+            <EditBusiness />
           </Route>
         </Switch>
       )}
