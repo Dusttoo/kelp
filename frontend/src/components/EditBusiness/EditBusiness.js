@@ -71,7 +71,7 @@ const EditBusiness = () => {
                       className="biz-input"
                       type='text'
                       value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={updateName}
                       required/>
                     </label>
                     <label className="biz-label">
@@ -80,7 +80,7 @@ const EditBusiness = () => {
                       className="biz-input"
                       type='text'
                       value={address}
-                      onChange={(e) => setAddress(e.target.value)}
+                      onChange={updateAddress}
                       required/>
                     </label>
                   <label className="biz-label">
@@ -89,16 +89,15 @@ const EditBusiness = () => {
                       className="biz-input"
                       type='text'
                       value={description}
-                      onChange={(e) => setDescription(e.target.value)}
+                      onChange={updateDescription}
                       required/>
                     </label>
                   <label className="biz-label">
                     Category:
                     <select
-                    
                     className="biz-label biz-input"
                     value={categoryId}
-                    onChange={(e) => setCategory(e.target.value)}
+                    onChange={updateCategory}
                     required>
                       <option value="">--Please choose a category--</option>
                       <option value={1}>Fast Food</option>
@@ -114,7 +113,7 @@ const EditBusiness = () => {
                       type='number'
                       step='0.00001'
                       value={longitude}
-                      onChange={(e) => setLongitude(e.target.value)}
+                      onChange={updateLongitude}
                       required/>
                   </label>
                   <label className="biz-label">
@@ -124,11 +123,11 @@ const EditBusiness = () => {
                       type='number'
                       step='0.00001'
                       value={latitude}
-                      onChange={(e) => setLatitude(e.target.value)}
+                      onChange={updateLatitude}
                       required/>
                   </label>
                   <div>
-                    <button type="submit">Add your business</button>
+                    <button type="submit">Edit your business</button>
                   </div>
                 </form>
             </div>

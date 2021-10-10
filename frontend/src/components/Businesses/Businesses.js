@@ -53,8 +53,12 @@ const Businesses = () => {
         <div className="main">
           <div className="add-buttons">
             <button className="write-review">Write Review</button>
-            {sessionUser.id === business.userId ? <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> :
-            <span></span>}
+            {sessionUser.id === business.userId ? 
+            <div class="your-business">
+              <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
+              <Link to={`/businesses/${id}/delete`} className="delete-business">Delete your Business:</Link> 
+              
+            </div> : <span></span>} 
             
           </div>
           <div className="menu-section">
