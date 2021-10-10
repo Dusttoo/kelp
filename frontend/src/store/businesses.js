@@ -54,6 +54,24 @@ export const addBusiness = (business) => async (dispatch) => {
   return newBusiness
 };
 
+//edit business
+export const updateBusiness = (businessId, payload) => async (dispatch) => {
+  const response = await fetch(`/api/businesses/${businessId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  console.log("POST RESPONSE:",response)
+
+  const business = await response.json();
+  console.log(business)
+  dispatch(addOneBusiness(business));
+  return business
+};
+
+//end
+
 
 
 
