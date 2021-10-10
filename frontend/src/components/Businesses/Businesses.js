@@ -9,13 +9,16 @@ const Businesses = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
   const businesses = useSelector((state) => state.business)
+  const sessionUser = useSelector(state => state.session.user);
+
   // const photos = useSelector((state) => state.photo) 
   const eachBusiness = []
   // const eachPhoto = []
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   // Object.values(photos).map((photo) => eachPhoto.push(photo))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
-  console.log("Busines name: ", business)
+    console.log("Session user: ", sessionUser.id)
+  console.log("business id", business.userId)
   
   
 
@@ -49,6 +52,9 @@ const Businesses = () => {
         <div className="main">
           <div className="add-buttons">
             <button className="write-review">Write Review</button>
+            {sessionUser.id === business.userId ? <button className="edit-business">Edit your Business</button> :
+            <span></span>}
+            
           </div>
           <div className="menu-section">
             <h2 className="section-header">Menu</h2>
