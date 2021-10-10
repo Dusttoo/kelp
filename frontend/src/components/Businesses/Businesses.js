@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBusinesses, getPhotos } from '../../store/businesses';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import './Businesses.css'
 
 
@@ -52,7 +53,7 @@ const Businesses = () => {
         <div className="main">
           <div className="add-buttons">
             <button className="write-review">Write Review</button>
-            {sessionUser.id === business.userId ? <button className="edit-business">Edit your Business</button> :
+            {sessionUser.id === business.userId ? <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> :
             <span></span>}
             
           </div>

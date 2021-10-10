@@ -55,6 +55,9 @@
 }
 
 .add-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     border-bottom: 1px solid #015498;
     padding-bottom: 15px;
 
@@ -62,6 +65,15 @@
 
 .write-review {
 
+}
+
+.edit-business {
+    background: none;
+    border: none;
+    color: #FFF201;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 1.2em;
 }
 
 .menu-section {

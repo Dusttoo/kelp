@@ -34,7 +34,7 @@ const EditBusiness = () => {
 
     useEffect(() => {
         dispatch(getBusinesses())
-    }, [dispatch])
+    }, [dispatch, id])
 
       const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ const EditBusiness = () => {
   return (
                   <>
             <div className="add-biz-container">
-                <h1 className="biz-header">Add A Business</h1>
+                <h1 className="biz-header">Edit Your Business</h1>
                 <form onSubmit={handleSubmit} className="add-biz-form">
                   <ul>
                   </ul>  
