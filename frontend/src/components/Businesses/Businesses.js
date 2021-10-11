@@ -120,7 +120,7 @@ const Businesses = () => {
               <button className="write-review">Write Review</button>
               <div className="sort-review">
                 <input></input>
-                <button className="sort">Kelp Sort</button>
+                <button className="sort write-review">Kelp Sort</button>
               </div>
             </div>
             <Reviews />

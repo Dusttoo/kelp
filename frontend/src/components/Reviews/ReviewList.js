@@ -21,20 +21,14 @@ const Reviews = () => {
   const allReviews = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
-
   Object.values(users).map((user) => (eachUser.push(user)))
-  const user = eachUser.find(oneUser => business.userId === oneUser.id);
-
   Object.values(reviews).map((review) => (eachReview.push(review)))
-//   const review = eachReview.find(reviews => business.id === reviews.businessId);
-//   console.log("These are the reviews!", allReviews)
-eachReview.forEach((review) => {
-    if (review.businessId === business.id) {
-        allReviews.push(review)
-    }
-})
+    eachReview.forEach((review) => {
+        if (review.businessId === business.id) {
+            allReviews.push(review)
+        }
+    })
 
-// console.log(allReviews);
 
   
   
@@ -48,7 +42,6 @@ eachReview.forEach((review) => {
 
     const getOwner = (reviewId) => {
         const review = eachReview.find(reviews => reviewId === reviews.id);
-        // console.log("This is the review!!!", review)
         const user = eachUser.find(oneUser => review.userId === oneUser.id);
         return user;
     }
@@ -57,7 +50,6 @@ eachReview.forEach((review) => {
         let options = { month: 'long'};
         const user = eachUser.find(oneUser => userId === oneUser.id);
         const date = new Date(user.kelpingSince);
-        console.log(user.kelpingSince)
         const day = date.getDate();
         const month = new Intl.DateTimeFormat('en-US', options).format(date)
         const year = date.getFullYear();
@@ -65,14 +57,26 @@ eachReview.forEach((review) => {
         return `${month} ${day}, ${year}`
     }
 
+    const noReviews = () => {
+        console.log("All reviews array", allReviews)
+        return (
+        <div className="empty-reviews">
+            <h2>Barnacles! No Reviews Yet.</h2>
+            <button className="write-review">Be the first.</button>
+        </div>
+        )
+    }
 
-    console.log("This is the date!!!!!", getDate(1))
+
 
 
 
   return (
     <div>
-            {allReviews.map(thisReview => (
+        {allReviews.length === 0 ? 
+         noReviews()
+        :
+            allReviews.map(thisReview => (
                 
             <div className="review">
               <div className="reviewer">
@@ -85,7 +89,9 @@ eachReview.forEach((review) => {
               <span className="stars">Stars</span>
               <p className="review-content">{thisReview.review}</p>
             </div>
-            ))}
+            ))
+        }
+            
     </div>
   );
 };

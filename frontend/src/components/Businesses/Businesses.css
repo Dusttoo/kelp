@@ -214,10 +214,18 @@
 }
 
 .sort-review {
-
+    
 }
 
 .sort {
+    
+
+}
+
+.empty-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
