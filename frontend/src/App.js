@@ -9,12 +9,16 @@ import Footer from "./components/Footer";
 import Businesses from "./components/Businesses";
 import AddBusiness from './components/AddBusiness';
 import EditBusiness from "./components/EditBusiness";
+import { getUsers } from "./store/users";
+import { getBusinesses } from "./store/businesses";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(getUsers());
+    dispatch(getBusinesses());
   }, [dispatch]);
 
   return (

@@ -4,6 +4,7 @@ import { getBusinesses, removeBusiness } from '../../store/businesses';
 import { getUsers } from '../../store/users';
 import { useParams } from 'react-router';
 import { Link, Redirect } from 'react-router-dom';
+import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
 import './Businesses.css'
 
 
@@ -31,31 +32,32 @@ const Businesses = () => {
         // dispatch(getPhotos())
     }, [dispatch])
 
-    const deleteBusiness = async (e) => {
-      e.preventDefault();
+    // const deleteBusiness = async (e) => {
+    //   e.preventDefault();
 
-      dispatch(removeBusiness(id));
-      <Redirect to={`/`} />
+    //   dispatch(removeBusiness(id));
+    //   <Redirect to={`/`} />
 
-    }
+    // }
 
 
-    const confirmDelete = async (e) => {
-      // e.preventDefault();
-      console.log('delete')
+    // const confirmDelete = async (e) => {
+    //   // e.preventDefault();
+    //   console.log('delete')
 
-      return (
-        <>
-          <div className="confirmation-box">
-            <h3>Are you sure you want to delete?</h3>
-            <div>
-              <button onClick={(e) => deleteBusiness()}>Yes</button>
-              <button>No</button>
-            </div>    
-          </div>
-        </>
-      )
-    }
+    //   return (
+    //     <>
+    //     {console.log("in return")}
+    //       <div className="confirmation-box">
+    //         <h3>Are you sure you want to delete?</h3>
+    //         <div>
+    //           <button onClick={(e) => deleteBusiness()}>Yes</button>
+    //           <button>No</button>
+    //         </div>    
+    //       </div>
+    //     </>
+    //   )
+    // }
 
  
   
@@ -85,8 +87,9 @@ const Businesses = () => {
             {sessionUser.id === business.userId ? 
             <div className="your-business">
               <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
-              <button onClick={(e) => {confirmDelete();}} 
-                className="delete-business">Delete your Business:</button> 
+              {/* <button onClick={(e) => {confirmDelete();}} 
+                className="delete-business">Delete your Business:</button>  */}
+              <DeleteBusiness />
               
             </div> : <span></span>} 
             

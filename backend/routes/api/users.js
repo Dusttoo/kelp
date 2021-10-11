@@ -61,7 +61,6 @@ router.post(
 router.get('/', 
 asyncHandler(async (req, res) => {
   const users = await User.findAll();
-  console.log("THESE ARE THE USERS:", users)
   res.json(users);
 }))
 
