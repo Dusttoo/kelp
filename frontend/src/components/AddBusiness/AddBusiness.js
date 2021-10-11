@@ -1,7 +1,7 @@
 import {  useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBusiness } from '../../store/businesses';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router';
 import './AddBusiness.css'
 
 
@@ -15,19 +15,8 @@ const AddBusiness = () => {
   const [latitude, setLatitude] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
+  const history = useHistory();
   const userId = sessionUser.id;
-  // console.log(userId)
-  
-
-  const reset = () => {
-    setName("");
-    setAddress("");
-    setCategory(1);
-    setLongitude("");
-    setLatitude("");
-    setDescription('');
-    setImage('');
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,9 +31,10 @@ const AddBusiness = () => {
       image
     };
 
-    dispatch(addBusiness(newBusiness));
-    reset();
-    <Redirect to='/'/>
+    const added = await dispatch(addBusiness(newBusiness));
+    if (added) {
+      history.push(`/`) 
+    }
   };
   
 

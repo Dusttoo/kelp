@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBusinesses, removeBusiness } from '../../store/businesses';
+import { getBusinesses} from '../../store/businesses';
 import { getUsers } from '../../store/users';
+import { getReviews} from '../../store/reviews'
 import { useParams } from 'react-router';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
+import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
 
 
@@ -14,57 +16,29 @@ const Businesses = () => {
   const businesses = useSelector((state) => state.business);
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
+  const reviews = useSelector((state) => state.reviews)
 
   const eachUser = [];
   const eachBusiness = [];
+  const eachReview = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
 
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
-  console.log(user)
+
+  Object.values(reviews).map((review) => (eachReview.push(review)))
+  const review = eachReview.find(oneUser => business.userId === oneUser.id);
   
   
 
   useEffect(() => {
         dispatch(getBusinesses())
         dispatch(getUsers())
-        // dispatch(getPhotos())
+        dispatch(getReviews())
     }, [dispatch])
 
-    // const deleteBusiness = async (e) => {
-    //   e.preventDefault();
 
-    //   dispatch(removeBusiness(id));
-    //   <Redirect to={`/`} />
-
-    // }
-
-
-    // const confirmDelete = async (e) => {
-    //   // e.preventDefault();
-    //   console.log('delete')
-
-    //   return (
-    //     <>
-    //     {console.log("in return")}
-    //       <div className="confirmation-box">
-    //         <h3>Are you sure you want to delete?</h3>
-    //         <div>
-    //           <button onClick={(e) => deleteBusiness()}>Yes</button>
-    //           <button>No</button>
-    //         </div>    
-    //       </div>
-    //     </>
-    //   )
-    // }
-
- 
-  
-
-
-    //trying to get data from getOneBusiness to
-  //display on business page
 
   return (
     <div>
@@ -83,7 +57,7 @@ const Businesses = () => {
         </div>
         <div className="main">
           <div className="add-buttons">
-            <button className="write-review">Write Review</button>
+            
             {sessionUser.id === business.userId ? 
             <div className="your-business">
               <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
@@ -142,25 +116,14 @@ const Businesses = () => {
 
           </div>
           <div className="review-section">
-            <div className="sort-review">
-              <input></input>
-              <button className="sort">Kelp Sort</button>
-            </div>
-            <div className="review">
-              <div className="reviewer">
-                <img className="reviewer-img" src='https://i.imgur.com/5Gg1YPS.png' alt='krabs'></img>
-                <div className="reviewer-info">
-                  <h4 className="reviewer-name">Name</h4>
-                  <h4 className="reviewer-title">Location</h4>
-                </div> 
+            <div className="review-header">
+              <button className="write-review">Write Review</button>
+              <div className="sort-review">
+                <input></input>
+                <button className="sort">Kelp Sort</button>
               </div>
-              <span className="stars">Stars</span>
-              <p className="review-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-              eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
-              id est laborum.</p>
             </div>
+            <Reviews />
           </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 import {  useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateBusiness, getBusinesses } from '../../store/businesses';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import './EditBusiness.css'
 
@@ -9,6 +9,7 @@ import './EditBusiness.css'
 const EditBusiness = () => {
   const dispatch = useDispatch();
   const {id} = useParams();
+  const history = useHistory();
   const businesses = useSelector(state => state.business)
   const eachBusiness = []
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
@@ -33,8 +34,11 @@ const EditBusiness = () => {
         dispatch(getBusinesses())
     }, [dispatch, id])
 
-      const handleSubmit = async (e) => {
-    e.preventDefault();
+
+
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
     const payload = {
       name,
@@ -48,10 +52,14 @@ const EditBusiness = () => {
     };
 
 
-    dispatch(updateBusiness(id, payload));
-    <Redirect to={`/businesses/${id}`} />
-
+    const updated = await dispatch(updateBusiness(id, payload));
+    if (updated) {
+      
+      history.push(`/`)
+      
+    }
   };
+
 
 
   

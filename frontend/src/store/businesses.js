@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-
+import { Redirect } from 'react-router-dom';
 
 
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
@@ -44,7 +44,6 @@ export const addBusiness = (business) => async (dispatch) => {
   console.log("POST RESPONSE:",response)
 
   const newBusiness = await response.json();
-  console.log(newBusiness)
   dispatch(addOneBusiness(newBusiness));
   return newBusiness
 };
@@ -57,12 +56,12 @@ export const updateBusiness = (businessId, payload) => async (dispatch) => {
     body: JSON.stringify(payload),
   });
 
-  console.log("POST RESPONSE:",response)
-
+  if(response.ok) {
   const business = await response.json();
-  console.log(business)
   dispatch(addOneBusiness(business));
-  return business
+  return business;
+  }
+  
 };
 
 export const removeBusiness = (businessId) => async (dispatch) => {
@@ -92,6 +91,8 @@ const businessReducer = (state = initialState, action) => {
       });
       return newState;
     case ADD_ONE:
+      return { ...state };
+    case DELETE_BUSINESS:
       return { ...state };
     default:
       return state;

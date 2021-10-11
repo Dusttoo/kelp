@@ -11,6 +11,7 @@ import AddBusiness from './components/AddBusiness';
 import EditBusiness from "./components/EditBusiness";
 import { getUsers } from "./store/users";
 import { getBusinesses } from "./store/businesses";
+import { getReviews } from "./store/reviews";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(getUsers());
     dispatch(getBusinesses());
+    dispatch(getReviews());
   }, [dispatch]);
 
   return (

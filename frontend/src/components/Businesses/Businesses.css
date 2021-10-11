@@ -205,6 +205,14 @@
     padding-top: 20px;
 }
 
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px dashed #015498;
+    padding-bottom: 25px;
+}
+
 .sort-review {
 
 }
@@ -214,6 +222,8 @@
 }
 
 .review {
+    border-bottom: 1px dashed #015498;
+    padding-bottom: 25px;
 
 }
 
