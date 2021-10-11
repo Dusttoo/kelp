@@ -46,10 +46,10 @@ router.get('', asyncHandler(async (req, res) => {
   res.json(businesses);
 }));
 
-router.get('/photos', asyncHandler(async (req, res) => {
-  const photos = await Photos.findAll();
-  res.json(photos);
-}));
+// router.get('/photos', asyncHandler(async (req, res) => {
+//   const photos = await Photos.findAll();
+//   res.json(photos);
+// }));
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const  id  = req.params.id
@@ -58,13 +58,13 @@ router.get('/:id', asyncHandler(async (req, res) => {
   res.json({business});
 }))
 
-router.get('/:id/photos', asyncHandler(async (req, res) => {
-  const  id  = req.params.id
-    const photos = await Photos.findAll(
-    {where: {businessId : id}}
-  )
-  res.json({photos});
-}))
+// router.get('/:id/photos', asyncHandler(async (req, res) => {
+//   const  id  = req.params.id
+//     const photos = await Photos.findAll(
+//     {where: {businessId : id}}
+//   )
+//   res.json({photos});
+// }))
 
 router.post('/add', 
 requireAuth,
