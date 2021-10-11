@@ -3,7 +3,6 @@ import { csrfFetch } from './csrf';
 
 
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
-const LOAD_PHOTOS = 'photos/loadPhotos';
 const ADD_ONE = 'businesses/addOne';
 const DELETE_BUSINESS = 'businesses/delete';
 
@@ -15,10 +14,6 @@ const loadBusiness = (businesses) => ({
   businesses,
 });
 
-const loadPhotos = (photos) => ({
-  type: LOAD_PHOTOS,
-  photos,
-})
 
 const addOneBusiness = (business) => ({
   type: ADD_ONE,
@@ -38,12 +33,6 @@ export const getBusinesses = () => async (dispatch) => {
   return response
 };
 
-export const getPhotos = () => async (dispatch) => {
-  const response = await fetch('/api/businesses/photos');
-  const photos = await response.json();
-  dispatch(loadPhotos(photos));
-  return response
-}
 
 export const addBusiness = (business) => async (dispatch) => {
   const response = await csrfFetch('/api/businesses/add', {
@@ -102,12 +91,6 @@ const businessReducer = (state = initialState, action) => {
         newState[business.id] = business;
       });
       return newState;
-    case LOAD_PHOTOS:
-      const photoState = { ...state };
-      action.photos.forEach(photo => {
-        photoState[photo.id] = photo;
-      });
-      return photoState;
     case ADD_ONE:
       return { ...state };
     default:

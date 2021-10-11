@@ -13,9 +13,6 @@ const EditBusiness = () => {
   const eachBusiness = []
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
-
-  console.log(business)
-
   const [name, setName] = useState(business.name);
   const [address, setAddress] = useState(business.address);
   const [categoryId, setCategory] = useState(business.category);

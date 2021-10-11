@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Landing.css'
-import { getBusinesses, getPhotos } from '../../store/businesses';
+import { getBusinesses } from '../../store/businesses';
 import {Link} from 'react-router-dom'
 
 
@@ -15,16 +15,12 @@ function Landing() {
     const eachBusiness = []
     const eachPhoto = []
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
-    Object.values(photos).map((photo) => eachPhoto.push(photo))
-    // console.log("Each photo", eachPhoto)
 
-    // const [photo, setPhoto] = useState('')
 
 
 
     useEffect(() => {
         dispatch(getBusinesses())
-        dispatch(getPhotos())
     }, [dispatch])
 
     return (
@@ -53,24 +49,18 @@ function Landing() {
                 {
                     sessionUser ? <Link className="add-biz" to='/businesses/add'>Add a Business</Link> :
                     <Link className="add-biz" to='/signup'>Sign up to add a business</Link>
-                    // <button onClick={(e) => {
-                    //     e.preventDefault();
-                    //     <LoginFormModal />
-                    // }}>Add a Business</button>
+                    
                 
                 }
              </div>
              <div className="businesses">
-                 {/* Need to make this not print a photo for the length of the 
-                 photoos array */}
+                 
                  {eachBusiness.map((business) => {
-                        const photo = eachPhoto.find(photo => photo.businessId === business.id)
                      return (
                     <div className="biz-listing">
-                        <Link  to={`/${business.id}`} > <img className='listing-img' src={photo ? photo.url: 'https://i.imgur.com/DbdVpyZ.png'} alt={photo ? photo.alt: 'placeholder'}></img>
+                        <Link  to={`/${business.id}`} > <img className='listing-img' src={business.image} alt={business.name}></img>
                         </Link>
-                        {/* Names disappeared when pictures from database
-                        were added. Needs fixed */}
+                       
                         <p>{business.name}</p>
                     </div>
                      )     

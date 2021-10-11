@@ -36,6 +36,7 @@ const Businesses = () => {
 
     }
 
+
     const confirmDelete = async (e) => {
       // e.preventDefault();
       console.log('delete')
@@ -62,7 +63,7 @@ const Businesses = () => {
 
   return (
     <div>
-        <div className="biz-info">
+        <div className="biz-info" style={{backgroundImage: 'url(' + business.image + ')'}}>
           <div className="header-left">
               <h1 className="biz-title">{business.name}</h1>
               <div className="header-subinfo">
@@ -79,7 +80,7 @@ const Businesses = () => {
           <div className="add-buttons">
             <button className="write-review">Write Review</button>
             {sessionUser.id === business.userId ? 
-            <div class="your-business">
+            <div className="your-business">
               <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
               <button onClick={(e) => {confirmDelete();}} 
                 className="delete-business">Delete your Business:</button> 
@@ -95,7 +96,7 @@ const Businesses = () => {
             <div className="location-left-side">
               <h2 className="section-header">Location</h2>
               <div>Map</div>
-              <p>Address</p>
+              <p>{business.address}</p>
             </div>
             <div className="location-right-side">
               <ul>
@@ -119,11 +120,7 @@ const Businesses = () => {
                   <h4 className="owner-title">Business Owner</h4>
                 </div>
               </div>
-              <p className="about-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-              eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
-              id est laborum.</p>
+              <p className="about-body">{business.description}</p>
           </div>
           <div className="questions-section">
             <div className="ask-question-div">

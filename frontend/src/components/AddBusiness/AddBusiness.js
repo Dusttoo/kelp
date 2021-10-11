@@ -1,7 +1,7 @@
 import {  useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addBusiness } from '../../store/businesses';
-import LoginForm from '../LoginFormModal';
+import { Redirect } from 'react-router';
 import './AddBusiness.css'
 
 
@@ -14,6 +14,7 @@ const AddBusiness = () => {
   const [longitude, setLongitude] = useState('');
   const [latitude, setLatitude] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
   const userId = sessionUser.id;
   // console.log(userId)
   
@@ -24,7 +25,8 @@ const AddBusiness = () => {
     setCategory(1);
     setLongitude("");
     setLatitude("");
-    setDescription('')
+    setDescription('');
+    setImage('');
   };
 
   const handleSubmit = async (e) => {
@@ -36,13 +38,13 @@ const AddBusiness = () => {
       description,
       longitude,
       userId,
-      latitude
+      latitude,
+      image
     };
-
-    console.log(newBusiness)
 
     dispatch(addBusiness(newBusiness));
     reset();
+    <Redirect to='/'/>
   };
   
 
@@ -80,6 +82,15 @@ const AddBusiness = () => {
                       type='text'
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
+                      required/>
+                    </label>
+                    <label className="biz-label">
+                      Image:
+                      <input
+                      className="biz-input"
+                      type='text'
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
                       required/>
                     </label>
                   <label className="biz-label">
