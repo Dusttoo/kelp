@@ -88,6 +88,12 @@ asyncHandler(async (req, res) => {
   res.json({business});
 }));
 
+router.delete("businesses/:id/delete", asyncHandler(async function (req, res) {
+  const business = await Business.destroy({
+    where: {id: req.params.id}});
+  return res.json({ business });
+}));
+
 
 
 

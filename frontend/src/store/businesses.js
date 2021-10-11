@@ -5,6 +5,7 @@ import { csrfFetch } from './csrf';
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
 const LOAD_PHOTOS = 'photos/loadPhotos';
 const ADD_ONE = 'businesses/addOne';
+const DELETE_BUSINESS = 'businesses/delete';
 
 
 
@@ -22,6 +23,11 @@ const loadPhotos = (photos) => ({
 const addOneBusiness = (business) => ({
   type: ADD_ONE,
   business,
+});
+
+const deleteBusiness = (businessId) => ({
+  type: DELETE_BUSINESS,
+  businessId,
 });
 
 
@@ -56,7 +62,7 @@ export const addBusiness = (business) => async (dispatch) => {
 
 //edit business
 export const updateBusiness = (businessId, payload) => async (dispatch) => {
-  const response = await fetch(`/api/businesses/${businessId}`, {
+  const response = await csrfFetch(`/api/businesses/${businessId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
@@ -70,7 +76,18 @@ export const updateBusiness = (businessId, payload) => async (dispatch) => {
   return business
 };
 
-//end
+export const removeBusiness = (businessId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/businesses/${businessId}/delete`,{
+  method: 'DELETE',
+  statusCode: 204,
+  headers: {'Content-Type': 'application/json'}
+});
+
+  if(response.ok) {
+    const business = await response.json();
+    dispatch(deleteBusiness(business.id));
+  }
+}
 
 
 
