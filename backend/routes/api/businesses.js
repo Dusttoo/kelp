@@ -8,7 +8,7 @@ const { check } = require('express-validator');
 
 
 
-const { Business, Hour } = require('../../db/models');
+const { Business } = require('../../db/models');
 
 
 const validateBusiness = [
