@@ -8,7 +8,7 @@ const { check } = require('express-validator');
 
 
 
-const { Business, Photos } = require('../../db/models');
+const { Business, Hour } = require('../../db/models');
 
 
 const validateBusiness = [
@@ -43,13 +43,15 @@ const validateBusiness = [
 
 router.get('', asyncHandler(async (req, res) => {
   const businesses = await Business.findAll();
+  // const hours = await Hour.findAll()
+  
   res.json(businesses);
 }));
 
 router.get('/:id', asyncHandler(async (req, res) => {
   const  id  = req.params.id
-  console.log("THIS IS THE ID: ", id)
   const business = await Business.findByPk(id);
+  
   res.json({business});
 }))
 
