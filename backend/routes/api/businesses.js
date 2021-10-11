@@ -46,11 +46,6 @@ router.get('', asyncHandler(async (req, res) => {
   res.json(businesses);
 }));
 
-// router.get('/photos', asyncHandler(async (req, res) => {
-//   const photos = await Photos.findAll();
-//   res.json(photos);
-// }));
-
 router.get('/:id', asyncHandler(async (req, res) => {
   const  id  = req.params.id
   console.log("THIS IS THE ID: ", id)

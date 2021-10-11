@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBusinesses, getPhotos, removeBusiness } from '../../store/businesses';
+import { getBusinesses, removeBusiness } from '../../store/businesses';
+import { getUsers } from '../../store/users';
 import { useParams } from 'react-router';
 import { Link, Redirect } from 'react-router-dom';
 import './Businesses.css'
@@ -9,22 +10,24 @@ import './Businesses.css'
 const Businesses = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
-  const businesses = useSelector((state) => state.business)
+  const businesses = useSelector((state) => state.business);
   const sessionUser = useSelector(state => state.session.user);
+  const users = useSelector((state) => state.users);
 
-  // const photos = useSelector((state) => state.photo) 
-  const eachBusiness = []
-  // const eachPhoto = []
+  const eachUser = [];
+  const eachBusiness = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
-  // Object.values(photos).map((photo) => eachPhoto.push(photo))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
-    console.log("Session user: ", sessionUser.id)
-  console.log("business id", business.userId)
+
+  Object.values(users).map((user) => (eachUser.push(user)))
+  const user = eachUser.find(oneUser => business.userId === oneUser.id);
+  console.log(user)
   
   
 
   useEffect(() => {
         dispatch(getBusinesses())
+        dispatch(getUsers())
         // dispatch(getPhotos())
     }, [dispatch])
 
@@ -114,9 +117,9 @@ const Businesses = () => {
           <div className="about-section">
               <h2 className="section-header">About the Business</h2>
               <div className="owner">
-                <img className="owner-img" src='https://i.imgur.com/qBuSu03.png' alt='spongebob'></img>
+                <img className="owner-img" src={`${user.profileImg}`} alt={`${user.firstName}`}></img>
                 <div className="owner-details">
-                  <h4 className="owner-name">Name</h4>
+                  <h4 className="owner-name">{user.firstName} {user.lastName}</h4>
                   <h4 className="owner-title">Business Owner</h4>
                 </div>
               </div>

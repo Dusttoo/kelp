@@ -57,20 +57,13 @@ router.post(
   }),
 );
 
-//   fetch('/api/users', {
-//   method: 'POST',
-//   headers: {
-//     "Content-Type": "application/json",
-//     "XSRF-TOKEN": `2ncMIrgp-GSB_DqBjZFnDAdNC2OWeOB7hQvM`
-//   },
-//   body: JSON.stringify({
-//     firstName:'Peter',
-//     lastName:'Parker',
-//     email:'spidey@spider.man',
-//     password:'Spidey',
-//     profileImg: 'https://static.wikia.nocookie.net/marveldatabase/images/a/a0/Peter_Parker_%28Earth-199999%29_from_Spider-Man_Far_from_Home_promotional_004.jpg/revision/latest?cb=20191002161238'
-//   })
-// }).then(res => res.json()).then(data => console.log(data));
+
+router.get('/', 
+asyncHandler(async (req, res) => {
+  const users = await User.findAll();
+  console.log("THESE ARE THE USERS:", users)
+  res.json(users);
+}))
 
 
 
