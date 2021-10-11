@@ -6,9 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     date: DataTypes.DATE,
     review: DataTypes.STRING,
     stars: DataTypes.INTEGER,
-    neptune: DataTypes.INTEGER,
-    ready: DataTypes.INTEGER,
-    whatever: DataTypes.INTEGER
+    // neptune: DataTypes.INTEGER,
+    // ready: DataTypes.INTEGER,
+    // whatever: DataTypes.INTEGER
   }, {});
   Review.associate = function(models) {
     // associations can be defined here

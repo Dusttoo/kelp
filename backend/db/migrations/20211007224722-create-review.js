@@ -30,18 +30,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      neptune: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      ready: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      whatever: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
+      // neptune: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER
+      // },
+      // ready: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER
+      // },
+      // whatever: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
