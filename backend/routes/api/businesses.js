@@ -70,13 +70,13 @@ router.post('/add',
 requireAuth,
 validateBusiness,
 asyncHandler(async (req, res) => {
-  const { name, address, categoryId, description, longitude, userId, latitude } = req.body;
+  const { name, address, categoryId, description, longitude, userId, latitude, image } = req.body;
   
-  const business = await Business.create( {name, address, categoryId, description, longitude, userId, latitude});
+  const business = await Business.create( {name, address, categoryId, description, longitude, userId, latitude, image});
   res.json({business});
 }));
 
-router.put('/business/:id', 
+router.put('/:id', 
 requireAuth,
 asyncHandler(async (req, res) => {
   const businessId = req.params.id;
