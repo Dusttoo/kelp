@@ -27,9 +27,10 @@ const validateBusiness = [
     .notEmpty()
     .withMessage('Please enter an address'),
   
-  // check('logitude')
+  // check('longitude')
   //   .exists({ checkFalsy: true })
-  //   .withMessage('Please enter a longitude'),
+  //   .isLatLong()
+  //   .withMessage('Please enter a valid longitude'),
 
   // check('latitude')
   //   .exists({ checkFalsy: true })
@@ -67,6 +68,7 @@ asyncHandler(async (req, res) => {
 
 router.put('/:id', 
 requireAuth,
+validateBusiness,
 asyncHandler(async (req, res) => {
   const businessId = req.params.id;
   const { name, address, categoryId, description, longitude, userId, latitude } = req.body;

@@ -20,6 +20,8 @@ const EditBusiness = () => {
   const [longitude, setLongitude] = useState(business.longitude);
   const [latitude, setLatitude] = useState(business.latitude);
   const [description, setDescription] = useState(business.description);
+  const [validationErrors, setValidationErrors] = useState([]);
+
   const userId = business.userId;
 
   const updateName = (e) => setName(e.target.value);
@@ -35,6 +37,14 @@ const EditBusiness = () => {
     }, [dispatch, id])
 
 
+    const validate = () => {
+        const validationErrors = [];
+
+        if(name.length < 6) validationErrors.push('Business name must be at least 6 characters');
+        if(description.length < 15) validationErrors.push('Description must be at least 15 characters');
+
+        return validationErrors;
+    }
 
 
     const handleSubmit = async (e) => {
@@ -52,19 +62,33 @@ const EditBusiness = () => {
     };
 
 
+
+    const errors = validate();
+        if (errors.length > 0) {
+            setValidationErrors(errors);
+        } else {
+            setValidationErrors([]);
     const updated = await dispatch(updateBusiness(id, payload));
     if (updated) {
       
       history.push(`/`)
       
-    }
+    }};
   };
 
 
 
   
   return (
-                  <>
+    <>
+            {validationErrors.length > 0 && (
+                <div className="error-container">
+                    <p className="error-title"> The following errors were found: </p>
+                    <ul className="error-list">
+                        {validationErrors.map(error => <li className="error" key={error}>{error}</li>)}
+                    </ul>
+                </div>
+                )}
             <div className="add-biz-container">
                 <h1 className="biz-header">Edit Your Business</h1>
                 <form onSubmit={handleSubmit} className="add-biz-form">

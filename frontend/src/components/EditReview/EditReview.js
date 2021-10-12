@@ -16,13 +16,22 @@ const EditReview = () => {
     const [hover, setHover] = useState(0);
     const [rating, setRating] = useState(thisReview.stars);
     const [review, setReview] = useState(thisReview.review);
+    const [validationErrors, setValidationErrors] = useState([]);
+
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;
 
     const [newReview, setNewReview] = useState([]);
 
     
+    const validate = () => {
+        const validationErrors = [];
 
+        if(rating < 0) validationErrors.push('Rating must be greater than zero');
+        if(review.length < 5) validationErrors.push('Review must be at least 15 characters');
+
+        return validationErrors;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,18 +44,33 @@ const EditReview = () => {
             userId
         };
 
+        const errors = validate();
+        if (errors.length > 0) {
+            setValidationErrors(errors);
+        } else {
+            setValidationErrors([]);
+
         const updated = await dispatch(updateReview(id, payload));
 
         if (updated) {
             setNewReview(review => [...review, updated])
             history.push(`/${businessId}`)
             
-        }
+        }};
 
     }
 
 
     return (
+      <>
+        {validationErrors.length > 0 && (
+                <div className="error-container">
+                    <p className="error-title"> The following errors were found: </p>
+                    <ul className="error-list">
+                        {validationErrors.map(error => <li className="error" key={error}>{error}</li>)}
+                    </ul>
+                </div>
+                )}
         <div className="rating-box">
             <h1 className="review-title">Add a review</h1>
             <form onSubmit={handleSubmit}>
@@ -82,6 +106,7 @@ const EditReview = () => {
               
             </form>
         </div>
+      </>
     )
 }
 

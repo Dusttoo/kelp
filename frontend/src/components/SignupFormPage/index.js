@@ -106,7 +106,6 @@ function SignupFormPage() {
                   </label>
                   <div className="buttons">
                     <button className="signup-button" type="submit">Sign Up</button>
-                    <button className="demo-button" type="submit">Demo</button>
                   </div>
                 </form>
                 <img className="signupImage" src="https://i.imgur.com/qI2NnYR.png" alt="placeholder"></img>
