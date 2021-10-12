@@ -59,6 +59,15 @@
     color: #015498;
 }
 
+.result-container {
+    display: flex;
+
+}
+
+.search-results {
+
+}
+
 .biz-categories {
     display: flex;
     justify-content: space-evenly;

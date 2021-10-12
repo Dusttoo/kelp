@@ -5,6 +5,9 @@ import { getBusinesses } from '../../store/businesses';
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils, faGlassMartiniAlt, faGraduationCap, faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
+import SearchBar from '../SearchBar/SearchBar';
+import SearchResults from '../SearchBar/SearchResults';
+
 
 
 
@@ -21,6 +24,7 @@ function Landing() {
     const eachReview = [];
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
     Object.values(reviews).map((review) => (eachReview.push(review)))
+    
     
 
     useEffect(() => {
@@ -61,7 +65,8 @@ function Landing() {
           <div className="overlay"></div>
              <div className="logo-search">
                  <img className="landing-logo" src="https://i.imgur.com/DbdVpyZ.png" alt="kelp logo"></img>
-                 <input className="search" placeholder="Search for a business"></input>
+                 <SearchBar />
+                 {/* <input className="search" placeholder="Search for a business"></input> */}
                  {/* <i className="fa-solid fa-magnifying-glass"></i> */}
              </div>
              <div className="biz-categories">
@@ -81,9 +86,10 @@ function Landing() {
                   <FontAwesomeIcon icon={faShoppingBasket} className="icon" />
                   <p className="category-snip">Shops</p>
                </div>
-
              </div>
-             
+            <div className="result-container">
+              {eachBusiness.map((business) => <SearchResults key={business.id} business={business} getStars={getStars}/>)}
+            </div>
          </div>
 
          <div className="listings">
@@ -107,10 +113,6 @@ function Landing() {
                           <p className="biz-link">{business.name}</p>
                           <span className="stars">{getStars(business.id)}</span>
                         </Link>
-                       
-                        {/* <p>{business.name}</p>
-                        <span className="stars">{getStars(business.id)}</span> */}
-
                     </div>
                      )     
                  })}
