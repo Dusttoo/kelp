@@ -67,6 +67,28 @@ const Reviews = () => {
         )
     }
 
+    const getStars = (reviewId) => {
+      const review = eachReview.find(reviews => reviewId === reviews.id);
+
+      return (
+        <div className="star-rating">
+                {[...Array(5)].map((star, rate) => {
+                  rate += 1;
+                  return (
+
+                    <button
+                      type="button"
+                      key={rate}
+                      className={rate <= review.stars ? "on" : "off"}
+                    >
+                      <span className="star">&#9733;</span>
+                    </button>
+                  );
+                })}
+              </div>
+      )
+    }
+
 
 
 
@@ -86,7 +108,7 @@ const Reviews = () => {
                   <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisReview.id).id)}</h4>
                 </div> 
               </div>
-              <span className="stars">Stars</span>
+              <span className="stars">{getStars(thisReview.id)}</span>
               <p className="review-content">{thisReview.review}</p>
             </div>
             ))
