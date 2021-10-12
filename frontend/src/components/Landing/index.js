@@ -11,17 +11,47 @@ function Landing() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const businesses = useSelector((state) => state.business)
-    const photos = useSelector((state) => state.photo) 
+    const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+    const reviews = useSelector((state) => state.reviews)
+    
+    
     const eachBusiness = []
-    const eachPhoto = []
+    const eachReview = [];
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
-
-
-
+    Object.values(reviews).map((review) => (eachReview.push(review)))
+    
 
     useEffect(() => {
         dispatch(getBusinesses())
     }, [dispatch])
+
+    const getStars = (id) => {
+    const starTotal = []
+    eachReview.forEach((review) => {
+        if (review.businessId === id) {
+            starTotal.push(review.stars)
+        }
+    })
+    const stars = average(starTotal);
+
+      return (
+        <div className="star-rating">
+                {[...Array(5)].map((star, rate) => {
+                  rate += 1;
+                  return (
+
+                    <button
+                      type="button"
+                      key={rate}
+                      className={rate <= stars ? "on" : "off"}
+                    >
+                      <span className="star">&#9733;</span>
+                    </button>
+                  );
+                })}
+              </div>
+      )
+    }
 
     return (
       <>
@@ -62,6 +92,8 @@ function Landing() {
                         </Link>
                        
                         <p>{business.name}</p>
+                        <span className="stars">{getStars(business.id)}</span>
+
                     </div>
                      )     
                  })}

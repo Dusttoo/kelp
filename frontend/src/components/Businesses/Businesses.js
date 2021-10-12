@@ -39,7 +39,6 @@ const Businesses = () => {
     })
 
     const stars = average(starTotal);
-    console.log("STAR AVERAGE", stars)
 
     const getStars = () => {
 
@@ -82,7 +81,6 @@ const Businesses = () => {
                 <p className="stars">No Reviews</p> :
                 getStars()}
                 <p className="category-header">Category</p>
-                <p className="hours-header">Hours</p>
               </div>
           </div>
           <div className="header-right">
