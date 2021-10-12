@@ -207,7 +207,7 @@
 
 .review-header {
     display: flex;
-    justify-content: space-between;
+    justify-content:right;
     align-items: flex-end;
     border-bottom: 1px dashed #015498;
     padding-bottom: 25px;

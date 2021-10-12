@@ -112,10 +112,6 @@ const Businesses = () => {
             </div> : <span></span>} 
             
           </div>
-          <div className="menu-section">
-            <h2 className="section-header">Menu</h2>
-            <span>Menu stuff</span>
-          </div>
           <div className="location-section">
             <div className="location-left-side">
               <h2 className="section-header">Location</h2>
@@ -162,10 +158,6 @@ const Businesses = () => {
           <div className="review-section">
             <div className="review-header">
               <AddReview />
-              <div className="sort-review">
-                <input></input>
-                <button className="sort write-review">Kelp Sort</button>
-              </div>
             </div>
             <Reviews />
           </div>
