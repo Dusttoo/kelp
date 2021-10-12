@@ -1,0 +1,33 @@
+.rating-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    border: 10px solid #015498;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #abdee2;
+    margin: auto;
+    width: 75%;
+    height: 55%;
+    text-align: center;
+}
+
+.review-title {
+    color: #015498;
+    font-weight: 600;
+    padding: 25px;
+}
+
+.star-rating {
+    padding-bottom: 15px;
+}
+
+
+.on {
+  color: #FFF201;
+}
+.off {
+  color: #ccc;
+}

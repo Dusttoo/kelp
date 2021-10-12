@@ -4,7 +4,7 @@ import { getBusinesses} from '../../store/businesses';
 import { getUsers } from '../../store/users';
 import { getReviews} from '../../store/reviews'
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import AddReview from '../AddReview/AddReview';
 
 
 const Reviews = () => {
@@ -62,7 +62,7 @@ const Reviews = () => {
         return (
         <div className="empty-reviews">
             <h2>Barnacles! No Reviews Yet.</h2>
-            <button className="write-review">Be the first.</button>
+            <AddReview />
         </div>
         )
     }

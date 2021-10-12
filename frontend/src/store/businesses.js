@@ -41,7 +41,6 @@ export const addBusiness = (business) => async (dispatch) => {
     body: JSON.stringify(business),
   });
 
-  console.log("POST RESPONSE:",response)
 
   const newBusiness = await response.json();
   dispatch(addOneBusiness(newBusiness));

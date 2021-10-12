@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
 import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
+import AddReview from '../AddReview/AddReview';
 
 
 const Businesses = () => {
@@ -88,7 +89,7 @@ const Businesses = () => {
                 <li>Sat:</li>
                 <li>Sun</li>
               </ul>
-              <button>edit hours</button>
+              <button className="write-review">edit hours</button>
             </div>
           </div>
           <div className="about-section">
@@ -117,7 +118,7 @@ const Businesses = () => {
           </div>
           <div className="review-section">
             <div className="review-header">
-              <button className="write-review">Write Review</button>
+              <AddReview />
               <div className="sort-review">
                 <input></input>
                 <button className="sort write-review">Kelp Sort</button>

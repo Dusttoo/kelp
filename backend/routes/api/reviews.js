@@ -14,8 +14,9 @@ router.get('/', asyncHandler(async (req, res) => {
 router.post('/add', 
 requireAuth,
 asyncHandler(async (req, res) => {
-  const { userId, businessId, rating, date, review } = req.body;
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+  const { userId, businessId, rating, review } = req.body;
+  console.log(businessId);
   const starCount = await Star.findAll({
     where: {businessId}
   })
@@ -23,6 +24,9 @@ asyncHandler(async (req, res) => {
   totalStars.push(rating)
   Object.values(starCount).map((star) => (totalStars.push(star)))
   const stars = average(totalStars);
+  console.log('AVERAGE OF STARS', stars)
+
+  const date = new Date();
   
   
   const newReview = await Review.create( {userId, businessId, stars, date, review});
