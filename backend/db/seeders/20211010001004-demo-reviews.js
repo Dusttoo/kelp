@@ -7,7 +7,7 @@ module.exports = {
       userId: 1,
       businessId: 1,
       date: new Date(),
-      stars: 0,
+      stars: 5,
       review: 'The best place to work!',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -15,7 +15,7 @@ module.exports = {
       userId: 7,
       businessId: 1,
       date: new Date(),
-      stars: 0,
+      stars: 1,
       review: 'Awful establishment.',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -23,7 +23,7 @@ module.exports = {
       userId: 4,
       businessId: 2,
       date: new Date(),
-      stars: 0,
+      stars: 1,
       review: 'The owner is a thief, and the restuarant has plankton.',
       createdAt: new Date(),
       updatedAt: new Date()
@@ -32,7 +32,7 @@ module.exports = {
       businessId: 9,
       date: new Date(),
       review: 'I saw a few bubble blowing babies in here. The kelp burger is good',
-      stars: 0,
+      stars: 2,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

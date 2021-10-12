@@ -18,6 +18,8 @@ const Businesses = () => {
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews)
+  const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+
 
   const eachUser = [];
   const eachBusiness = [];
@@ -29,7 +31,36 @@ const Businesses = () => {
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
 
   Object.values(reviews).map((review) => (eachReview.push(review)))
-  const review = eachReview.find(oneUser => business.userId === oneUser.id);
+  const starTotal = []
+  eachReview.forEach((review) => {
+        if (review.businessId === business.id) {
+            starTotal.push(review.stars)
+        }
+    })
+
+    const stars = average(starTotal);
+    console.log("STAR AVERAGE", stars)
+
+    const getStars = () => {
+
+      return (
+        <div className="star-rating">
+                {[...Array(5)].map((star, rate) => {
+                  rate += 1;
+                  return (
+
+                    <button
+                      type="button"
+                      key={rate}
+                      className={rate <= stars ? "on" : "off"}
+                    >
+                      <span className="star">&#9733;</span>
+                    </button>
+                  );
+                })}
+              </div>
+      )
+    }
   
   
 
@@ -47,7 +78,9 @@ const Businesses = () => {
           <div className="header-left">
               <h1 className="biz-title">{business.name}</h1>
               <div className="header-subinfo">
-                <p className="stars">Reviews info</p>
+                {!stars ? 
+                <p className="stars">No Reviews</p> :
+                getStars()}
                 <p className="category-header">Category</p>
                 <p className="hours-header">Hours</p>
               </div>
