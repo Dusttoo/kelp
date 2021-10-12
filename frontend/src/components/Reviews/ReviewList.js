@@ -111,17 +111,23 @@ const Reviews = () => {
               <div>
                 <span className="stars">{getStars(thisReview.id)}</span>
                 <p className="review-content">{thisReview.review}</p>
+              
               </div>
-              {thisReview.userId === sessionUser.id ?
+              {sessionUser ? 
+              <div>
+                {thisReview.userId === sessionUser.id ?
               <div className="edit-delete-review">
                 <Link to={`/reviews/${thisReview.id}`} className="edit-business">Edit </Link> 
                 <Link to={`/reviews/${thisReview.id}/delete`} className="delete-business">Delete</Link>
               </div> :
               <span></span>
               }
+              </div> :
+              <span></span>}
+              
             </div>
             ))
-        }
+            }
             
     </div>
   );

@@ -44,7 +44,6 @@ const validateBusiness = [
 
 router.get('', asyncHandler(async (req, res) => {
   const businesses = await Business.findAll();
-  // const hours = await Hour.findAll()
   
   res.json(businesses);
 }));

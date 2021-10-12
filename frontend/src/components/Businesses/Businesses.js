@@ -107,6 +107,7 @@ const Businesses = () => {
             </div>
         </div>
         <div className="main">
+          {sessionUser ? 
           <div className="add-buttons">
             
             {sessionUser.id === business.userId ? 
@@ -118,7 +119,9 @@ const Businesses = () => {
               
             </div> : <span></span>} 
             
-          </div>
+          </div> :
+          <div></div>}
+          
           <div className="location-section">
             <div className="location-left-side">
               <h2 className="section-header">Location</h2>
@@ -127,13 +130,20 @@ const Businesses = () => {
             </div>
             <div className="location-right-side">
               <ul className="hours">
-                <li>Mon: {hour.monHours}</li>
+                {/* <li>Mon: {hour.monHours}</li>
                 <li>Tue: {hour.tueHours}</li>
                 <li>Wed: {hour.wedHours}</li>
                 <li>Thu: {hour.thurHours}</li>
                 <li>Fri: {hour.friHours}</li>
                 <li>Sat: {hour.satHours}</li>
-                <li>Sun: {hour.sunHours}</li>
+                <li>Sun: {hour.sunHours}</li> */}
+                <li>Mon: 12pm - 8pm</li>
+                <li>Tue: 12pm - 8pm</li>
+                <li>Wed: 12pm - 8pm</li>
+                <li>Thu: 12pm - 8pm</li>
+                <li>Fri: 12pm - 8pm</li>
+                <li>Sat: 12pm - 8pm</li>
+                <li>Sun: 12pm - 8pm</li>
               </ul>
               <button className="write-review">edit hours</button>
             </div>
