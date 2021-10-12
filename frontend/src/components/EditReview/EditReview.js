@@ -19,6 +19,8 @@ const EditReview = () => {
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;
 
+    const [newReview, setNewReview] = useState([]);
+
     
 
 
@@ -36,7 +38,9 @@ const EditReview = () => {
         const updated = await dispatch(updateReview(id, payload));
 
         if (updated) {
+            setNewReview(review => [...review, updated])
             history.push(`/${businessId}`)
+            
         }
 
     }

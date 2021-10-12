@@ -26,14 +26,14 @@
 } */
 
 .header-left {
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .biz-title {
     color: white;
     font-weight: 700;
     font-size: 60px;
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .header-subinfo {
@@ -296,5 +296,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+
 
 

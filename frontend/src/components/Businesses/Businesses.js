@@ -87,7 +87,6 @@ const Businesses = () => {
   return (
     <div>
         <div className="biz-info" style={{backgroundImage: 'url(' + business.image + ')'}}>
-          <div className="overlay-business"></div>
             <div className="header-left">
                 <h1 className="biz-title">{business.name}</h1>
                 <div className="header-subinfo">

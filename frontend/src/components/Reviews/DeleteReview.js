@@ -11,6 +11,7 @@ function DeleteReview() {
     const {id} = useParams();
     const history = useHistory();
 
+
     const deleteReview = async (e) => {
       e.preventDefault();
 
@@ -25,7 +26,7 @@ function DeleteReview() {
     return (
 
         <>
-          <div className="confirmation-box">
+          <div className="confirmation-box confirm-delete-review">
             <h3>Are you sure you want to delete?</h3>
             <div>
               <form >
@@ -36,6 +37,7 @@ function DeleteReview() {
               </form>
             </div>    
           </div>
+          <div className="spacer"></div>
         </>
 
     )
