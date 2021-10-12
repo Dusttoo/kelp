@@ -20,11 +20,13 @@ const Businesses = () => {
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews)
   const categories = useSelector((state) => state.categories)
+  const hours = useSelector((state) => state.hours)
 
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
   const eachUser = [];
+  const eachHour = [];
   const eachBusiness = [];
   const eachReview = [];
   const eachCategory = [];
@@ -38,6 +40,10 @@ const Businesses = () => {
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
 
+  Object.values(hours).map(hour => eachHour.push(hour));
+  const hour = eachHour.find(oneHour => oneHour.businessId === business.id);
+  console.log("HOURS", hour)
+
   Object.values(reviews).map((review) => (eachReview.push(review)))
   const starTotal = []
   eachReview.forEach((review) => {
@@ -46,10 +52,10 @@ const Businesses = () => {
         }
     })
 
-    useEffect(() => {
-        dispatch(getBusinesses())
-        dispatch(getCategories())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getBusinesses())
+    //     dispatch(getCategories())
+    // }, [dispatch])
 
     const stars = average(starTotal);
 
@@ -121,13 +127,13 @@ const Businesses = () => {
             </div>
             <div className="location-right-side">
               <ul className="hours">
-                <li>Mon:</li>
-                <li>Tue:</li>
-                <li>Wed:</li>
-                <li>Thu:</li>
-                <li>Fri:</li>
-                <li>Sat:</li>
-                <li>Sun</li>
+                <li>Mon: {hour.monHours}</li>
+                <li>Tue: {hour.tueHours}</li>
+                <li>Wed: {hour.wedHours}</li>
+                <li>Thu: {hour.thurHours}</li>
+                <li>Fri: {hour.friHours}</li>
+                <li>Sat: {hour.satHours}</li>
+                <li>Sun: {hour.sunHours}</li>
               </ul>
               <button className="write-review">edit hours</button>
             </div>

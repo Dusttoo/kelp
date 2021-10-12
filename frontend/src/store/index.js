@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import businessReducer from './businesses';
 import categoryReducer from './categories';
+import hourReducer from './hours';
 import reviewReducer from './reviews';
 import sessionReducer from './session';
 import usersReducer from './users';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     users: usersReducer,
     reviews: reviewReducer,
     categories: categoryReducer,
+    hours: hourReducer,
 
 });
 
