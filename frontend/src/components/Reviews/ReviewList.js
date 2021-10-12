@@ -114,7 +114,7 @@ const Reviews = () => {
               </div>
               {thisReview.userId === sessionUser.id ?
               <div className="edit-delete-review">
-                <Link to={`/reviews/${thisReview.id}`} className="edit-business">Edit your Business:</Link> 
+                <Link to={`/reviews/${thisReview.id}`} className="edit-business">Edit </Link> 
                 <button className="delete-review">Delete</button>
               </div> :
               <span></span>

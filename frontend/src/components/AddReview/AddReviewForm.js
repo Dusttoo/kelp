@@ -28,8 +28,7 @@ function AddReviewForm() {
       review
     };
 
-    console.log("rating", rating)
-    console.log("review", review)
+
 
     const added = await dispatch(newReview(createdReview));
     if (added) {

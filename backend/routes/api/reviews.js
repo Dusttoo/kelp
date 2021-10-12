@@ -27,7 +27,8 @@ asyncHandler(async (req, res) => {
   const reviewId = req.params.id;
   const { userId, businessId, rating, review } = req.body;
   const updatedReview = await Review.update( 
-    {userId, businessId, rating, review},
+    {userId, businessId, 
+      stars: rating, review},
     {where: {id: reviewId}}
     );
   res.json({updatedReview});
