@@ -13,8 +13,8 @@ const EditReview = () => {
     const eachReview = [];
     Object.values(reviews).map((review) => eachReview.push(review));
     const thisReview = eachReview.find(thisReview => +id === thisReview.id);
-    const [hover, setHover] = useState(thisReview.stars);
-    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+    const [rating, setRating] = useState(thisReview.stars);
     const [review, setReview] = useState(thisReview.review);
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;

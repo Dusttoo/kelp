@@ -47,6 +47,7 @@ const Businesses = () => {
     })
 
     useEffect(() => {
+        dispatch(getBusinesses())
         dispatch(getCategories())
     }, [dispatch])
 
@@ -86,18 +87,19 @@ const Businesses = () => {
   return (
     <div>
         <div className="biz-info" style={{backgroundImage: 'url(' + business.image + ')'}}>
-          <div className="header-left">
-              <h1 className="biz-title">{business.name}</h1>
-              <div className="header-subinfo">
-                {!stars ? 
-                <p className="stars">No Reviews</p> :
-                getStars()}
-                <p className="category-header">{category.category}</p>
-              </div>
-          </div>
-          <div className="header-right">
-            <p className="view-photo">See Photos</p>
-          </div>
+          <div className="overlay-business"></div>
+            <div className="header-left">
+                <h1 className="biz-title">{business.name}</h1>
+                <div className="header-subinfo">
+                  {!stars ? 
+                  <p className="stars">No Reviews</p> :
+                  getStars()}
+                  <p className="category-header">{category.category}</p>
+                </div>
+            </div>
+            <div className="header-right">
+              <p className="view-photo">See Photos</p>
+            </div>
         </div>
         <div className="main">
           <div className="add-buttons">
@@ -119,7 +121,7 @@ const Businesses = () => {
               <p>{business.address}</p>
             </div>
             <div className="location-right-side">
-              <ul>
+              <ul className="hours">
                 <li>Mon:</li>
                 <li>Tue:</li>
                 <li>Wed:</li>

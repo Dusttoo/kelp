@@ -62,6 +62,19 @@ export const updateReview = (reviewId, payload) => async (dispatch) => {
   
 };
 
+export const removeReview = (reviewId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}/delete`,{
+  method: 'DELETE',
+  statusCode: 204,
+  headers: {'Content-Type': 'application/json'}
+});
+
+  if(response.ok) {
+    const review = await response.json();
+    dispatch(deleteReview(review.id));
+  }
+}
+
 
 
 
