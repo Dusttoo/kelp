@@ -77,8 +77,8 @@ function Landing() {
              <div className="categories">
                 <h2 >Categories</h2>
                 {
-                    sessionUser ? <Link className="add-biz" to='/businesses/add'>Add a Business</Link> :
-                    <Link className="add-biz" to='/signup'>Sign up to add a business</Link>
+                    sessionUser ? <Link className="add-biz edit-business" to='/businesses/add'>Add a Business</Link> :
+                    <Link className="add-biz edit-business" to='/signup'>Sign up to add a business</Link>
                     
                 
                 }

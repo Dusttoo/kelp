@@ -9,6 +9,7 @@ import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
 import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
 import AddReview from '../AddReview/AddReview';
+import { getCategories } from '../../store/categories';
 
 
 const Businesses = () => {
@@ -18,14 +19,21 @@ const Businesses = () => {
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews)
+  const categories = useSelector((state) => state.categories)
+
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
   const eachUser = [];
   const eachBusiness = [];
   const eachReview = [];
+  const eachCategory = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
+
+  Object.values(categories).map((category) => (eachCategory.push(category)))
+  const category = eachCategory.find(oneCategory => oneCategory.id === business.categoryId);
+  console.log(category)
 
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
@@ -37,6 +45,10 @@ const Businesses = () => {
             starTotal.push(review.stars)
         }
     })
+
+    useEffect(() => {
+        dispatch(getCategories())
+    }, [dispatch])
 
     const stars = average(starTotal);
 
@@ -80,7 +92,7 @@ const Businesses = () => {
                 {!stars ? 
                 <p className="stars">No Reviews</p> :
                 getStars()}
-                <p className="category-header">Category</p>
+                <p className="category-header">{category.category}</p>
               </div>
           </div>
           <div className="header-right">

@@ -12,6 +12,7 @@ import EditBusiness from "./components/EditBusiness";
 import { getUsers } from "./store/users";
 import { getBusinesses } from "./store/businesses";
 import { getReviews } from "./store/reviews";
+import { getCategories } from "./store/categories";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
     dispatch(getUsers());
     dispatch(getBusinesses());
     dispatch(getReviews());
+    dispatch(getCategories());
   }, [dispatch]);
 
   return (

@@ -1,5 +1,4 @@
 import { csrfFetch } from './csrf';
-import { Redirect } from 'react-router-dom';
 
 
 const LOAD_BUSINESSES = 'businesses/loadBusiness';
@@ -26,12 +25,16 @@ const deleteBusiness = (businessId) => ({
 });
 
 
+
+
 export const getBusinesses = () => async (dispatch) => {
   const response = await fetch('/api/businesses');
   const businesses = await response.json();
   dispatch(loadBusiness(businesses));
   return response
 };
+
+
 
 
 export const addBusiness = (business) => async (dispatch) => {

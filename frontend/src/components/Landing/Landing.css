@@ -65,7 +65,7 @@
 .categories {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     border-bottom: 5px solid #FFF201;
     /* padding-bottom: 10px; */
      width: 90%;
@@ -98,9 +98,10 @@
     color: #FFF201;
     text-decoration: none;
     padding: 5px;
+    /* margin-bottom: 18px; */
     font-size: 1.2em;
 }
 
 .add-biz:hover {
-    color: #015498;
+    color: white;
 }
