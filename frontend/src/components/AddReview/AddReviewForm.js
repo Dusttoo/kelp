@@ -61,16 +61,19 @@ function AddReviewForm() {
                   );
                 })}
               </div>
-              <label className="biz-label">
-                        Review:
+              <div className="add-review-content">
+                <label className="review-label" >Review:</label>
                         <input
-                        className="biz-input"
+                        placeholder="Enter your review here"
+                        className="review-input"
                         type='text'
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
                         required/>
-                      </label>
-                <button type="submit">Submit</button>
+                      
+                <button className="submit-review" type="submit">Submit</button>
+              </div>
+              
             </form>
         </div>
     )

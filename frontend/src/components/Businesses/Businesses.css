@@ -24,6 +24,9 @@
     display: flex;
     color: white;
     font-size: 30px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .stars {
@@ -31,7 +34,7 @@
 }
 
 .category-header {
-
+    
 }
 
 .hours-header {

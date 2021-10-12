@@ -48,10 +48,14 @@ function App() {
           <Route exact path="/businesses/:id">
             <EditBusiness />
           </Route>
+          
         </Switch>
-      )}
         
+        
+      )}
       <Footer />
+        
+      
     </>
   );
 }

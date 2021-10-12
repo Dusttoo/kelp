@@ -1,5 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Footer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
 
 function Footer() {
     console.log("testing")
@@ -8,7 +11,7 @@ function Footer() {
           <div className="credits">
             <h2>Dusty Mumphrey</h2>  
             <i className="fas fa-brands fa-linkedin-in"/>  
-            <i className="fas fa-brands fa-github" />
+            <FontAwesomeIcon icon="fa-brands fa-github" />
           </div>
             
       </div>

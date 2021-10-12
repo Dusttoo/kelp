@@ -24,6 +24,39 @@
     padding-bottom: 15px;
 }
 
+.add-review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-label {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #015498;
+}
+
+.review-label::placeholder {
+  text-align: center;
+}
+
+.review-input {
+  background: white;
+  margin-left: 8px;
+  border-radius: 4px;
+  border: none;
+  height: 100px;
+  width: 14rem;
+}
+
+.submit-review {
+  margin: 10px;
+  width: 75%;
+  background-color: #015498;
+  padding: 8px;
+  border-radius: 4px;
+}
+
 
 .on {
   color: #FFF201;
