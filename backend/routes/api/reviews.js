@@ -21,6 +21,26 @@ asyncHandler(async (req, res) => {
   res.json({newReview});
 }));
 
+router.put('/:id', 
+requireAuth,
+asyncHandler(async (req, res) => {
+  const reviewId = req.params.id;
+  const { userId, businessId, rating, review } = req.body;
+  const updatedReview = await Review.update( 
+    {userId, businessId, rating, review},
+    {where: {id: reviewId}}
+    );
+  res.json({updatedReview});
+}));
+
+
+router.delete('/:id/delete', asyncHandler(async function (req, res) {
+  const reviewId = req.params.id;
+  const review = await Review.destroy({
+    where: {id: reviewId}});
+  res.json({ review });
+}));
+
 
 
 

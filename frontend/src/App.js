@@ -13,6 +13,7 @@ import { getUsers } from "./store/users";
 import { getBusinesses } from "./store/businesses";
 import { getReviews } from "./store/reviews";
 import { getCategories } from "./store/categories";
+import EditReview from "./components/EditReview/EditReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route exact path="/businesses/:id">
             <EditBusiness />
+          </Route>
+          <Route exact path="/reviews/:id">
+            <EditReview />
           </Route>
           
         </Switch>

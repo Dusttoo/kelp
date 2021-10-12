@@ -45,6 +45,21 @@ export const newReview = (review) => async (dispatch) => {
   return newReview
 };
 
+export const updateReview = (reviewId, payload) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+
+  if(response.ok) {
+  const review = await response.json();
+  dispatch(addReview(review));
+  return review;
+  }
+  
+};
+
 
 
 

@@ -4,6 +4,7 @@ import { getBusinesses} from '../../store/businesses';
 import { getUsers } from '../../store/users';
 import { getReviews} from '../../store/reviews'
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import AddReview from '../AddReview/AddReview';
 
 
@@ -58,7 +59,6 @@ const Reviews = () => {
     }
 
     const noReviews = () => {
-        console.log("All reviews array", allReviews)
         return (
         <div className="empty-reviews">
             <h2>Barnacles! No Reviews Yet.</h2>
@@ -108,8 +108,17 @@ const Reviews = () => {
                   <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisReview.id).id)}</h4>
                 </div> 
               </div>
-              <span className="stars">{getStars(thisReview.id)}</span>
-              <p className="review-content">{thisReview.review}</p>
+              <div>
+                <span className="stars">{getStars(thisReview.id)}</span>
+                <p className="review-content">{thisReview.review}</p>
+              </div>
+              {thisReview.userId === sessionUser.id ?
+              <div className="edit-delete-review">
+                <Link to={`/reviews/${thisReview.id}`} className="edit-business">Edit your Business:</Link> 
+                <button className="delete-review">Delete</button>
+              </div> :
+              <span></span>
+              }
             </div>
             ))
         }

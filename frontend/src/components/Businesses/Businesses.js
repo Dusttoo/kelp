@@ -33,7 +33,6 @@ const Businesses = () => {
 
   Object.values(categories).map((category) => (eachCategory.push(category)))
   const category = eachCategory.find(oneCategory => oneCategory.id === business.categoryId);
-  console.log(category)
 
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
