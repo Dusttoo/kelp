@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
 import { useSelector } from "react-redux";
+import './Map.css'
 
 
 
@@ -9,7 +10,10 @@ export default function SimpleMap({business}){
     const latitude = business.latitude;
     const longitude= business.longitude;
 
-
+  const icon = {
+    url: 'https://i.imgur.com/3Uzp5RN.png',
+    scale: .1,
+  }
 
 
 
@@ -18,7 +22,8 @@ export default function SimpleMap({business}){
   let marker = new maps.Marker({
   position: { lat: +latitude, lng: +longitude },
   map,
-  label: business.name
+  label: business.name,
+  icon: icon
   });
 
   return marker;
@@ -32,12 +37,12 @@ export default function SimpleMap({business}){
       <GoogleMapReact
         mapIds="12449c54ce993cff"
         bootstrapURLKeys='AIzaSyCMW4vlyFxETyZEQz_q_uQcD1PT_nx55KU'
-        center={{lat: 26.0807, lng:  -92.36437}}
+        center={{lat: +latitude, lng:  +longitude}}
         zoom={8}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
       >
-        {/* {displayMarkers} */}
+        <h2 className="map-title">Bikini Bottom</h2>
       </GoogleMapReact>
     </div>
   );

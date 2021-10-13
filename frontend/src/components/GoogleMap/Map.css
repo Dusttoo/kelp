@@ -1,4 +1,4 @@
-html {
+/* html {
     box-sizing: border-box;
     font-size: 100%;
 }
@@ -14,4 +14,8 @@ body {
 
 #map {
     height: 500px;
+} */
+
+.map-title {
+    color: white;
 }
