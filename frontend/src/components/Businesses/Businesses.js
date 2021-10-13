@@ -150,7 +150,6 @@ const Businesses = () => {
                 <li>Sat: 12pm - 8pm</li>
                 <li>Sun: 12pm - 8pm</li>
               </ul>
-              <button className="write-review">edit hours</button>
             </div>
           </div>
           <div className="about-section">
