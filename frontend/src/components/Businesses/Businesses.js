@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { getBusinesses} from '../../store/businesses';
 // import { getUsers } from '../../store/users';
 // import { getReviews} from '../../store/reviews'
+import AddQuestion from '../Questions/AddQuestionModal';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
@@ -158,7 +159,7 @@ const Businesses = () => {
           <div className="questions-section">
             <div className="ask-question-div">
               <h2 className="section-header">Ask Bikini Bottom</h2>
-              <h3>Ask a question +</h3>
+              {/* <AddQuestion /> */}
             </div>
             <Questions />
             

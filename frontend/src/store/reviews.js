@@ -70,7 +70,7 @@ export const removeReview = (reviewId) => async (dispatch) => {
 
   if(response.ok) {
     const review = await response.json();
-    dispatch(deleteReview(review.id));
+    dispatch(deleteReview(review.reviewId));
   }
 }
 
@@ -90,7 +90,9 @@ const reviewReducer = (state = initialState, action) => {
     case ADD_REVIEW:
       return { ...state };
     case DELETE_REVIEW:
-      return { ...state };
+      const deleteState = {...state}
+      delete deleteState[action.reviewId]
+      return { ...deleteState };
     default:
       return state;
   }

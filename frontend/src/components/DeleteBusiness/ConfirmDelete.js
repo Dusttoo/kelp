@@ -19,10 +19,8 @@ function ConfirmDelete() {
     const deleteBusiness = async (e) => {
       e.preventDefault();
 
-      const remove = await dispatch(removeBusiness(id));
-      if (!remove) {
+      dispatch(removeBusiness(id));
         history.push('/');
-      }
     }
 
     const close = async (e) => {
