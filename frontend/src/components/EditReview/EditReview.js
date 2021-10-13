@@ -50,13 +50,10 @@ const EditReview = () => {
         } else {
             setValidationErrors([]);
 
-        const updated = await dispatch(updateReview(id, payload));
-
-        if (updated) {
-            setNewReview(review => [...review, updated])
-            history.push(`/${businessId}`)
+        dispatch(updateReview(id, payload));
+        history.push(`/${businessId}`)
             
-        }};
+        };
 
     }
 

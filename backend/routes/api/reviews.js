@@ -31,7 +31,7 @@ asyncHandler(async (req, res) => {
       stars: rating, review},
     {where: {id: reviewId}}
     );
-  res.json({updatedReview});
+  res.json({reviewId});
 }));
 
 
