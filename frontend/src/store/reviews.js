@@ -22,7 +22,7 @@ const addReview = (review) => ({
 
 const updateAReview = (review) => ({
   type: UPDATE_REVIEW,
-  review
+  review,
 });
 
 const deleteReview = (reviewId) => ({
@@ -61,7 +61,7 @@ export const updateReview = (reviewId, payload) => async (dispatch) => {
 
   if(response.ok) {
   const review = await response.json();
-  dispatch(updateAReview(review.reviewId));
+  dispatch(updateAReview(review));
   }
   
 };
@@ -100,7 +100,7 @@ const reviewReducer = (state = initialState, action) => {
       {
       return {
         ...state,
-        [action.review.reviewId]: action.review
+        [action.review]: action.review
       };
     }
     case DELETE_REVIEW:
