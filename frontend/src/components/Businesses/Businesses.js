@@ -1,35 +1,38 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBusinesses} from '../../store/businesses';
-import { getUsers } from '../../store/users';
-import { getReviews} from '../../store/reviews'
+// import { getBusinesses} from '../../store/businesses';
+// import { getUsers } from '../../store/users';
+// import { getReviews} from '../../store/reviews'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
 import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
 import AddReview from '../AddReview/AddReview';
-import { getCategories } from '../../store/categories';
+import Questions from '../Questions/QuestionsList';
+// import { getCategories } from '../../store/categories';
 
 
 const Businesses = () => {
   const {id} = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const businesses = useSelector((state) => state.business);
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
-  const reviews = useSelector((state) => state.reviews)
-  const categories = useSelector((state) => state.categories)
-  const hours = useSelector((state) => state.hours)
+  const reviews = useSelector((state) => state.reviews);
+  const categories = useSelector((state) => state.categories);
+  // const hours = useSelector((state) => state.hours);
+  const questions = useSelector((state) => state.questions);
 
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
   const eachUser = [];
-  const eachHour = [];
+  // const eachHour = [];
   const eachBusiness = [];
   const eachReview = [];
   const eachCategory = [];
+  const eachQuestion = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
 
@@ -40,9 +43,11 @@ const Businesses = () => {
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
 
-  Object.values(hours).map(hour => eachHour.push(hour));
-  const hour = eachHour.find(oneHour => oneHour.businessId === business.id);
-  console.log("HOURS", hour)
+  // Object.values(hours).map(hour => eachHour.push(hour));
+  // const hour = eachHour.find(oneHour => oneHour.businessId === business.id);
+
+  Object.values(questions).map((question) => (eachQuestion.push(question)))
+  
 
   Object.values(reviews).map((review) => (eachReview.push(review)))
   const starTotal = []
@@ -82,11 +87,11 @@ const Businesses = () => {
   
   
 
-  useEffect(() => {
-        dispatch(getBusinesses())
-        dispatch(getUsers())
-        dispatch(getReviews())
-    }, [dispatch])
+  // useEffect(() => {
+  //       dispatch(getBusinesses())
+  //       dispatch(getUsers())
+  //       dispatch(getReviews())
+  //   }, [dispatch])
 
 
 
@@ -164,12 +169,8 @@ const Businesses = () => {
               <h2 className="section-header">Ask Bikini Bottom</h2>
               <h3>Ask a question +</h3>
             </div>
-            <div className="q-a">
-              <span className="question-letter">Q:</span><p className="quesion-asked">This is my question</p>
-            </div>
-            <div className="q-a">
-              <span className="question-letter">A:</span><p className="quesion-asked">This is my answer</p>
-            </div>
+            <Questions />
+            
 
           </div>
           <div className="review-section">

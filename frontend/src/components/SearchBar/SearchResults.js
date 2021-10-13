@@ -1,8 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
-import { useState } from 'react';
 
 const SearchResults = ({ business, getStars }) => {
-  const [display, setDisplay] = useState('none')
   const queryString = new URLSearchParams(useLocation().search).get('q') ?? '';
   const biz = business.name;
 

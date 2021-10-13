@@ -16,6 +16,7 @@ import { getCategories } from "./store/categories";
 import EditReview from "./components/EditReview/EditReview";
 import DeleteReview from "./components/Reviews/DeleteReview";
 import { getHours } from "./store/hours";
+import { getQuestions } from "./store/questions";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
     dispatch(getReviews());
     dispatch(getCategories());
     dispatch(getHours());
+    dispatch(getQuestions());
   }, [dispatch]);
 
   return (
