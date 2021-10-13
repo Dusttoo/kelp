@@ -8,7 +8,7 @@ function DeleteBusiness() {
 
   return (
     <>
-      <button className="delete-business" onClick={() => setShowModal(true)}>Delete Busiess</button>
+      <button className="delete-business" onClick={() => setShowModal(true)}>Delete Business</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ConfirmDelete /> 
