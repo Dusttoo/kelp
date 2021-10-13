@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUtensils, faGlassMartiniAlt, faGraduationCap, faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchBar/SearchResults';
+import { getReviews } from '../../store/reviews';
 
 
 
@@ -29,6 +30,7 @@ function Landing() {
 
     useEffect(() => {
         dispatch(getBusinesses())
+        dispatch(getReviews())
     }, [dispatch])
 
     const getStars = (id) => {

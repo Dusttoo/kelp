@@ -95,12 +95,17 @@ const reviewReducer = (state = initialState, action) => {
       });
       return newState;
     case ADD_REVIEW:
-      return { ...state };
-    case UPDATE_REVIEW:
       {
       return {
         ...state,
         [action.review]: action.review
+      };
+    }
+    case UPDATE_REVIEW:
+      {
+      return {
+        ...state,
+        [action.reviewId]: action.review
       };
     }
     case DELETE_REVIEW:

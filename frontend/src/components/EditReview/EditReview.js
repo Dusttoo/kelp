@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateReview } from '../../store/reviews';
 import { useParams, useHistory } from 'react-router-dom';
+import { getReviews } from '../../store/reviews';
 
 import './EditReview.css'
 
@@ -21,7 +22,9 @@ const EditReview = () => {
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;
 
-    const [newReview, setNewReview] = useState([]);
+    useEffect(() => {
+        dispatch(getReviews())
+    }, [dispatch])
 
     
     const validate = () => {
