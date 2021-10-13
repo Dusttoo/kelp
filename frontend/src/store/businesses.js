@@ -67,6 +67,7 @@ export const updateBusiness = (businessId, payload) => async (dispatch) => {
 };
 
 export const removeBusiness = (businessId) => async (dispatch) => {
+  
   const response = await csrfFetch(`/api/businesses/${businessId}/delete`,{
   method: 'DELETE',
   statusCode: 204,
@@ -75,7 +76,8 @@ export const removeBusiness = (businessId) => async (dispatch) => {
 
   if(response.ok) {
     const business = await response.json();
-    dispatch(deleteBusiness(business.id));
+    console.log(business);
+    dispatch(deleteBusiness(business.business));
   }
 }
 
