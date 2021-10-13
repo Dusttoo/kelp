@@ -12,12 +12,13 @@ import './Businesses.css'
 import AddReview from '../AddReview/AddReview';
 import Questions from '../Questions/QuestionsList';
 import GoogleMap from '../GoogleMap/Map';
+import { getQuestions } from '../../store/questions';
 // import { getCategories } from '../../store/categories';
 
 
 const Businesses = () => {
   const {id} = useParams();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const businesses = useSelector((state) => state.business);
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
@@ -59,10 +60,9 @@ const Businesses = () => {
         }
     })
 
-    // useEffect(() => {
-    //     dispatch(getBusinesses())
-    //     dispatch(getCategories())
-    // }, [dispatch])
+    useEffect(() => {
+      dispatch(getQuestions())
+    }, [dispatch])
 
     const stars = average(starTotal);
 
@@ -159,7 +159,7 @@ const Businesses = () => {
           <div className="questions-section">
             <div className="ask-question-div">
               <h2 className="section-header">Ask Bikini Bottom</h2>
-              {/* <AddQuestion /> */}
+              <AddQuestion />
             </div>
             <Questions />
             

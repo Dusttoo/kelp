@@ -1,20 +1,21 @@
-// import {  useState } from 'react';
-// import { Modal } from '../../context/Modal';
+import {  useState } from 'react';
+import { Modal } from '../../context/Modal';
+import AddQuestionForm from './AddQuestionForm';
 
-// const AddQuestion = () => {
-//   const [showModal, setShowModal] = useState(false);
+const AddQuestion = () => {
+  const [showModal, setShowModal] = useState(false);
 
 
-//     return (
-//         <>
-//       <button className="write-review" onClick={() => setShowModal(true)}>Ask a question</button>
-//       {showModal && (
-//         <Modal onClose={() => setShowModal(false)}>
-//           <AddQuestionForm /> 
-//         </Modal>
-//       )}
-//     </>
-//     )
-// }
+    return (
+        <>
+      <button className="write-review" onClick={() => setShowModal(true)}>Ask a question</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <AddQuestionForm /> 
+        </Modal>
+      )}
+    </>
+    )
+}
 
-// export default AddQuestion;
+export default AddQuestion;

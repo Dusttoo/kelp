@@ -15,7 +15,7 @@ asyncHandler(async (req, res) => {
   const { userId, businessId, question } = req.body;
   const date = new Date();
   
-  const newQuestion = await Question.create( {userId, businessId, question});
+  const newQuestion = await Question.create( {userId, businessId, question, date});
   res.json({newQuestion});
 }));
 

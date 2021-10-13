@@ -88,7 +88,12 @@ const questionReducer = (state = initialState, action) => {
       });
       return newState;
     case ADD_QUESTION:
-      return { ...state };
+      {
+      return {
+        ...state,
+        [action.question]: action.question
+      };
+    }
     case DELETE_QUESTION:
       return { ...state };
     default:
