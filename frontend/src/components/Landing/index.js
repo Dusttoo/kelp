@@ -62,7 +62,7 @@ function Landing() {
     return (
       <>
         <div className="landing-container">
-          <div className="overlay"></div>
+        {/* <div className="overlay"></div> */}
              <div className="logo-search">
                  <img className="landing-logo" src="https://i.imgur.com/DbdVpyZ.png" alt="kelp logo"></img>
                  <SearchBar />
