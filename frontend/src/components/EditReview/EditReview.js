@@ -27,7 +27,7 @@ const EditReview = () => {
     const validate = () => {
         const validationErrors = [];
 
-        if(rating < 0) validationErrors.push('Rating must be greater than zero');
+        if(rating < 1) validationErrors.push('Rating must be greater than zero');
         if(review.length < 5) validationErrors.push('Review must be at least 15 characters');
 
         return validationErrors;

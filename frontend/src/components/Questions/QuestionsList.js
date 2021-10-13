@@ -28,6 +28,17 @@ const Questions = () => {
         return user;
     }
 
+    const getDate = (userId) => {
+        let options = { month: 'long'};
+        const user = eachUser.find(oneUser => userId === oneUser.id);
+        const date = new Date(user.kelpingSince);
+        const day = date.getDate();
+        const month = new Intl.DateTimeFormat('en-US', options).format(date)
+        const year = date.getFullYear();
+
+        return `${month} ${day}, ${year}`
+    }
+
     const noQuestions = () => {
         return (
         <div className="empty-reviews">
@@ -43,15 +54,21 @@ const Questions = () => {
             noQuestions() 
             :
             allQuestions.map(thisQuestion => (
-                <div key={thisQuestion.id}>
-                    <div className="q-a">
-                        <span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p>
-                    </div>
-                    <div className="q-a">
-                        <span className="question-letter">A:</span><p className="quesion-asked">{thisQuestion.answer}</p>
+                <div >
+                        <div className="questionSection" key={thisQuestion.id}>
+                            <div className="reviewer">
+                            <img className="reviewer-img" src={`${getOwner(thisQuestion.id).profileImg}`} alt={getOwner(thisQuestion.id).firstName}></img>
+                            <div className="reviewer-info">
+                                <h4 className="reviewer-name">{getOwner(thisQuestion.id).firstName} {getOwner(thisQuestion.id).lastName}</h4>
+                                <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisQuestion.id).id)}</h4>
+                            </div> 
+                        </div>
+                            <div className="q-a">
+                                <div className="q-tag"><span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p></div>
+                                <div className="q-tag"><span className="question-letter">A:</span><p className="quesion-asked">{thisQuestion.answer}</p></div>
+                            </div>
                     </div>
                 </div>
-                
             ))
             }    
                 

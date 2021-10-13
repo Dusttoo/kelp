@@ -207,13 +207,22 @@
     justify-content: space-between;
 }
 
+.questionSection {
+    display: flex;
+    justify-content: space-between;
+}
+
 .q-a {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10px;
 }
 
 .question-letter {
-    padding-right: 5px;
+    padding-right: 15px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -257,6 +266,11 @@
     border-bottom: 1px dashed #015498;
     padding-bottom: 25px;
 
+}
+
+.q-tag {
+    display: flex;
+    align-items: center;
 }
 
 .reviewer {
