@@ -22,6 +22,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      answer: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        defaultValue: "No answers yet."
+      },
       date: {
         allowNull: false,
         type: Sequelize.DATE

@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     businessId: DataTypes.INTEGER,
     question: DataTypes.STRING,
+    answer: DataTypes.STRING,
     date: DataTypes.DATE,
   }, {});
   Question.associate = function(models) {
