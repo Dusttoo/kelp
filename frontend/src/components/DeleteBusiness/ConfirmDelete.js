@@ -15,7 +15,6 @@ function ConfirmDelete() {
       e.preventDefault();
 
       const remove = await dispatch(removeBusiness(id));
-      console.log(remove);
       if (!remove) {
         history.push('/');
       }

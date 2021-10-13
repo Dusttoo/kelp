@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import LoginFormModal from '../LoginFormModal'
 import './SignupFormPage.css'
 
 function SignupFormPage() {
@@ -40,7 +41,7 @@ function SignupFormPage() {
                   <h1 className="login-header">Sign up for Kelp</h1>
                   <div className="signupContainer">
                   <h3 className="signup-header">Already a user?</h3> 
-                  <Link to="/login" className="signup-link">log in</Link>
+                  <LoginFormModal />
                   </div>   
                   <div className="name-fields">              
                     <label className="signup-label firstName">

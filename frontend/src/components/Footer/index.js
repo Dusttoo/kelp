@@ -6,7 +6,6 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
 
 
 function Footer() {
-    console.log("testing")
     return (
       <div className="footer-main">
           <div className="credits">

@@ -9,7 +9,6 @@ const loadCategory = (categories) => ({
 
 export const getCategories = () => async (dispatch) => {
   const response = await fetch('/api/categories');
-  console.log("Category response: ", response)
   const categories = await response.json();
   dispatch(loadCategory(categories));
   return response

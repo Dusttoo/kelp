@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LoginForm.css';
+import DemoLogin from '../DemoButton';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -58,7 +59,6 @@ function LoginForm() {
                   </div>
                   <div className="buttons">
                     <button className="login-button" type="submit">Log In</button>
-                    <button className="demo-button" type="submit">Demo</button>
                   </div>
                 </form>
                 <img className="loginImage" src="https://i.imgur.com/qI2NnYR.png" alt="placeholder"></img>

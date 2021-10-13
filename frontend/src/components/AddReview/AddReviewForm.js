@@ -40,7 +40,6 @@ function AddReviewForm() {
     };
 
     const errors = validate();
-        console.log("This is the rating!!!!", rating)
 
         if (errors.length > 0) {
             setValidationErrors(errors);

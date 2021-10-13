@@ -43,12 +43,10 @@ router.post(
   validateSignup,
   asyncHandler(async (req, res) => {
     const { email, firstName, lastName, profileImg, password } = req.body;
-        //   console.log(firstName, lastName, email,  password, profileImg)
         const hashedPassword = bcrypt.hashSync(password)
         const kelpingSince = new Date();
     const user = await User.create( { email, firstName, lastName, profileImg, hashedPassword, kelpingSince });
 
-    // console.log("This is the user: ", user)
     await setTokenCookie(res, user);
 
     return res.json({

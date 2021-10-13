@@ -175,7 +175,11 @@ const Businesses = () => {
           </div>
           <div className="review-section">
             <div className="review-header">
-              <AddReview />
+              {sessionUser ?
+              <AddReview /> :
+              <Link className="add-biz edit-business" to='/signup'>Sign up to leave a review</Link>
+              }
+              
             </div>
             <Reviews />
           </div>

@@ -16,7 +16,6 @@ function DeleteReview() {
       e.preventDefault();
 
       const remove = await dispatch(removeReview(id));
-      console.log(remove);
       if (!remove) {
         history.push('/');
       }
