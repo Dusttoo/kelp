@@ -112,8 +112,6 @@ const Businesses = () => {
             {sessionUser.id === business.userId ? 
             <div className="your-business">
               <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
-              {/* <button onClick={(e) => {confirmDelete();}} 
-                className="delete-business">Delete your Business:</button>  */}
               <DeleteBusiness />
               
             </div> : <span></span>} 
