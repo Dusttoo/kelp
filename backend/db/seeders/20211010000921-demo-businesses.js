@@ -102,7 +102,150 @@ module.exports = {
       latitude: '26.13191',
       createdAt: new Date(),
       updatedAt: new Date()
-    }]
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },  {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }, {
+      name: 'Test',
+      address: "Bikini Bottom",
+      description: "The Thug Tug is a bar that first appears in The SpongeBob SquarePants Movie. The bar is located outside the city limits of Bikini Bottom and was frequented by hardened criminals.",
+      image: 'https://i.imgur.com/zUFJuDB.png',
+      categoryId: 2,
+      userId: 1,
+      longitude: '-94.11706',
+      latitude: '26.13191',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },]
 , {});
   },
 

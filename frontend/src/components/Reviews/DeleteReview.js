@@ -15,10 +15,8 @@ function DeleteReview() {
     const deleteReview = async (e) => {
       e.preventDefault();
 
-      const remove = await dispatch(removeReview(id));
-      if (!remove) {
+      await dispatch(removeReview(id));
         history.push('/');
-      }
     }
     
 

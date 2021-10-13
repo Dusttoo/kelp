@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { getBusinesses} from '../../store/businesses';
 // import { getUsers } from '../../store/users';
 // import { getReviews} from '../../store/reviews'
+import AddQuestion from '../Questions/AddQuestionModal';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
@@ -85,14 +86,7 @@ const Businesses = () => {
               </div>
       )
     }
-  
-  
 
-  // useEffect(() => {
-  //       dispatch(getBusinesses())
-  //       dispatch(getUsers())
-  //       dispatch(getReviews())
-  //   }, [dispatch])
 
 
 
@@ -119,8 +113,6 @@ const Businesses = () => {
             {sessionUser.id === business.userId ? 
             <div className="your-business">
               <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
-              {/* <button onClick={(e) => {confirmDelete();}} 
-                className="delete-business">Delete your Business:</button>  */}
               <DeleteBusiness />
               
             </div> : <span></span>} 
@@ -167,7 +159,7 @@ const Businesses = () => {
           <div className="questions-section">
             <div className="ask-question-div">
               <h2 className="section-header">Ask Bikini Bottom</h2>
-              <h3>Ask a question +</h3>
+              {/* <AddQuestion /> */}
             </div>
             <Questions />
             
