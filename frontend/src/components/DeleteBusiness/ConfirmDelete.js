@@ -1,6 +1,7 @@
 import React from 'react';
-import businessReducer, { removeBusiness } from '../../store/businesses';
+import { removeBusiness, getBusinesses } from '../../store/businesses';
 import { useDispatch} from 'react-redux';
+import { useEffect } from 'react';
 import {  useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 
@@ -10,6 +11,10 @@ function ConfirmDelete() {
     const dispatch = useDispatch();
     const {id} = useParams();
     const history = useHistory();
+
+    useEffect(() => {
+        dispatch(getBusinesses())
+    }, [dispatch])
 
     const deleteBusiness = async (e) => {
       e.preventDefault();

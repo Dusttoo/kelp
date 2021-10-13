@@ -85,14 +85,7 @@ const Businesses = () => {
               </div>
       )
     }
-  
-  
 
-  // useEffect(() => {
-  //       dispatch(getBusinesses())
-  //       dispatch(getUsers())
-  //       dispatch(getReviews())
-  //   }, [dispatch])
 
 
 
