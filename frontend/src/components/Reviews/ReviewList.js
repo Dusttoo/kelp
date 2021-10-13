@@ -59,7 +59,21 @@ const Reviews = () => {
     }
 
     const noReviews = () => {
+      if(sessionUser) {
+
+      } else {
         return (
+        <div className="no-reviews">
+           <h2>Barnacles! There's no reviews!</h2>
+           <div className="no-review-signup">
+              <h3>Want to be the first?</h3>
+              <Link className="write-review" to="/signup">Sign up</Link>
+           </div>
+        </div>
+
+        )
+      }
+      return (
         <div className="empty-reviews">
             <h2>Barnacles! No Reviews Yet.</h2>
             <AddReview />

@@ -81,16 +81,14 @@
     width: 100%;
 }
 
-.login-button,
-.demo-button {
+.login-button {
     
     margin: 3px;
     background-color: none;
     color: #015498;
 }
 
-.login-button:hover,
-.demo-button:hover {
+.login-button:hover {
     color: #FFF201;
 
 } 

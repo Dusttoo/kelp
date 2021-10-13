@@ -84,16 +84,14 @@
     width: 50%;
 }
 
-.signup-button,
-.demo-button {
+.signup-button {
     
     margin: 3px;
     background-color: none;
     color: #015498;
 }
 
-.signup-button:hover,
-.demo-button:hover {
+.signup-button:hover {
     color: #FFF201;
 
 } 

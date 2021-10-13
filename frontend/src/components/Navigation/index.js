@@ -20,7 +20,6 @@ function Navigation({ isLoaded }){
         <div className="login-buttons">
             <DemoLogin/>
             <LoginFormModal/>
-            {/* <Link to="/login" className="login">Log In</Link> */}
             <Link to="/signup" className="signup">Sign Up</Link>
         </div>
       </>
