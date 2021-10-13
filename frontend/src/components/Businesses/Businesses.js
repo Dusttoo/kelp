@@ -10,6 +10,7 @@ import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
 import AddReview from '../AddReview/AddReview';
 import Questions from '../Questions/QuestionsList';
+import GoogleMap from '../GoogleMap/Map';
 // import { getCategories } from '../../store/categories';
 
 
@@ -130,7 +131,7 @@ const Businesses = () => {
           <div className="location-section">
             <div className="location-left-side">
               <h2 className="section-header">Location</h2>
-              <div>Map</div>
+              <div><GoogleMap business={business}/></div>
               <p>{business.address}</p>
             </div>
             <div className="location-right-side">

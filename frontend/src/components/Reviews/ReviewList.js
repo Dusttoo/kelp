@@ -100,7 +100,7 @@ const Reviews = () => {
         :
             allReviews.map(thisReview => (
                 
-            <div className="review">
+            <div key={thisReview.id} className="review">
               <div className="reviewer">
                 <img className="reviewer-img" src={`${getOwner(thisReview.id).profileImg}`} alt={getOwner(thisReview.id).firstName}></img>
                 <div className="reviewer-info">

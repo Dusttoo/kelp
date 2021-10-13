@@ -43,7 +43,7 @@ const Questions = () => {
             noQuestions() 
             :
             allQuestions.map(thisQuestion => (
-                <div>
+                <div key={thisQuestion.id}>
                     <div className="q-a">
                         <span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p>
                     </div>

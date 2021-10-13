@@ -1,3 +1,60 @@
+import React from "react";
+import GoogleMapReact from 'google-map-react';
+import { useSelector } from "react-redux";
+
+
+
+export default function SimpleMap({business}){
+    
+    const latitude = business.latitude;
+    const longitude= business.longitude;
+
+
+
+
+
+
+  const renderMarkers = (map, maps) => {
+  let marker = new maps.Marker({
+  position: { lat: +latitude, lng: +longitude },
+  map,
+  label: business.name
+  });
+
+  return marker;
+ };
+
+
+
+  return (
+    // Important! Always set the container height explicitly
+    <div style={{ height: '300px', width: '300px' }}>
+      <GoogleMapReact
+        mapIds="12449c54ce993cff"
+        bootstrapURLKeys='AIzaSyCMW4vlyFxETyZEQz_q_uQcD1PT_nx55KU'
+        center={{lat: 26.0807, lng:  -92.36437}}
+        zoom={8}
+        yesIWantToUseGoogleMapApiInternals
+        onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
+      >
+        {/* {displayMarkers} */}
+      </GoogleMapReact>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let map;
 
 // function initMap() {

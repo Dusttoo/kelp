@@ -107,7 +107,7 @@ function Landing() {
                  
                  {eachBusiness.map((business) => {
                      return (
-                    <div className="biz-listing">
+                    <div key={business.id} className="biz-listing">
                         <Link  to={`/${business.id}`} > 
                           <img className='listing-img' src={business.image} alt={business.name}></img>
                           <p className="biz-link">{business.name}</p>
