@@ -5,7 +5,8 @@ import { getUsers } from '../../store/users';
 import { getReviews} from '../../store/reviews'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import AddReview from '../AddReview/AddReview';
+import AddReview from '../Reviews/AddReview';
+
 
 
 

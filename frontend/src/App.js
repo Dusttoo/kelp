@@ -6,14 +6,14 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
-import Businesses from "./components/Businesses";
-import AddBusiness from './components/AddBusiness';
-import EditBusiness from "./components/EditBusiness";
+import Businesses from "./components/Businesses/Businesses";
+import AddBusiness from './components/Businesses/AddBusiness';
+import EditBusiness from "./components/Businesses/EditBusiness";
 import { getUsers } from "./store/users";
 import { getBusinesses } from "./store/businesses";
 import { getReviews } from "./store/reviews";
 import { getCategories } from "./store/categories";
-import EditReview from "./components/EditReview/EditReview";
+import EditReview from "./components/Reviews/EditReview";
 import DeleteReview from "./components/Reviews/DeleteReview";
 import { getQuestions } from "./store/questions";
 

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateBusiness, getBusinesses } from '../../store/businesses';
 import { useParams, useHistory } from 'react-router-dom';
 
-import './EditBusiness.css'
 
 
 const EditBusiness = () => {

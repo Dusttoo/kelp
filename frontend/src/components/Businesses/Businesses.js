@@ -6,10 +6,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import AddQuestion from '../Questions/AddQuestionModal';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import DeleteBusiness from '../DeleteBusiness/DeleteBusiness';
+import DeleteBusiness from '../Businesses/DeleteBusiness';
 import Reviews from '../Reviews/ReviewList';
 import './Businesses.css'
-import AddReview from '../AddReview/AddReview';
+import AddReview from '../Reviews/AddReview';
 import Questions from '../Questions/QuestionsList';
 import GoogleMap from '../GoogleMap/Map';
 import { getQuestions } from '../../store/questions';

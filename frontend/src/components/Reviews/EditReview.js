@@ -4,7 +4,6 @@ import { updateReview } from '../../store/reviews';
 import { useParams, useHistory } from 'react-router-dom';
 import { getReviews } from '../../store/reviews';
 
-import './EditReview.css'
 
 const EditReview = () => {
     const dispatch = useDispatch();
