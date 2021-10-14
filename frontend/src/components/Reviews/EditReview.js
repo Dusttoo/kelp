@@ -92,10 +92,9 @@ const EditReview = () => {
               </div>
               <div className="add-review-content">
                 <label className="review-label" >Review:</label>
-                        <input
+                        <textarea
                         placeholder="Enter your review here"
                         className="review-input"
-                        type='text'
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
                         required/>

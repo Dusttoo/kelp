@@ -77,10 +77,9 @@ function EditQuestion() {
             <form onSubmit={handleSubmit}>
               <div className="add-review-content">
                 <label className="review-label" >Question:</label>
-                        <input
+                        <textarea
                         placeholder="Enter your review here"
                         className="review-input"
-                        type='text'
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
                         required/>

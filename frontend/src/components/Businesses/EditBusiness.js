@@ -19,6 +19,8 @@ const EditBusiness = () => {
   const [longitude, setLongitude] = useState(business.longitude);
   const [latitude, setLatitude] = useState(business.latitude);
   const [description, setDescription] = useState(business.description);
+  const [image, setImage] = useState(business.image);
+
   const [validationErrors, setValidationErrors] = useState([]);
 
   const userId = business.userId;
@@ -29,6 +31,9 @@ const EditBusiness = () => {
   const updateLongitude = (e) => setLongitude(e.target.value);
   const updateLatitude = (e) => setLatitude(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
+  const updateImage = (e) => setImage(e.target.value);
+
+
 
 
     useEffect(() => {
@@ -41,6 +46,9 @@ const EditBusiness = () => {
 
         if(name.length < 6) validationErrors.push('Business name must be at least 6 characters');
         if(description.length < 15) validationErrors.push('Description must be at least 15 characters');
+        if(image.length > 255) validationErrors.push('Image url can not be longer than 255 characters');
+        if(latitude < -90 || latitude > 90) validationErrors.push('Latitude must be between -90 and 90');
+        if(longitude < -180 || longitude > 180) validationErrors.push('Longitude must be between -180 and 180');
 
         return validationErrors;
     }
@@ -56,7 +64,8 @@ const EditBusiness = () => {
       longitude,
       latitude,
       description,
-      userId
+      userId,
+      image
 
     };
 
@@ -91,35 +100,51 @@ const EditBusiness = () => {
             <div className="add-biz-container">
                 <h1 className="biz-header">Edit Your Business</h1>
                 <form onSubmit={handleSubmit} className="add-biz-form">
-                  <ul>
-                  </ul>  
+                <div className="bizLabel">
                     <label className="biz-label">
                       Business Name:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={name}
                       onChange={updateName}
                       required/>
-                    </label>
+                  </div>
+                  <div className="bizLabel">
                     <label className="biz-label">
                       Address:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={address}
                       onChange={updateAddress}
                       required/>
-                    </label>
-                  <label className="biz-label">
+                  </div>
+                  <div className="bizLabel">
+                    <label className="biz-label">
                       Description:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={description}
                       onChange={updateDescription}
                       required/>
+                  </div>
+                <div className="bizLabel">
+                    <label className="biz-label">
+                      Image:
                     </label>
+                    <input
+                      className="biz-input"
+                      type='text'
+                      value={image}
+                      onChange={updateImage}
+                      required/>
+                </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                     Category:
                     <select
@@ -134,18 +159,23 @@ const EditBusiness = () => {
                       <option value={4}>Gift Shop</option>
                     </select>
                   </label>
+                </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                     Longitude:
-                    <input
+                  </label>
+                  <input
                     className="biz-input"
                       type='number'
                       step='0.00001'
                       value={longitude}
                       onChange={updateLongitude}
                       required/>
-                  </label>
-                  <label className="biz-label">
-                    Latitude:
+                </div>
+                <div className="bizLabel">
+                    <label className="biz-label">
+                      Latitude:
+                    </label>
                     <input
                     className="biz-input"
                       type='number'
@@ -153,9 +183,9 @@ const EditBusiness = () => {
                       value={latitude}
                       onChange={updateLatitude}
                       required/>
-                  </label>
-                  <div>
-                    <button type="submit">Edit your business</button>
+                </div>
+                  <div className="submit-holder">
+                    <button className="write-review submit-button" type="submit">Edit your business</button>
                   </div>
                 </form>
             </div>

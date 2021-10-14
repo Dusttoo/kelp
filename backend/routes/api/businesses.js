@@ -26,15 +26,6 @@ const validateBusiness = [
     .exists({ checkFalsy: true})
     .notEmpty()
     .withMessage('Please enter an address'),
-  
-  // check('longitude')
-  //   .exists({ checkFalsy: true })
-  //   .isLatLong()
-  //   .withMessage('Please enter a valid longitude'),
-
-  // check('latitude')
-  //   .exists({ checkFalsy: true })
-  //   .withMessage('Please enter a latitude'),
 
   handleValidationErrors,
 ]
@@ -70,9 +61,9 @@ requireAuth,
 validateBusiness,
 asyncHandler(async (req, res) => {
   const businessId = req.params.id;
-  const { name, address, categoryId, description, longitude, userId, latitude } = req.body;
+  const { name, address, categoryId, description, longitude, userId, latitude, image } = req.body;
   const business = await Business.update( 
-    {name, address, categoryId, description, longitude, userId, latitude},
+    {name, address, categoryId, description, longitude, userId, latitude, image},
     {where: {id: businessId}}
     );
   res.json({business});

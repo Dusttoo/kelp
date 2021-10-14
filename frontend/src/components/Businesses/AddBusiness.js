@@ -26,6 +26,11 @@ const AddBusiness = () => {
 
         if(name.length < 6) validationErrors.push('Business name must be at least 6 characters');
         if(description.length < 15) validationErrors.push('Description must be at least 15 characters');
+        if(image.length > 255) validationErrors.push('Image url can not be longer than 255 characters');
+        if(latitude < -90 || latitude > 90) validationErrors.push('Latitude must be between -90 and 90');
+        if(longitude < -180 || longitude > 180) validationErrors.push('Longitude must be between -180 and 180');
+
+
 
         return validationErrors;
     }
@@ -75,46 +80,54 @@ const AddBusiness = () => {
                 <h1 className="biz-header">Add A Business</h1>
                 
                 <form onSubmit={handleSubmit} className="add-biz-form">
+                  <div className="bizLabel">
                     <label className="biz-label">
                       Business Name:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required/>
-                    </label>
+                  </div>
+                  <div className="bizLabel">
                     <label className="biz-label">
                       Address:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                       required/>
-                    </label>
+                  </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                       Description:
-                      <input
+                  </label>
+                  <textarea
                       className="biz-input"
                       type='text'
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       required/>
-                    </label>
+                </div>
+                  <div className="bizLabel">
                     <label className="biz-label">
                       Image:
-                      <input
+                    </label>
+                    <input
                       className="biz-input"
                       type='text'
                       value={image}
                       onChange={(e) => setImage(e.target.value)}
                       required/>
-                    </label>
+                </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                     Category:
                     <select
-                    
                     className="biz-label biz-input"
                     value={categoryId}
                     onChange={(e) => setCategory(e.target.value)}
@@ -126,28 +139,33 @@ const AddBusiness = () => {
                       <option value={4}>Gift Shop</option>
                     </select>
                   </label>
+                </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                     Longitude:
-                    <input
+                  </label>
+                  <input
                     className="biz-input"
                       type='number'
                       step='0.00001'
                       value={longitude}
                       onChange={(e) => setLongitude(e.target.value)}
                       required/>
-                  </label>
+                </div>
+                <div className="bizLabel">
                   <label className="biz-label">
                     Latitude:
-                    <input
+                  </label>
+                  <input
                     className="biz-input"
                       type='number'
                       step='0.00001'
                       value={latitude}
                       onChange={(e) => setLatitude(e.target.value)}
                       required/>
-                  </label>
-                  <div>
-                    <button type="submit">Add your business</button>
+                </div>
+                  <div className="submit-holder">
+                    <button className="write-review submit-buttom" type="submit">Add your business</button>
                   </div>
                 </form>
             </div>
