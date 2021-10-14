@@ -85,7 +85,6 @@ export const removeReview = (reviewId) => async (dispatch) => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-      console.log("Update action", action.review)
 
   switch (action.type) {
     case LOAD_REVIEWS:
