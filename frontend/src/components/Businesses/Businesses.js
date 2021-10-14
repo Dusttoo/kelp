@@ -159,7 +159,10 @@ const Businesses = () => {
           <div className="questions-section">
             <div className="ask-question-div">
               <h2 className="section-header">Ask Bikini Bottom</h2>
-              <AddQuestion />
+              {sessionUser ?
+              <AddQuestion /> :
+              <Link className="add-biz" to='/signup'>Sign up to ask a question</Link>
+              }
             </div>
             <Questions />
             

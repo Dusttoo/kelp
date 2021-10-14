@@ -8,7 +8,7 @@ const AddQuestion = () => {
 
     return (
         <>
-      <button className="write-review" onClick={() => setShowModal(true)}>Ask a question</button>
+      <button className="add-biz" onClick={() => setShowModal(true)}>Ask a question</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddQuestionForm /> 

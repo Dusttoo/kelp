@@ -8,7 +8,7 @@ const AddReview = () => {
 
     return (
         <>
-      <button className="write-review" onClick={() => setShowModal(true)}>Write Review</button>
+      <button className="add-biz" onClick={() => setShowModal(true)}>Write Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddReviewForm /> 

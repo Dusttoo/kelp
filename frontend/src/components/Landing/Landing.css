@@ -159,7 +159,7 @@
 }
 
 .add-biz {
-    color: #FFF201;
+    color: #83D5DD;
     text-decoration: none;
     padding: 5px;
     /* margin-bottom: 18px; */
@@ -167,5 +167,5 @@
 }
 
 .add-biz:hover {
-    color: white;
+    color: #FFF201
 }

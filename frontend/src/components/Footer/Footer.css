@@ -27,3 +27,13 @@
 .media:hover {
     color: white;
 }
+
+.media:visited{
+    color: #FFF201;
+
+}
+
+a.media:visited {
+    color: #FFF201;
+
+}
