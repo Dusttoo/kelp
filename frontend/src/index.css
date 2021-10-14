@@ -31,10 +31,10 @@ h2, h3 {
     color: #015498;
 }
 
-/* h4 {
+h4 {
     color: #015498;
-    font-weight: lighter;
-} */
+    font-weight: 400;
+}
 
 a {
     text-decoration: none;

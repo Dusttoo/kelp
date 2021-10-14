@@ -130,7 +130,7 @@
 
 .location-right-side {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-grow: 1;
 }
@@ -146,13 +146,18 @@
 .hour {
     padding:none;
     margin-bottom: 5px;
+    padding-bottom: 15px;
     border-bottom: 1px solid;
+    color: #015498;
 }
 
 .day {
     padding-bottom: 3px;
-    font-weight: 600;
+    font-weight: 700;
     margin: none;
+    color: #015498;
+
+
 }
 
 .about-section {
@@ -206,7 +211,8 @@
 }
 
 .question-letter {
-    padding-right: 15px;
+    padding: 0 15px 0 0;
+    margin: 0;
     font-size: 30px;
     font-weight: 700;
 }

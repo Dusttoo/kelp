@@ -64,8 +64,8 @@ const Questions = () => {
                             </div> 
                         </div>
                         <div className="q-a">
-                            <div className="q-tag"><span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p></div>
-                            <div className="q-tag"><span className="question-letter">A:</span><p className="quesion-asked">{thisQuestion.answer}</p></div>
+                            <div className="q-tag"><h3 className="question-letter">Q:</h3><p className="quesion-asked">{thisQuestion.question}</p></div>
+                            <div className="q-tag"><h3 className="question-letter">A:</h3><p className="quesion-asked">{thisQuestion.answer}</p></div>
                         </div>
                         {sessionUser ? 
               <div>

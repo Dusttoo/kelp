@@ -116,6 +116,7 @@ const Businesses = () => {
             <div className="location-left-side">
               <h2 className="section-header">Location</h2>
               <div><GoogleMap business={business}/></div>
+              <h3>Location:</h3>
               <p>{business.address}</p>
             </div>
             <div className="location-right-side">

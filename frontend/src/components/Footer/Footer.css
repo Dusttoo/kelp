@@ -11,6 +11,11 @@
     height: auto;
 }
 
+.footer-word {
+    color: white;
+
+}
+
 .credits {
     color: #FFF201;
     display: flex;
@@ -22,6 +27,8 @@
 .media {
     font-size: 30px;
     padding: 0 8px;
+    color: #FFF201;
+
 }
 
 .media:hover {
