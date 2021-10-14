@@ -29,7 +29,7 @@ function Landing() {
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
     Object.values(reviews).map((review) => (eachReview.push(review)))
     Object.values(categories).map((category) => (eachCategory.push(category)))
-    console.log(sort)
+    // console.log(sort)
     
 
     useEffect(() => {
@@ -67,7 +67,7 @@ function Landing() {
               </div>
             </div>
           })}
-        </div>
+      </div>
       )
       } else {
         <h4>No businesses found in the {thisCategory} category</h4>
@@ -147,10 +147,9 @@ function Landing() {
                 
                 }
              </div>
-             <div className="businesses">
+             {/* <div className="businesses"> */}
                <div className="sort-buttons">
                  <button value={0} onClick={(e) => {
-                  console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   // getCategory()
                   }}>All</button>
@@ -198,7 +197,7 @@ function Landing() {
                 
               }
                  
-             </div>
+             {/* </div> */}
          </div>
       </>
     );
