@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch} from 'react-redux';
 import {  useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
-import removeQuestion from '../../store/questions';
+import {removeQuestion} from '../../store/questions';
 import { useSelector } from 'react-redux';
 
 
@@ -17,9 +17,8 @@ function DeleteQuestion() {
 
     const deleteQuestion = async (e) => {
       e.preventDefault();
-
       dispatch(removeQuestion(id));
-        history.push(`/${businessId}`) 
+      history.push(`/${businessId}`) 
 
     }
     
