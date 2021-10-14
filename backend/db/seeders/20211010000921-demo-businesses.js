@@ -39,7 +39,7 @@ module.exports = {
     }, {
       name: 'The Salty Spitoon',
       address: "Goo Lagoon",
-      description: "The Salty Spitoon is a restaurant/bar for tough fish.",
+      description: "The Salty Spitoon is a restaurant/bar for tough fish. No Weenies Allowed!",
       image: 'https://i.imgur.com/ypz7jqX.jpg',
       categoryId: 2,
       userId: 12,
