@@ -52,8 +52,9 @@ const EditReview = () => {
         } else {
             setValidationErrors([]);
 
-        dispatch(updateReview(id, payload));
+       dispatch(updateReview(id, payload));
         history.push(`/${businessId}`)
+
             
         };
 
