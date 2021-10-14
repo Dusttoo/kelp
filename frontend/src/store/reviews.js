@@ -48,7 +48,6 @@ export const newReview = (review) => async (dispatch) => {
 
   const newReview = await response.json();
   dispatch(addReview(newReview));
-  return newReview
 };
 
 export const updateReview = (reviewId, payload) => async (dispatch) => {
@@ -61,6 +60,7 @@ export const updateReview = (reviewId, payload) => async (dispatch) => {
 
   if(response.ok) {
   const review = await response.json();
+  console.log("This is the review response", review)
   dispatch(updateAReview(review));
   }
   

@@ -38,7 +38,7 @@ function ConfirmDelete() {
               <form >
                 <button type='submit' className="yes" onClick={(e) => deleteBusiness(e)}>Yes</button>
               </form>
-              <form onSubmit={(e) => close(e)}>
+              <form onSubmit={(e) => history.push(`/${id}`)}>
                 <button type='submit' className="no">No</button>
               </form>
             </div>    

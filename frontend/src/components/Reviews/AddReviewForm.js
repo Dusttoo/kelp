@@ -7,7 +7,7 @@ import { newReview } from '../../store/reviews';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 
-function AddReviewForm() {
+function AddReviewForm({setShowModal}) {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
     const [review, setReview] = useState('');
@@ -45,11 +45,10 @@ function AddReviewForm() {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-
-        const added = await dispatch(newReview(createdReview));
-        if (added) {
-          history.push(`/`) 
-        }};
+            dispatch(newReview(createdReview));
+            setShowModal(false)
+            history.push(`/${id}`) 
+        };
   };
 
 

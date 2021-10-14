@@ -17,6 +17,7 @@ import EditReview from "./components/Reviews/EditReview";
 import DeleteReview from "./components/Reviews/DeleteReview";
 import { getQuestions } from "./store/questions";
 import EditQuestion from "./components/Questions/EditQuestion";
+import DeleteQuestion from "./components/Questions/DeleteQuestion";
 
 function App() {
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ function App() {
             <EditQuestion />
           </Route>
           <Route exact path="/questions/:id/delete">
-            
+            <DeleteQuestion />
           </Route>
           
         </Switch>

@@ -39,7 +39,7 @@ router.delete('/:id/delete', asyncHandler(async function (req, res) {
   const questionId = req.params.id;
   const question = await Question.destroy({
     where: {id: questionId}});
-  res.json({ question });
+  res.json({ questionId });
 }));
 
 

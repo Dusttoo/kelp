@@ -46,14 +46,12 @@ export const newQuestion = (question) => async (dispatch) => {
 };
 
 export const updateQuestion = (questionId, payload) => async (dispatch) => {
-  console.log("this is the payload")
   const response = await csrfFetch(`/api/questions/${questionId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
 
-  console.log("This is the response", response)
 
   if(response.ok) {
   const question = await response.json();
@@ -63,6 +61,7 @@ export const updateQuestion = (questionId, payload) => async (dispatch) => {
 };
 
 export const removeQuestion = (questionId) => async (dispatch) => {
+  console.log(questionId)
   const response = await csrfFetch(`/api/questions/${questionId}/delete`,{
   method: 'DELETE',
   statusCode: 204,
@@ -96,7 +95,9 @@ const questionReducer = (state = initialState, action) => {
       };
     }
     case DELETE_QUESTION:
-      return { ...state };
+      const deleteState = {...state}
+      delete deleteState[action.questionId]
+      return { ...deleteState };
     default:
       return state;
   }

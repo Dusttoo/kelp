@@ -6,7 +6,7 @@ import { newQuestion } from '../../store/questions';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 
-function AddQuestionForm() {
+function AddQuestionForm({setShowModal}) {
     const [question, setQuestion] = useState('');
     const sessionUser = useSelector(state => state.session.user);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -40,11 +40,10 @@ function AddQuestionForm() {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-
-        const added = await dispatch(newQuestion(createdQuestion));
-        if (added) {
-          history.push(`/`) 
-        }};
+            dispatch(newQuestion(createdQuestion));
+            setShowModal(false)
+            history.push(`/${id}`) 
+        };
   };
 
 

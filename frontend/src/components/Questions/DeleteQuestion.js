@@ -2,24 +2,24 @@ import React from 'react';
 import { useDispatch} from 'react-redux';
 import {  useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
-import { removeReview } from '../../store/reviews';
+import removeQuestion from '../../store/questions';
 import { useSelector } from 'react-redux';
 
 
-
-function DeleteReview() {
+function DeleteQuestion() {
     const dispatch = useDispatch();
     const {id} = useParams();
     const history = useHistory();
-    const reviews = useSelector(state => state.reviews);
-    const businessId = reviews[id].businessId
+    const questions = useSelector(state => state.questions);
+    const businessId = questions[id].businessId
+    console.log(businessId)
 
 
-    const deleteReview = async (e) => {
+    const deleteQuestion = async (e) => {
       e.preventDefault();
 
-      dispatch(removeReview(id));
-      history.push(`/${businessId}`) 
+      dispatch(removeQuestion(id));
+        history.push(`/${businessId}`) 
 
     }
     
@@ -31,9 +31,9 @@ function DeleteReview() {
             <h3>Are you sure you want to delete?</h3>
             <div>
               <form >
-                <button type='submit' className="yes" onClick={(e) => deleteReview(e)}>Yes</button>
+                <button type='submit' className="yes" onClick={(e) => deleteQuestion(e)}>Yes</button>
               </form>
-              <form onSubmit={(e) => history.push(`/`)}>
+              <form onSubmit={(e) => history.push(`/${businessId}`)}>
                 <button type='submit' className="no">No</button>
               </form>
             </div>    
@@ -45,4 +45,4 @@ function DeleteReview() {
   
 }
 
-export default DeleteReview;
+export default DeleteQuestion;

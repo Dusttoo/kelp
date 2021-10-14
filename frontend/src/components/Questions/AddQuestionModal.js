@@ -11,7 +11,7 @@ const AddQuestion = () => {
       <button className="add-biz" onClick={() => setShowModal(true)}>Ask a question</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <AddQuestionForm /> 
+          <AddQuestionForm setShowModal={setShowModal}/> 
         </Modal>
       )}
     </>
