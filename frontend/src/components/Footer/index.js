@@ -9,10 +9,11 @@ function Footer() {
     return (
       <div className="footer-main">
           <div className="credits">
-            <h2>Dusty Mumphrey</h2>  
+            <h2>Who lives in a pineapple and codes lots of things?</h2>  
+            <h3>Dusty Mumphrey</h3>
             <div>
-              <a href="https://github.com/Dusttoo" target="_blank"><FontAwesomeIcon icon={faGithub} className="media"/></a>
-              <a href="https://www.linkedin.com/in/dusty-mumphrey/" target="_blank"><FontAwesomeIcon icon={faLinkedinIn} className="media" /></a>
+              <a href="https://github.com/Dusttoo" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={faGithub} className="media"/></a>
+              <a href="https://www.linkedin.com/in/dusty-mumphrey/" rel="noreferrer" target="_blank"><FontAwesomeIcon icon={faLinkedinIn} className="media" /></a>
             </div>
             
           </div>

@@ -19,7 +19,7 @@ import { getQuestions } from '../../store/questions';
 const Businesses = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
-  const businesses = useSelector((state) => state.business);
+  const businesses = useSelector((state) => state?.business);
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews);
@@ -56,6 +56,7 @@ const Businesses = () => {
 
     useEffect(() => {
       dispatch(getQuestions())
+
     }, [dispatch])
 
     const stars = average(starTotal);
@@ -95,9 +96,6 @@ const Businesses = () => {
                   getStars()}
                   <p className="category-header">{category.category}</p>
                 </div>
-            </div>
-            <div className="header-right">
-              <p className="view-photo">See Photos</p>
             </div>
         </div>
         <div className="main">
@@ -159,7 +157,7 @@ const Businesses = () => {
             <div className="review-header">
               {sessionUser ?
               <AddReview /> :
-              <Link className="add-biz edit-business" to='/signup'>Sign up to leave a review</Link>
+              <Link className="add-biz" to='/signup'>Sign up to leave a review</Link>
               }
               
             </div>

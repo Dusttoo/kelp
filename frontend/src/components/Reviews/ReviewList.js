@@ -70,7 +70,7 @@ const Reviews = () => {
            <h2>Barnacles! There's no reviews!</h2>
            <div className="no-review-signup">
               <h3>Want to be the first?</h3>
-              <Link className="write-review" to="/signup">Sign up</Link>
+              <Link className="add-biz" to="/signup">Sign up</Link>
            </div>
         </div>
 
@@ -133,12 +133,12 @@ const Reviews = () => {
               {sessionUser ? 
               <div>
                 {thisReview.userId === sessionUser.id ?
-              <div className="edit-delete-review">
-                <Link to={`/reviews/${thisReview.id}`} className="add-biz">Edit </Link> 
-                <Link to={`/reviews/${thisReview.id}/delete`} className="delete-business">Delete</Link>
-              </div> :
-              <span></span>
-              }
+                  <div className="edit-delete-review">
+                    <Link to={`/reviews/${thisReview.id}`} className="add-biz">Edit </Link> 
+                    <Link to={`/reviews/${thisReview.id}/delete`} className="delete-business">Delete</Link>
+                  </div> :
+                  <span></span>
+                }
               </div> :
               <span></span>}
               

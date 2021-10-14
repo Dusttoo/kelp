@@ -16,6 +16,7 @@ import { getCategories } from "./store/categories";
 import EditReview from "./components/Reviews/EditReview";
 import DeleteReview from "./components/Reviews/DeleteReview";
 import { getQuestions } from "./store/questions";
+import EditQuestion from "./components/Questions/EditQuestion";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/:id">
-            <Businesses />
+            <Businesses isLoaded={isLoaded}/>
           </Route>
           <Route exact path="/businesses/add">
             <AddBusiness />
@@ -57,6 +58,12 @@ function App() {
           </Route>
           <Route exact path="/reviews/:id/delete">
             <DeleteReview />
+          </Route>
+          <Route exact path="/questions/:id">
+            <EditQuestion />
+          </Route>
+          <Route exact path="/questions/:id/delete">
+            
           </Route>
           
         </Switch>

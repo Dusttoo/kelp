@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Questions = () => {
   const {id} = useParams();
@@ -54,21 +55,32 @@ const Questions = () => {
             noQuestions() 
             :
             allQuestions.map(thisQuestion => (
-                <div >
-                        <div className="questionSection" key={thisQuestion.id}>
-                            <div className="reviewer">
+                    <div className="questionSection" key={thisQuestion.id}>
+                        <div className="reviewer">
                             <img className="reviewer-img" src={`${getOwner(thisQuestion.id).profileImg}`} alt={getOwner(thisQuestion.id).firstName}></img>
                             <div className="reviewer-info">
                                 <h4 className="reviewer-name">{getOwner(thisQuestion.id).firstName} {getOwner(thisQuestion.id).lastName}</h4>
                                 <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisQuestion.id).id)}</h4>
                             </div> 
                         </div>
-                            <div className="q-a">
-                                <div className="q-tag"><span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p></div>
-                                <div className="q-tag"><span className="question-letter">A:</span><p className="quesion-asked">{thisQuestion.answer}</p></div>
-                            </div>
+                        <div className="q-a">
+                            <div className="q-tag"><span className="question-letter">Q:</span><p className="quesion-asked">{thisQuestion.question}</p></div>
+                            <div className="q-tag"><span className="question-letter">A:</span><p className="quesion-asked">{thisQuestion.answer}</p></div>
+                        </div>
+                        {sessionUser ? 
+              <div>
+                {thisQuestion.userId === sessionUser.id ?
+              <div className="edit-delete-review">
+                <Link to={`/questions/${thisQuestion.id}`} className="add-biz">Edit </Link> 
+                <Link to={`/questions/${thisQuestion.id}/delete`} className="delete-business">Delete</Link>
+              </div> :
+              <span></span>
+              }
+              </div> :
+              <span></span>}
+
+
                     </div>
-                </div>
             ))
             }    
                 

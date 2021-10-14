@@ -46,17 +46,18 @@ export const newQuestion = (question) => async (dispatch) => {
 };
 
 export const updateQuestion = (questionId, payload) => async (dispatch) => {
+  console.log("this is the payload")
   const response = await csrfFetch(`/api/questions/${questionId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   });
 
+  console.log("This is the response", response)
 
   if(response.ok) {
   const question = await response.json();
   dispatch(addQuestion(question));
-  return question;
   }
   
 };

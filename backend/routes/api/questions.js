@@ -24,10 +24,13 @@ requireAuth,
 asyncHandler(async (req, res) => {
   const questionId = req.params.id;
   const { userId, businessId, question } = req.body;
+  console.log("req body", userId, businessId, question);
   const updatedQuestion = await Question.update( 
     {userId, businessId, question},
     {where: {id: questionId}}
     );
+
+    console.log("updated question", updatedQuestion)
   res.json({updatedQuestion});
 }));
 
