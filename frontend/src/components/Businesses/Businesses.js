@@ -59,6 +59,8 @@ const Businesses = () => {
 
     }, [dispatch])
 
+    window.scrollTo(0, 0);
+
     const stars = average(starTotal);
 
     const getStars = () => {

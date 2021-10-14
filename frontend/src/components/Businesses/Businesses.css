@@ -199,6 +199,8 @@
 
 .questionSection {
     display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-start;
     justify-content: space-between;
 }
 
@@ -207,7 +209,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding-left: 10px;
+    padding-left: 30px;
+    width: 40%;
 }
 
 .question-letter {
@@ -239,6 +242,8 @@
 .review {
     border-bottom: 1px dashed #015498;
     padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -251,6 +256,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 25%;
+}
+
+.edit-deletey {
+    display: flex;
+    align-items: flex-end;
 }
 
 .reviewer-img {
@@ -265,6 +276,11 @@
 
 .review-content {
     padding-bottom: 50px;
+    flex-wrap:wrap
+}
+
+.review-stuff {
+    margin-left: 30px;
 }
 
 .edit-delete-review {

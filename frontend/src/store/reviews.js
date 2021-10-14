@@ -46,7 +46,7 @@ export const newReview = (review) => async (dispatch) => {
   });
 
 
-  const newReview = await response.json();
+  const {newReview} = await response.json();
   dispatch(addReview(newReview));
 };
 

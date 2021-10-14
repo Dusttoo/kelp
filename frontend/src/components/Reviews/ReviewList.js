@@ -125,13 +125,13 @@ const Reviews = () => {
                   <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisReview.id).id)}</h4>
                 </div> 
               </div>
-              <div>
+              <div className="review-stuff">
                 <span className="stars">{getStars(thisReview.id)}</span>
                 <p className="review-content">{thisReview.review}</p>
               
               </div>
               {sessionUser ? 
-              <div>
+              <div className="edit-deletey">
                 {thisReview.userId === sessionUser.id ?
                   <div className="edit-delete-review">
                     <Link to={`/reviews/${thisReview.id}`} className="add-biz">Edit </Link> 

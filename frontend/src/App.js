@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -18,6 +18,7 @@ import DeleteReview from "./components/Reviews/DeleteReview";
 import { getQuestions } from "./store/questions";
 import EditQuestion from "./components/Questions/EditQuestion";
 import DeleteQuestion from "./components/Questions/DeleteQuestion";
+import ErrorPage from './components/ErrorPage/ErrorPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ function App() {
     <>
     
       <Navigation isLoaded={isLoaded} />
+
+      
       
       {isLoaded && (
         <Switch>
@@ -66,12 +69,14 @@ function App() {
           <Route exact path="/questions/:id/delete">
             <DeleteQuestion />
           </Route>
-          
+
         </Switch>
         
         
       )}
+
       <Footer />
+      
         
       
     </>

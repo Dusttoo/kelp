@@ -68,7 +68,7 @@ const Questions = () => {
                             <div className="q-tag"><h3 className="question-letter">A:</h3><p className="quesion-asked">{thisQuestion.answer}</p></div>
                         </div>
                         {sessionUser ? 
-              <div>
+              <div className="edit-deletey">
                 {thisQuestion.userId === sessionUser.id ?
               <div className="edit-delete-review">
                 <Link to={`/questions/${thisQuestion.id}`} className="add-biz">Edit </Link> 
