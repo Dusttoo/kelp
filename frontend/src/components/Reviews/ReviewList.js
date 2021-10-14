@@ -121,7 +121,7 @@ const Reviews = () => {
               <div className="reviewer">
                 <img className="reviewer-img" src={`${getOwner(thisReview.id).profileImg}`} alt={getOwner(thisReview.id).firstName}></img>
                 <div className="reviewer-info">
-                  <h4 className="reviewer-name">{getOwner(thisReview.id).firstName} {getOwner(thisReview.id).lastName}</h4>
+                  <h3 className="reviewer-name">{getOwner(thisReview.id).firstName} {getOwner(thisReview.id).lastName}</h3>
                   <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisReview.id).id)}</h4>
                 </div> 
               </div>

@@ -115,26 +115,29 @@ function Landing() {
              </div>
              {/* <div className="businesses"> */}
                <div className="sort-buttons">
-                 <button className="add-biz" value={0} onClick={(e) => {
+                 <button className="sort" value={0} onClick={(e) => {
                   setSort(e.target.value);
                   }}>All</button>
-
-                  <button className="add-biz" value={1} onClick={(e) => {
+                  <span className="border"></span>
+                  <button className="sort" value={1} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Fast Food</button>
+                  <span className="border"></span>
 
-                  <button className="add-biz" value={2} onClick={(e) => {
+                  <button className="sort" value={2} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Bar</button>
+                  <span className="border"></span>
 
-                  <button className="add-biz" value={3} onClick={(e) => {
+                  <button className="sort" value={3} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Education</button>
+                  <span className="border"></span>
 
-                  <button className="add-biz" value={4} onClick={(e) => {
+                  <button className="sort" value={4} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Gift Shop</button>

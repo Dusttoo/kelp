@@ -22,14 +22,20 @@
     border-radius: 10px;
 }
 
-.overlay {
-    width: 90%;
-    height: 100%;
-    margin: 50px auto 50px;
-    position: absolute;
-    background-color: rgb(0,0,0, .2);
-    top: 110px;
-    border-radius: 10px;
+.sort {
+    font-size: 25px;
+    color: #21B5DA;
+    
+}
+
+.border {
+    margin: 0 8px;
+    border-right: solid 2px #83D5DD;
+    height: 8px;
+}
+
+.sort:hover {
+    color: #FFF201;
 }
 
 .logo-search {

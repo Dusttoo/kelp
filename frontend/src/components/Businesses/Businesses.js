@@ -119,15 +119,24 @@ const Businesses = () => {
               <p>{business.address}</p>
             </div>
             <div className="location-right-side">
-              <ul className="hours">
-                <li>Mon: 12pm - 8pm</li>
-                <li>Tue: 12pm - 8pm</li>
-                <li>Wed: 12pm - 8pm</li>
-                <li>Thu: 12pm - 8pm</li>
-                <li>Fri: 12pm - 8pm</li>
-                <li>Sat: 12pm - 8pm</li>
-                <li>Sun: 12pm - 8pm</li>
-              </ul>
+              <div className="hours-left">
+                <span className="day">Sunday</span>
+                <span className="hour">Sun: 12pm - 8pm</span>
+                <span className="day">Monday</span>
+                <span className="hour">Mon: 12pm - 8pm</span>
+                <span className="day">Tuesday</span>
+                <span className="hour">Tue: 12pm - 8pm</span>
+                <span className="day">Wednesday</span>
+                <span className="hour">Wed: 12pm - 8pm</span>
+              </div>
+              <div className="hours-right">
+                <span className="day">Thursday</span>
+                <span className="hour">Thu: 12pm - 8pm</span>
+                <span className="day">Friday</span>
+                <span className="hour">Fri: 12pm - 8pm</span>
+                <span className="day">Saturday</span>
+                <span className="hour">Sat: 12pm - 8pm</span>
+              </div>
             </div>
           </div>
           <div className="about-section">
@@ -135,7 +144,7 @@ const Businesses = () => {
               <div className="owner">
                 <img className="owner-img" src={`${user.profileImg}`} alt={`${user.firstName}`}></img>
                 <div className="owner-details">
-                  <h4 className="owner-name">{user.firstName} {user.lastName}</h4>
+                  <h3 className="owner-name">{user.firstName} {user.lastName}</h3>
                   <h4 className="owner-title">Business Owner</h4>
                 </div>
               </div>

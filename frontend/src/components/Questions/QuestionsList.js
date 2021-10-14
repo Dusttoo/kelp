@@ -59,7 +59,7 @@ const Questions = () => {
                         <div className="reviewer">
                             <img className="reviewer-img" src={`${getOwner(thisQuestion.id).profileImg}`} alt={getOwner(thisQuestion.id).firstName}></img>
                             <div className="reviewer-info">
-                                <h4 className="reviewer-name">{getOwner(thisQuestion.id).firstName} {getOwner(thisQuestion.id).lastName}</h4>
+                                <h3 className="reviewer-name">{getOwner(thisQuestion.id).firstName} {getOwner(thisQuestion.id).lastName}</h3>
                                 <h4 className="reviewer-title">Kelping Since: {getDate(getOwner(thisQuestion.id).id)}</h4>
                             </div> 
                         </div>
