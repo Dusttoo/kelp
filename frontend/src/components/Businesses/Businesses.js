@@ -24,14 +24,11 @@ const Businesses = () => {
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews);
   const categories = useSelector((state) => state.categories);
-  // const hours = useSelector((state) => state.hours);
   const questions = useSelector((state) => state.questions);
-
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
   const eachUser = [];
-  // const eachHour = [];
   const eachBusiness = [];
   const eachReview = [];
   const eachCategory = [];
@@ -45,9 +42,6 @@ const Businesses = () => {
 
   Object.values(users).map((user) => (eachUser.push(user)))
   const user = eachUser.find(oneUser => business.userId === oneUser.id);
-
-  // Object.values(hours).map(hour => eachHour.push(hour));
-  // const hour = eachHour.find(oneHour => oneHour.businessId === business.id);
 
   Object.values(questions).map((question) => (eachQuestion.push(question)))
   
@@ -128,13 +122,6 @@ const Businesses = () => {
             </div>
             <div className="location-right-side">
               <ul className="hours">
-                {/* <li>Mon: {hour.monHours}</li>
-                <li>Tue: {hour.tueHours}</li>
-                <li>Wed: {hour.wedHours}</li>
-                <li>Thu: {hour.thurHours}</li>
-                <li>Fri: {hour.friHours}</li>
-                <li>Sat: {hour.satHours}</li>
-                <li>Sun: {hour.sunHours}</li> */}
                 <li>Mon: 12pm - 8pm</li>
                 <li>Tue: 12pm - 8pm</li>
                 <li>Wed: 12pm - 8pm</li>

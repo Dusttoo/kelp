@@ -15,7 +15,6 @@ import { getReviews } from "./store/reviews";
 import { getCategories } from "./store/categories";
 import EditReview from "./components/EditReview/EditReview";
 import DeleteReview from "./components/Reviews/DeleteReview";
-import { getHours } from "./store/hours";
 import { getQuestions } from "./store/questions";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
     dispatch(getBusinesses());
     dispatch(getReviews());
     dispatch(getCategories());
-    dispatch(getHours());
     dispatch(getQuestions());
   }, [dispatch]);
 
