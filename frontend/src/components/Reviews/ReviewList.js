@@ -133,7 +133,7 @@ const Reviews = () => {
               <div>
                 {thisReview.userId === sessionUser.id ?
               <div className="edit-delete-review">
-                <Link to={`/reviews/${thisReview.id}`} className="edit-business">Edit </Link> 
+                <Link to={`/reviews/${thisReview.id}`} className="add-biz">Edit </Link> 
                 <Link to={`/reviews/${thisReview.id}/delete`} className="delete-business">Delete</Link>
               </div> :
               <span></span>

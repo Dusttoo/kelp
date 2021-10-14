@@ -8,6 +8,7 @@ import { faUtensils, faGlassMartiniAlt, faGraduationCap, faShoppingBasket } from
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchBar/SearchResults';
 import { getReviews } from '../../store/reviews';
+import GetCategory from '../Businesses/SortBusinesses';
 
 
 
@@ -23,7 +24,7 @@ function Landing() {
     const [sort, setSort] = useState(0);
     
     
-    const eachBusiness = []
+    const eachBusiness = [];
     const eachReview = [];
     const eachCategory = [];
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
@@ -38,42 +39,7 @@ function Landing() {
         setSort(sort)
     }, [dispatch, sort])
 
-    const getCategory = () => {
-      // setSort(true)
-      console.log(sort)
-      const thisCategory = eachCategory.find((category) => +sort === category.id)
-      console.log(thisCategory)
-      const matches = []
-      eachBusiness.map((business) => {
-        if (business.categoryId === +sort) {
-          matches.push(business)
-        } 
-        return matches
-      })
 
-      console.log(matches)
-      
-      if (matches) {
-        return (
-        <div>
-          {matches.forEach((business) => {
-            <div className="businesses">
-              <div key={business.id} className="biz-listing">
-                <Link  to={`/${business.id}`} > 
-                  <img className='listing-img' src={business.image} alt={business.name}></img>
-                  <p className="biz-link">{business.name}</p>
-                  <span className="stars">{getStars(business.id)}</span>
-                </Link>
-              </div>
-            </div>
-          })}
-      </div>
-      )
-      } else {
-        <h4>No businesses found in the {thisCategory} category</h4>
-      }
-      
-    }
 
     const getStars = (id) => {
     const starTotal = []
@@ -142,7 +108,7 @@ function Landing() {
                 <h2 >Categories</h2>
                 {
                     sessionUser ? <Link className="add-biz edit-business" to='/businesses/add'>Add a Business</Link> :
-                    <Link className="add-biz edit-business" to='/signup'>Sign up to add a business</Link>
+                    <Link className="add-biz" to='/signup'>Sign up to add a business</Link>
                     
                 
                 }
@@ -151,31 +117,26 @@ function Landing() {
                <div className="sort-buttons">
                  <button className="add-biz" value={0} onClick={(e) => {
                   setSort(e.target.value);
-                  // getCategory()
                   }}>All</button>
 
                   <button className="add-biz" value={1} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
-                  // getCategory()
                   }}>Fast Food</button>
 
                   <button className="add-biz" value={2} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
-                  // getCategory()
                   }}>Bar</button>
 
                   <button className="add-biz" value={3} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
-                  // getCategory()
                   }}>Education</button>
 
                   <button className="add-biz" value={4} onClick={(e) => {
                   console.log("Value:", e.target.value)
                   setSort(e.target.value);
-                  // getCategory()
                   }}>Gift Shop</button>
                </div>
                
@@ -193,7 +154,10 @@ function Landing() {
                      )     
                  })}
                 </div> :
-                getCategory()
+                <GetCategory 
+                sort={sort} 
+                getStars={getStars()}
+                />
                 
               }
                  

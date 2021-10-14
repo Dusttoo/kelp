@@ -112,7 +112,7 @@ const Businesses = () => {
             
             {sessionUser.id === business.userId ? 
             <div className="your-business">
-              <Link to={`/businesses/${id}`} className="edit-business">Edit your Business:</Link> 
+              <Link to={`/businesses/${id}`} className="add-biz">Edit your Business:</Link> 
               <DeleteBusiness />
               
             </div> : <span></span>} 
