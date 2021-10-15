@@ -44,5 +44,4 @@ This project was a ton of fun and I enjoyed having creative freedom to build som
 The search feature is something I am very proud of. It was fun to implement and seeing the final result makes me an incredibly happy developer. 
 I implemented the feature by setting a state for the query to a new instance of the URLSearchParams, I then use that to compare it to the names of all of the businesses in the database. I was running into an issue with the casing of the names, but was able to bypass that by using a toLowerCase on both the query and the name. 
 
-## Code snippets to highlight the best code
 
