@@ -12,9 +12,9 @@ function ConfirmDelete() {
     const {id} = useParams();
     const history = useHistory();
 
-    useEffect(() => {
-        dispatch(getBusinesses())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getBusinesses())
+    // }, [dispatch])
 
     const deleteBusiness = async (e) => {
       e.preventDefault();
