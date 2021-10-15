@@ -146,11 +146,11 @@ function Landing() {
 
                      return (
                     <div key={business.id} className="biz-listing">
-                        <Link  to={`/${business.id}`} > 
-                          <img className='listing-img' src={business.image} alt={business.name}></img>
-                          <p className="biz-link">{business.name}</p>
-                          <span className="stars">{getStars(business.id)}</span>
-                        </Link>
+                        
+                          <Link  to={`/${business.id}`} > <img className='listing-img' src={business.image} alt={business.name}></img></Link>
+                          <Link  to={`/${business.id}`} > <p className="biz-link">{business.name}</p></Link>
+                          <Link  to={`/${business.id}`} > <span className="stars">{getStars(business.id)}</span></Link>
+                        
                     </div>
                      )     
                  })}

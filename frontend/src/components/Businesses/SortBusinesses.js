@@ -60,6 +60,8 @@ import { useSelector } from 'react-redux';
         return (
         <div className="businesses">
           {matches.map((business) => {
+            !business.image.includes('https') ? business.image ="https://mystickermania.com/cdn/stickers/memes/this-is-a-load-of-barnacles-meme-512x512.png" :
+                    business.image = business.image
         return(
               <div key={business.id} className="biz-listing">
                 <Link  to={`/${business.id}`} > 
