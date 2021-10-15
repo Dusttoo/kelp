@@ -9,7 +9,8 @@ A non member also has the ability to view all of the businesses and sort busines
 A logged in member has acces to all of the above functionality as well as the ability to post their own business, post a review for a business,
 and ask a question about a business.
 
-## Screenshots of your app in action (once completed)
+## Welcome to Kelp!
+![Imgur](https://media.giphy.com/media/SCFyCn49F8VPGnQUPQ/giphy.gif)
 
 
 ## Instructions on how to build/run the project (installation instructions)
