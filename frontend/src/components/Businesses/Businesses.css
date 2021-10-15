@@ -24,6 +24,12 @@
     font-size: 60px;
 }
 
+.header-left {
+    background-color: rgba(184, 184, 184, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .header-subinfo {
     display: flex;
     color: white;
