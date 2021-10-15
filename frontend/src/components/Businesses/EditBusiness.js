@@ -79,7 +79,7 @@ const EditBusiness = () => {
     const updated = await dispatch(updateBusiness(id, payload));
     if (updated) {
       
-      history.push(`/`)
+      history.push(`/${id}`)
       
     }};
   };
