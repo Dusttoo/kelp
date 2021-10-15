@@ -60,10 +60,8 @@ export const updateReview = (reviewId, payload) => async (dispatch) => {
 
   if(response.ok) {
   const review = await response.json();
-  console.log("This is the review response", review)
-  const {foundReview} = review;
-  console.log("found", foundReview)
-  dispatch(updateAReview({reviewId, foundReview}));
+  dispatch(updateAReview(review));
+  return review
   }
   
 };
@@ -107,7 +105,7 @@ const reviewReducer = (state = initialState, action) => {
       {
       return {
         ...state,
-        [action.reviewId]: action.foundReview
+        [action.review]: action.review
       };
     }
     case DELETE_REVIEW:

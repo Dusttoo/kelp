@@ -31,10 +31,8 @@ asyncHandler(async (req, res) => {
       stars: rating, review},
     {where: {id: reviewId}}
     );
-  const foundReview = await Review.findOne(
-    {where: {id: reviewId}}
-  )
-  res.json({reviewId, foundReview});
+
+  res.json({reviewId});
 }));
 
 

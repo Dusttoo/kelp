@@ -18,7 +18,6 @@ import DeleteReview from "./components/Reviews/DeleteReview";
 import { getQuestions } from "./store/questions";
 import EditQuestion from "./components/Questions/EditQuestion";
 import DeleteQuestion from "./components/Questions/DeleteQuestion";
-import ErrorPage from './components/ErrorPage/ErrorPage'
 
 function App() {
   const dispatch = useDispatch();

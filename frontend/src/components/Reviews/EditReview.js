@@ -21,9 +21,9 @@ const EditReview = () => {
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;
 
-    useEffect(() => {
-        dispatch(getReviews())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getReviews())
+    // }, [dispatch])
 
     
     const validate = () => {
@@ -52,7 +52,7 @@ const EditReview = () => {
         } else {
             setValidationErrors([]);
 
-       dispatch(updateReview(id, payload));
+       await dispatch(updateReview(id, payload));
         history.push(`/${businessId}`)
 
             
