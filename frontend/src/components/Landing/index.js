@@ -96,7 +96,7 @@ function Landing() {
                   <p className="category-snip">Shops</p>
                </div>
              </div>
-            <div className="result-container">
+            <div className="results-div">
               {eachBusiness.map((business) => <SearchResults key={business.id} business={business} getStars={getStars}/>)}
             </div>
          </div>

@@ -11,13 +11,15 @@ const SearchResults = ({ business, getStars }) => {
             <div className="search-results-empty"></div> : 
 
         biz.toLowerCase().includes(lowerString) ?
+          <div className="result-container">
             <div className="search-results">
-                <Link  to={`/${business.id}`} > 
-                  <img className='listing-img' src={business.image} alt={business.name}></img>
-                  <p className="biz-link">{business.name}</p>
-                  <span className="stars">{getStars(business.id)}</span>
-                </Link>
+                
+                  <Link  to={`/${business.id}`} > <img className='listing-img' src={business.image} alt={business.name}></img></Link>
+                  <Link  to={`/${business.id}`} > <p className="biz-link">{business.name}</p></Link>
+                  <Link  to={`/${business.id}`} > <span className="stars">{getStars(business.id)}</span></Link>
+                
             </div>
+          </div>
          :
         <span></span>   
         }
