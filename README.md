@@ -13,6 +13,10 @@ and ask a question about a business.
 ![Imgur](https://media.giphy.com/media/SCFyCn49F8VPGnQUPQ/giphy.gif)
 
 
+## Add a review
+![Imgur](https://media.giphy.com/media/mfawppMU6BLyf4MdlL/giphy.gif)
+
+
 ## Instructions on how to build/run the project (installation instructions)
 * To start the app on your local machine you must first do an npm install on both the front and backend folders.
 * You then need to create a user in psql matching the username provided in the .env-example folder
@@ -31,21 +35,14 @@ using ```npx dotenv sequelize db:migrate```
 * The ability to connect with other users via a friends list and feed
 * The ability to search the map for businesses
 
+## Road Blocks
+This project was a ton of fun and I enjoyed having creative freedom to build something fun, yet ueseful. I did run into the occasional road block. The biggest being, learning the ins and outs of state. I had some struggles, primarily with the edit feature on reviews, with the page loading before the state had properly updated, and thus, an error was thrown. I was able to correct the issue by implementing a use effect on the business page that tracked the dispatch of the reviews on render.
 
-## Technical implementation details
+## Search Feature
+![Imgur](https://media.giphy.com/media/0yGM53InaWKzGRoBnI/giphy.gif)
 
-## Anything you had to stop and think about before building
-
-## Descriptions of particular challenges
-
-## Snippets or links to see code for these
-
-## Discussion of two features that show off technical abilities
-
-## Discussion of both challenges faced and the way I solved them
+The search feature is something I am very proud of. It was fun to implement and seeing the final result makes me an incredibly happy developer. 
+I implemented the feature by setting a state for the query to a new instance of the URLSearchParams, I then use that to compare it to the names of all of the businesses in the database. I was running into an issue with the casing of the names, but was able to bypass that by using a toLowerCase on both the query and the name. 
 
 ## Code snippets to highlight the best code
 
-## List the technologies used at the top of your README for increased visibility
-## Include nice screenshots or GIFs to show and demonstrate features of your application
-## Include code snippets
