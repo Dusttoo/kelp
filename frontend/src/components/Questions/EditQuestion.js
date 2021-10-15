@@ -18,7 +18,6 @@ function EditQuestion() {
     const userId = sessionUser.id;
     const businessId = thisQuestion.businessId;
 
-    // console.log(thisQuestion)
 
     const [question, setQuestion] = useState(thisQuestion.question);
 
@@ -44,7 +43,6 @@ function EditQuestion() {
       question,
     };
 
-    console.log(payload)
 
     const errors = validate();
 

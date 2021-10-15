@@ -30,7 +30,6 @@ function Landing() {
     Object.values(businesses).map((business) => (eachBusiness.push(business)))
     Object.values(reviews).map((review) => (eachReview.push(review)))
     Object.values(categories).map((category) => (eachCategory.push(category)))
-    // console.log(sort)
     
 
     useEffect(() => {
@@ -120,25 +119,21 @@ function Landing() {
                   }}>All</button>
                   <span className="border"></span>
                   <button className="sort" value={1} onClick={(e) => {
-                  console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Fast Food</button>
                   <span className="border"></span>
 
                   <button className="sort" value={2} onClick={(e) => {
-                  console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Bar</button>
                   <span className="border"></span>
 
                   <button className="sort" value={3} onClick={(e) => {
-                  console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Education</button>
                   <span className="border"></span>
 
                   <button className="sort" value={4} onClick={(e) => {
-                  console.log("Value:", e.target.value)
                   setSort(e.target.value);
                   }}>Gift Shop</button>
                </div>

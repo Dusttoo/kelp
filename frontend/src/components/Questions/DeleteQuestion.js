@@ -12,7 +12,6 @@ function DeleteQuestion() {
     const history = useHistory();
     const questions = useSelector(state => state.questions);
     const businessId = questions[id].businessId
-    console.log(businessId)
 
 
     const deleteQuestion = async (e) => {

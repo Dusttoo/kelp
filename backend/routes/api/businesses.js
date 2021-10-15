@@ -71,7 +71,6 @@ asyncHandler(async (req, res) => {
 
 router.delete('/:id/delete', asyncHandler(async function (req, res) {
   const businessId = req.params.id;
-  console.log(businessId)
   const businessReviews = await Review.findAll({
     where: {businessId}
   })
@@ -90,7 +89,6 @@ router.delete('/:id/delete', asyncHandler(async function (req, res) {
     })
   })
 
-  console.log("THESE ARE THE REVIEWS FOR THIS BUSINESS", businessQuestions)
 
   const business = await Business.destroy({
     where: {id: businessId}});

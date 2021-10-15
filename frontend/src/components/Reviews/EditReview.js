@@ -9,7 +9,7 @@ const EditReview = () => {
     const dispatch = useDispatch();
     const {id} = useParams();
     const history = useHistory();
-    const reviews = useSelector(state => state.reviews);
+    const reviews = useSelector(state => state?.reviews);
     const eachReview = [];
     Object.values(reviews).map((review) => eachReview.push(review));
     const thisReview = eachReview.find(thisReview => +id === thisReview.id);
@@ -21,9 +21,9 @@ const EditReview = () => {
     const businessId = thisReview.businessId;
     const userId = thisReview.userId;
 
-    // useEffect(() => {
-    //     dispatch(getReviews())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getReviews())
+    }, [dispatch])
 
     
     const validate = () => {
