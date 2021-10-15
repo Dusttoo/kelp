@@ -8,7 +8,7 @@ const { check } = require('express-validator');
 
 
 
-const { Business, Review} = require('../../db/models');
+const { Business, Review, Question} = require('../../db/models');
 
 
 const validateBusiness = [
@@ -75,14 +75,22 @@ router.delete('/:id/delete', asyncHandler(async function (req, res) {
   const businessReviews = await Review.findAll({
     where: {businessId}
   })
+  const businessQuestions = await Question.findAll({
+    where: {businessId}
+  })
 
   businessReviews.forEach(async(review) => {
     await Review.destroy({
       where: {id: review.id}
     })
   })
+  businessQuestions.forEach(async(question) => {
+    await Question.destroy({
+      where: {id: question.id}
+    })
+  })
 
-  console.log("THESE ARE THE REVIEWS FOR THIS BUSINESS", businessReviews)
+  console.log("THESE ARE THE REVIEWS FOR THIS BUSINESS", businessQuestions)
 
   const business = await Business.destroy({
     where: {id: businessId}});
