@@ -28,6 +28,7 @@ const Businesses = () => {
   const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
+
   const eachUser = [];
   const eachBusiness = [];
   const eachReview = [];
@@ -35,6 +36,8 @@ const Businesses = () => {
   const eachQuestion = [];
   Object.values(businesses).map((business) => (eachBusiness.push(business)))
   const business = eachBusiness.find(oneBusiness => +id === oneBusiness.id);
+
+
 
   Object.values(categories).map((category) => (eachCategory.push(category)))
   const category = eachCategory.find(oneCategory => oneCategory.id === business.categoryId);
@@ -60,6 +63,15 @@ const Businesses = () => {
     }, [dispatch])
 
     window.scrollTo(0, 0);
+
+    const placeholderImage = (image) => {
+      if (!business.image.includes("https")) {
+       const newImage="https://i.imgur.com/P46aEKj.png";
+        return newImage
+      } else {
+        return image
+      }
+    }
 
     const stars = average(starTotal);
 
@@ -89,7 +101,7 @@ const Businesses = () => {
 
   return (
     <div>
-        <div className="biz-info" style={{backgroundImage: 'url(' + business.image + ')'}}>
+        <div className="biz-info" style={{backgroundImage: 'url(' + placeholderImage(business.image) + ')'}}>
             <div className="header-left">
                 <h1 className="biz-title">{business.name}</h1>
                 <div className="header-subinfo">
