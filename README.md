@@ -38,10 +38,12 @@ using ```npx dotenv sequelize db:migrate```
 ## Road Blocks
 This project was a ton of fun and I enjoyed having creative freedom to build something fun, yet ueseful. I did run into the occasional road block. The biggest being, learning the ins and outs of state. I had some struggles, primarily with the edit feature on reviews, with the page loading before the state had properly updated, and thus, an error was thrown. I was able to correct the issue by implementing a use effect on the business page that tracked the dispatch of the reviews on render.
 
-## Search Feature
-![Imgur](https://media.giphy.com/media/0yGM53InaWKzGRoBnI/giphy.gif)
+## Rating Feature
+![Imgur](https://media.giphy.com/media/ikRoUwQnGZ1QlVpoQE/giphy.gif)
 
-The search feature is something I am very proud of. It was fun to implement and seeing the final result makes me an incredibly happy developer. 
-I implemented the feature by setting a state for the query to a new instance of the URLSearchParams, I then use that to compare it to the names of all of the businesses in the database. I was running into an issue with the casing of the names, but was able to bypass that by using a toLowerCase on both the query and the name. 
+The rating feature is something I am very proud of. I was able to implement it by spreading in 5 empty spaces to an array, and then mapping through that array. At each index of the array I add 1 to the rate of the previous star, giving me stars with ratings of 1-5. Then I return a button with the html code for a star. Each star has an onClick that sets the rating to the rate of that specific star. Each star also has a onMouseEnter and onMouseLeave that sets the hover to the value of either that star or the set rating. If the hover is less than or equal to the rate of that star it is given a css class of "on" which fills the star in. The remaining stars are given a class of "off" that leaves them empty. This allows for the hover effect when you scroll over stars.
+
+## Search
+![Imgur](https://media.giphy.com/media/rnyUZagTGCKrZ59Uh2/giphy.gif)
 
 
