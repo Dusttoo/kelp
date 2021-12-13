@@ -3,7 +3,6 @@ import { csrfFetch } from './csrf';
 
 const LOAD_REVIEWS = 'businesses/loadReviews';
 const ADD_REVIEW = 'businesses/addReview';
-const UPDATE_REVIEW = 'businesses/updateReview';
 const DELETE_REVIEW = 'businesses/deleteReview';
 
 
@@ -20,10 +19,6 @@ const addReview = (review) => ({
   review,
 });
 
-const updateAReview = (review) => ({
-  type: UPDATE_REVIEW,
-  review,
-});
 
 const deleteReview = (reviewId) => ({
   type: DELETE_REVIEW,
@@ -60,7 +55,7 @@ export const updateReview = (reviewId, payload) => async (dispatch) => {
 
   if(response.ok) {
   const review = await response.json();
-  dispatch(updateAReview(review));
+  dispatch(addReview(review));
   return review
   }
   
@@ -94,13 +89,6 @@ const reviewReducer = (state = initialState, action) => {
       });
       return newState;
     case ADD_REVIEW:
-      {
-      return {
-        ...state,
-        [action.review]: action.review
-      };
-    }
-    case UPDATE_REVIEW:
       {
       return {
         ...state,

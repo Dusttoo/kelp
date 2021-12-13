@@ -5,6 +5,7 @@ import './Map.css'
 
 
 export default function SimpleMap({business}){
+  
     
     const latitude = business.latitude;
     const longitude= business.longitude;

@@ -1,0 +1,44 @@
+   pipenv lock -r > requirements.txt
+
+
+1. Build image with linux platform for heroku servers. Replace
+{NAME_OF_HEROKU_APP} with your own tag:
+
+   ```bash=
+   docker buildx build --platform linux/amd64 -t paw-meet .
+   ```
+
+2. Tag your app with the url for your apps registry. Make sure to use the name
+of your Heroku app in the url and tag name:
+
+   ```bash=2
+   docker tag paw-meet registry.heroku.com/paw-meet/web
+   ```
+
+3. Use docker to push the image to the Heroku container registry:
+
+   ```bash=3
+   docker push registry.heroku.com/paw-meet/web
+   ```
+4. Release your docker container to heroku
+
+      ```bash
+      heroku container:release web -a paw-meet
+      ```
+
+5. set up your database
+
+      ```bash
+      heroku run -a paw-meet flask seed undo
+      heroku run -a paw-meet flask db upgrade
+      heroku run -a paw-meet flask seed all
+      ```
+
+
+      docker buildx build --platform linux/amd64 -t paw-meet .
+      docker tag paw-meet registry.heroku.com/paw-meet/web
+      docker push registry.heroku.com/paw-meet/web
+      heroku container:release web -a paw-meet
+      heroku run -a paw-meet flask seed undo
+      heroku run -a paw-meet flask db upgrade
+      heroku run -a paw-meet flask seed all
