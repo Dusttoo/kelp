@@ -1,21 +1,22 @@
-import {  useState } from 'react';
-import { Modal } from '../../context/Modal';
-import AddQuestionForm from './AddQuestionForm';
+import { useState } from "react";
+import { Modal } from "../../context/Modal";
+import AddQuestionForm from "./AddQuestionForm";
 
 const AddQuestion = () => {
   const [showModal, setShowModal] = useState(false);
 
-
-    return (
-        <>
-      <button className="add-biz" onClick={() => setShowModal(true)}>Ask a question</button>
+  return (
+    <>
+      <button className="add-biz" onClick={() => setShowModal(true)}>
+        Ask a question
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <AddQuestionForm setShowModal={setShowModal}/> 
+          <AddQuestionForm setShowModal={setShowModal} />
         </Modal>
       )}
     </>
-    )
-}
+  );
+};
 
 export default AddQuestion;

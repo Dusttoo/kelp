@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Landing from "./components/Landing";
 import Footer from "./components/Footer";
 import Businesses from "./components/Businesses/Businesses";
-import AddBusiness from './components/Businesses/AddBusiness';
+import AddBusiness from "./components/Businesses/AddBusiness";
 import EditBusiness from "./components/Businesses/EditBusiness";
 import { getUsers } from "./store/users";
 import { getBusinesses } from "./store/businesses";
@@ -33,14 +33,10 @@ function App() {
 
   return (
     <>
-    
       <Navigation isLoaded={isLoaded} />
 
-      
-      
       {isLoaded && (
         <Switch>
-          
           <Route exact path="/">
             <Landing />
           </Route>
@@ -48,7 +44,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/:id">
-            <Businesses isLoaded={isLoaded}/>
+            <Businesses isLoaded={isLoaded} />
           </Route>
           <Route exact path="/businesses/add">
             <AddBusiness />
@@ -68,16 +64,10 @@ function App() {
           <Route exact path="/questions/:id/delete">
             <DeleteQuestion />
           </Route>
-
         </Switch>
-        
-        
       )}
 
       <Footer />
-      
-        
-      
     </>
   );
 }

@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
+import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router";
-import './Navigation.css'
-
-//need to do fetch requet to get first ad last name
+import "./Navigation.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
-  
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -25,15 +23,15 @@ function ProfileButton({ user }) {
       setShowMenu(false);
     };
 
-    document.addEventListener('click', closeMenu);
-  
+    document.addEventListener("click", closeMenu);
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    history.push('/');
+    history.push("/");
   };
 
   return (
@@ -46,7 +44,9 @@ function ProfileButton({ user }) {
           <ul className="profile-dropdown">
             <li>{`Hello, ${user.firstName} ${user.lastName}`}</li>
             <li>{user.email}</li>
-              <button onClick={logout} className="logOut">Log Out</button>
+            <button onClick={logout} className="logOut">
+              Log Out
+            </button>
           </ul>
         )}
       </div>
