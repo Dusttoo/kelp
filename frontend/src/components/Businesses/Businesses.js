@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AddQuestion from "../Questions/AddQuestionModal";
 import { useParams } from "react-router";
@@ -10,30 +10,31 @@ import AddReview from "../Reviews/AddReview";
 import Questions from "../Questions/QuestionsList";
 import GoogleMap from "../GoogleMap/Map";
 import { getQuestions } from "../../store/questions";
-import { placeholderImage, average, scroll, getStars, checkOwner } from "../utils";
+import {
+  placeholderImage,
+  average,
+  scroll,
+  getStars,
+  checkOwner,
+} from "../utils";
 
 const Businesses = () => {
-  scroll()
+  scroll();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const businesses = useSelector((state) => state.business);
+  const businesses = useSelector((state) => state?.business);
   const sessionUser = useSelector((state) => state.session.user);
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews);
   const categories = useSelector((state) => state.categories);
   const questions = useSelector((state) => state.questions);
-  const eachReview = Object.values(reviews).filter((review) =>
-    review.businessId === +id
+  const eachReview = Object.values(reviews).filter(
+    (review) => review.businessId === +id
   );
-  const eachQuestion = Object.values(questions).filter((question) =>
-    +question.businessId === +id
+  const eachQuestion = Object.values(questions).filter(
+    (question) => +question.businessId === +id
   );
   const business = businesses[id];
-  const category = business.categoryId
-  console.log('category', category, business.categoryId)
-  const user = users[business.userId];
-
-  
   const starTotal = [];
   eachReview.forEach((review) => {
     if (review.businessId === business.id) {
@@ -45,15 +46,7 @@ const Businesses = () => {
     dispatch(getQuestions());
   }, [dispatch]);
 
-
-
-
   const stars = average(starTotal);
-
-
-
-
-
 
   return (
     <div>
@@ -68,7 +61,9 @@ const Businesses = () => {
           <h1 className="biz-title">{business.name}</h1>
           <div className="header-subinfo">
             {!stars ? <p className="stars">No Reviews</p> : getStars(stars)}
-            <p className="category-header">{category.category}</p>
+            <p className="category-header">
+              {categories[business.categoryId].category}
+            </p>
           </div>
         </div>
       </div>
@@ -125,12 +120,13 @@ const Businesses = () => {
           <div className="owner">
             <img
               className="owner-img"
-              src={`${user.profileImg}`}
-              alt={`${user.firstName}`}
+              src={`${users[business.userId].profileImg}`}
+              alt={`${users[business.userId].firstName}`}
             ></img>
             <div className="owner-details">
               <h3 className="owner-name">
-                {user.firstName} {user.lastName}
+                {users[business.userId].firstName}{" "}
+                {users[business.userId].lastName}
               </h3>
               <h4 className="owner-title">Business Owner</h4>
             </div>

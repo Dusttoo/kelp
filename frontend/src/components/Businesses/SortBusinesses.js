@@ -1,23 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { average } from "../utils";
 
-const GetCategory = (sort) => {
-  const catId = sort.sort;
+const GetCategory = ({sort}) => {
+  const catId = sort;
   const businesses = useSelector((state) => state.business);
-  const categories = useSelector((state) => state.categories);
-  const eachBusiness = [];
-  const eachCategory = [];
-  Object.values(businesses).map((business) => eachBusiness.push(business));
-  Object.values(categories).map((category) => eachCategory.push(category));
-  const average = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
   const reviews = useSelector((state) => state.reviews);
-  const eachReview = [];
-  Object.values(reviews).map((review) => eachReview.push(review));
 
   const getStars = (id) => {
     const starTotal = [];
-    eachReview.forEach((review) => {
+    Object.values(reviews).forEach((review) => {
       if (review.businessId === id) {
         starTotal.push(review.stars);
       }
@@ -43,7 +36,7 @@ const GetCategory = (sort) => {
   };
 
   const matches = [];
-  eachBusiness.map((business) => {
+  Object.values(businesses).map((business) => {
     if (business.categoryId === +catId) {
       matches.push(business);
     }
@@ -79,7 +72,7 @@ const GetCategory = (sort) => {
   if (+catId === 0) {
     return (
       <div className="businesses">
-        {eachBusiness.map((business) => {
+        {Object.values(businesses).map((business) => {
           !business.image.includes("https")
             ? (business.image =
                 "https://mystickermania.com/cdn/stickers/memes/this-is-a-load-of-barnacles-meme-512x512.png")
