@@ -10,36 +10,30 @@ import AddReview from "../Reviews/AddReview";
 import Questions from "../Questions/QuestionsList";
 import GoogleMap from "../GoogleMap/Map";
 import { getQuestions } from "../../store/questions";
+import { placeholderImage, average, scroll, getStars, checkOwner } from "../utils";
 
 const Businesses = () => {
+  scroll()
   const { id } = useParams();
   const dispatch = useDispatch();
-  const businesses = useSelector((state) => state?.business);
+  const businesses = useSelector((state) => state.business);
   const sessionUser = useSelector((state) => state.session.user);
   const users = useSelector((state) => state.users);
   const reviews = useSelector((state) => state.reviews);
   const categories = useSelector((state) => state.categories);
   const questions = useSelector((state) => state.questions);
-  const average = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
-  const eachUser = [];
-  const eachBusiness = [];
-  const eachReview = [];
-  const eachCategory = [];
-  const eachQuestion = [];
-  Object.values(businesses).map((business) => eachBusiness.push(business));
-  const business = eachBusiness.find((oneBusiness) => +id === oneBusiness.id);
-
-  Object.values(categories).map((category) => eachCategory.push(category));
-  const category = eachCategory.find(
-    (oneCategory) => oneCategory.id === business.categoryId
+  const eachReview = Object.values(reviews).filter((review) =>
+    review.businessId === +id
   );
+  const eachQuestion = Object.values(questions).filter((question) =>
+    +question.businessId === +id
+  );
+  const business = businesses[id];
+  const category = business.categoryId
+  console.log('category', category, business.categoryId)
+  const user = users[business.userId];
 
-  Object.values(users).map((user) => eachUser.push(user));
-  const user = eachUser.find((oneUser) => business.userId === oneUser.id);
-
-  Object.values(questions).map((question) => eachQuestion.push(question));
-
-  Object.values(reviews).map((review) => eachReview.push(review));
+  
   const starTotal = [];
   eachReview.forEach((review) => {
     if (review.businessId === business.id) {
@@ -51,58 +45,29 @@ const Businesses = () => {
     dispatch(getQuestions());
   }, [dispatch]);
 
-  window.scrollTo(0, 0);
 
-  const placeholderImage = (image) => {
-    if (!business.image.includes("https")) {
-      const newImage = "https://i.imgur.com/P46aEKj.png";
-      return newImage;
-    } else {
-      return image;
-    }
-  };
+
 
   const stars = average(starTotal);
 
-  const getStars = () => {
-    return (
-      <div className="star-rating">
-        {[...Array(5)].map((star, rate) => {
-          rate += 1;
-          return (
-            <button
-              type="button"
-              key={rate}
-              className={rate <= stars ? "on" : "off"}
-            >
-              <span className="star">&#9733;</span>
-            </button>
-          );
-        })}
-      </div>
-    );
-  };
 
-  const checkOwner = () => {
-    if(businesses[id].userId === sessionUser.id) {
-      return true
-    } else return false
-  }
 
-  checkOwner()
+
+
 
   return (
     <div>
       <div
         className="biz-info"
         style={{
-          backgroundImage: "url(" + placeholderImage(business.image) + ")",
+          backgroundImage:
+            "url(" + placeholderImage(business, business.image) + ")",
         }}
       >
         <div className="header-left">
           <h1 className="biz-title">{business.name}</h1>
           <div className="header-subinfo">
-            {!stars ? <p className="stars">No Reviews</p> : getStars()}
+            {!stars ? <p className="stars">No Reviews</p> : getStars(stars)}
             <p className="category-header">{category.category}</p>
           </div>
         </div>
@@ -175,7 +140,7 @@ const Businesses = () => {
         <div className="questions-section">
           <div className="ask-question-div">
             <h2 className="section-header">Ask Bikini Bottom</h2>
-            {!checkOwner() && (
+            {!checkOwner(business, sessionUser) && (
               <>
                 {sessionUser ? (
                   <AddQuestion />
@@ -191,7 +156,7 @@ const Businesses = () => {
         </div>
         <div className="review-section">
           <div className="review-header">
-            {!checkOwner() && (
+            {!checkOwner(business, sessionUser) && (
               <>
                 {sessionUser ? (
                   <AddReview />
