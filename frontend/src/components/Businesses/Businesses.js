@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AddQuestion from "../Questions/AddQuestionModal";
 import { useParams } from "react-router";
@@ -21,7 +21,6 @@ const Businesses = () => {
   const categories = useSelector((state) => state.categories);
   const questions = useSelector((state) => state.questions);
   const average = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
-
   const eachUser = [];
   const eachBusiness = [];
   const eachReview = [];
@@ -83,6 +82,14 @@ const Businesses = () => {
       </div>
     );
   };
+
+  const checkOwner = () => {
+    if(businesses[id].userId === sessionUser.id) {
+      return true
+    } else return false
+  }
+
+  checkOwner()
 
   return (
     <div>
@@ -168,24 +175,32 @@ const Businesses = () => {
         <div className="questions-section">
           <div className="ask-question-div">
             <h2 className="section-header">Ask Bikini Bottom</h2>
-            {sessionUser ? (
-              <AddQuestion />
-            ) : (
-              <Link className="add-biz" to="/signup">
-                Sign up to ask a question
-              </Link>
+            {!checkOwner() && (
+              <>
+                {sessionUser ? (
+                  <AddQuestion />
+                ) : (
+                  <Link className="add-biz" to="/signup">
+                    Sign up to ask a question
+                  </Link>
+                )}
+              </>
             )}
           </div>
           <Questions />
         </div>
         <div className="review-section">
           <div className="review-header">
-            {sessionUser ? (
-              <AddReview />
-            ) : (
-              <Link className="add-biz" to="/signup">
-                Sign up to leave a review
-              </Link>
+            {!checkOwner() && (
+              <>
+                {sessionUser ? (
+                  <AddReview />
+                ) : (
+                  <Link className="add-biz" to="/signup">
+                    Sign up to leave a review
+                  </Link>
+                )}
+              </>
             )}
           </div>
           <Reviews />
